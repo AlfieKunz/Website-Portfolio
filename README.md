@@ -1,5 +1,12 @@
 # Photography and Academic Web-based Portfolio
 
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
+![AES Encryption](https://img.shields.io/badge/Security-AES--256-brightgreen?style=for-the-badge)
+
+---
+
 My first official website, intended for storing both my **academic profile**, projects and CV, along with my **photography portfolio** across a variety of categories. The academic profile contains a brief introduction, links to my projects with interactive demos, and a full descriptive list of my experience and skills. The photography portfolio captures all my photography to date, across a large variety of sub-genres, using an intuitive gallery system. This is also used to host private showcases, for event and coorporate work, with additional functionalities to accomodate for these clients.
 
 This work is self-motivated and self-funded, and is written primarily in HTML, CSS (taking inspiration from the 'Start Bootstrap' styling), and JS.
@@ -29,13 +36,6 @@ Academia:
 ✅ Data-efficient, interactive background slideshow of my previous projects.  
 ✅ Clean description of my adacamic portfolio, and relevant experience, along with file-hosting of PDFs.  
 ✅ Full list of available projects, containing in-depth information and break-downs of key concepts, links to and hosting of interactive demos and media that showcase each project, and appropriate links to GitHub.
-
----
-
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
-![AES Encryption](https://img.shields.io/badge/Security-AES--256-brightgreen?style=for-the-badge)
 
 ---
 
