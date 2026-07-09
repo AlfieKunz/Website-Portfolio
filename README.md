@@ -19,11 +19,11 @@ This work is self-motivated and self-funded, and is written primarily in HTML, C
 
 ## Features and Highlights
 
-Main Page:  
+### Main Page:  
 ✅ Client-sided background animation, using discretised superpositions of non-linear phase modulations.  
 ✅ Intuitive portals to both the photography and acaedmia sections.  
 
-Photography:  
+### Photography:  
 ✅ Intelligent, uncluttered spacing for mobile and desktop devices alike.  
 ✅ Unobtrusive hamburger, that adapts to the content underneath it.  
 ✅ Reactive windows for each gallery type, allowing the user to easily select which photos to view.  
@@ -32,7 +32,7 @@ Photography:
 ✅ Private gallery feature, with each client's photos encrypted server-side using AES. Decryption and decompression handled on-device, effectively balancing data usage and speed of decryption.  
 ✅ Call for action, handled via a robust 'form submission' feature.  
 
-Academia:  
+### Academia:  
 ✅ Data-efficient, interactive background slideshow of my previous projects.  
 ✅ Clean description of my adacamic portfolio, and relevant experience, along with file-hosting of PDFs.  
 ✅ Full list of available projects, containing in-depth information and break-downs of key concepts, links to and hosting of interactive demos and media that showcase each project, and appropriate links to GitHub.
