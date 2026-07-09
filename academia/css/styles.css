@@ -11136,6 +11136,15 @@ header.masthead .container {
 .slider-track.is-animating {
   animation: continuousPan 60s infinite linear;
 }
+.slider-track.is-paused {
+  animation-play-state: paused !important;
+}
+.control-icon-btn {
+    transition: opacity 0.2s ease-in-out;
+}
+.control-icon-btn:hover {
+    opacity: 1 !important;
+}
 
 .slider-track img {
   height: 100%;
@@ -11158,6 +11167,12 @@ header.masthead .container {
 @keyframes continuousPan {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 991.98px) {
+  .slider-track.is-animating {
+  animation: continuousPan 90s infinite linear;
+}
 }
 
 

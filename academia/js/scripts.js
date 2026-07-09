@@ -168,4 +168,20 @@ window.addEventListener('DOMContentLoaded', event => {
                 img.removeAttribute('data-src');
             });
     });
+
+    // Play/Pause mechanics with slider.
+    const PlayPauseButton = document.getElementById('sliderToggle');
+    const PlayPauseIcon = document.getElementById('toggleIcon');
+    if (PlayPauseButton && SliderTracking) {
+        PlayPauseButton.addEventListener('click', () => {
+            if (SliderTracking.classList.toggle('is-paused')) {
+                PlayPauseIcon.classList.replace('bi-pause-fill', 'bi-play-fill');
+                PlayPauseButton.setAttribute('aria-label', 'Play slideshow');
+            } else {
+                PlayPauseIcon.classList.replace('bi-play-fill', 'bi-pause-fill');
+                PlayPauseButton.setAttribute('aria-label', 'Pause slideshow');
+            }
+        });
+    }
+
 });
