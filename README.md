@@ -86,34 +86,33 @@ To better navigate this project, please see below for the related folder structu
 
 ```
 Website-Portfolio
-├─ academia                                      // Academic section
-│  ├─ assets                                     // Images of each project, Webmanifest info for academia
-│  ├─ career.html                                // Experiece & Education section
-│  ├─ css                                        // Bootstrap styling (blue theme for academia)
-│  ├─ index.html                                 // Main page for academia: slideshow, deferring to other sections
-│  ├─ js                                         // Scripts for academia slideshow, hamburger, and forms
-│  └─ projects.html                              // Projects showcases and information
-├─ assets                                        // CSS styling, favicon and thumbnails for main page
-├─ index.html                                    // Main page HTML; scripting for background animation
-├─ photography                                   // Photography section
-│  ├─ assets                                     // Fvicons, images for main photography page (hero + gallery)
-│  ├─ css                                        // Bootstrap styling (orange theme for photography)
-│  ├─ gallery                                    // Gallery (changes for each photo type via "category=?")
-│  │  ├─ assets                                  //
-│  │  │  ├─ css                                  // CSS of gallery
-│  │  │  └─ js                                   //
-│  │  │     ├─ gallery.js                        // Script for adapting the gallery for each photo type (and loading the required photos), tag handling, decrypting for private gallery
-│  │  │     └─ main.js                           // Script for displaying & interacting with gallery slides
-│  │  ├─ data                                    // JSON data for each photo category
-│  │  ├─ images                                  // Fulls and Thumbs for each photo category
-│  │  │  └─ private                              // All encrypted server-side using the .enc file type
-│  │  ├─ index.html                              // Main page for Gallery: displaying and interacting with photos
-│  │  ├─ Instructions.txt                        // Details on how to encrypt photos for the Private gallery, file formats, etc
-│  │  └─ programs                                // Python programs for handing new photos, thumb & JSON creation, encrypting, etc
-│  ├─ index.html                                 // Main page for photography: displaying galleries, hamburger, forms
-│  └─ js                                         // Scripts for photography gallery hovering, hamburger, and forms
-└─ shared                                        // All other files for personal use, not related to website
-
+├─ academia               // Academic section
+│  ├─ assets              // Images of each project, Webmanifest info for academia
+│  ├─ career.html         // Experiece & Education section
+│  ├─ css                 // Bootstrap styling (blue theme for academia)
+│  ├─ index.html          // Main page for academia: slideshow, deferring to other sections
+│  ├─ js                  // Scripts for academia slideshow, hamburger, and forms
+│  └─ projects.html       // Projects showcases and information
+├─ assets                 // CSS styling, favicon and thumbnails for main page
+├─ index.html             // Main page HTML; scripting for background animation
+├─ photography            // Photography section
+│  ├─ assets              // Fvicons, images for main photography page (hero + gallery)
+│  ├─ css                 // Bootstrap styling (orange theme for photography)
+│  ├─ gallery             // Gallery (changes for each photo type via "category=?")
+│  │  ├─ assets           //
+│  │  │  ├─ css           // CSS of gallery
+│  │  │  └─ js            //
+│  │  │     ├─ gallery.js // Script for adapting the gallery for each photo type (and loading the required photos), tag handling, decrypting for private gallery
+│  │  │     └─ main.js    // Script for displaying & interacting with gallery slides
+│  │  ├─ data             // JSON data for each photo category
+│  │  ├─ images           // Fulls and Thumbs for each photo category
+│  │  │  └─ private       // All encrypted server-side using the .enc file type
+│  │  ├─ index.html       // Main page for Gallery: displaying and interacting with photos
+│  │  ├─ Instructions.txt // Details on how to encrypt photos for the Private gallery, file formats, etc
+│  │  └─ programs         // Python programs for handing new photos, thumb & JSON creation, encrypting, etc
+│  ├─ index.html          // Main page for photography: displaying galleries, hamburger, forms
+│  └─ js                  // Scripts for photography gallery hovering, hamburger, and forms
+└─ shared                 // All other files for personal use, not related to website
 ```
 
 ---
