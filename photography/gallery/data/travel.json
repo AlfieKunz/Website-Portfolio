@@ -1,5 +1,63 @@
 [
   {
+    "filename": "DSR_1065_1.jpg",
+    "title": "Draycote Water, Warwickshire",
+    "datetime": "2026-07-01T21:31:35",
+    "type": [
+      "Signature",
+      "Water"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
+    "filename": "DSR_1062_1.jpg",
+    "title": "Wappenbury, Warwickshire",
+    "datetime": "2026-07-01T19:58:30",
+    "type": [
+      "Signature",
+      "Greenery"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
+    "filename": "DSR_1061_1.jpg",
+    "title": "Wappenbury, Warwickshire",
+    "datetime": "2026-07-01T19:41:16",
+    "type": [
+      "Greenery"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
+    "filename": "DSR_1060_1.jpg",
+    "title": "Bubbenhall Woods, Warwickshire",
+    "datetime": "2026-07-01T19:18:03",
+    "type": [
+      "Greenery",
+      "Water"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
+    "filename": "DSR_1054_1.jpg",
+    "title": "Stoneleigh, Warwickshire",
+    "datetime": "2026-07-01T17:58:53",
+    "type": [
+      "Greenery"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1052_1.jpg",
+    "title": "Stoneleigh, Warwickshire",
+    "datetime": "2026-07-01T17:40:23",
+    "type": [
+      "Greenery",
+      "Water"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
     "filename": "DSR_1047_1.jpg",
     "title": "Strid Wood - North Yorkshire",
     "datetime": "2026-06-04T19:04:32",

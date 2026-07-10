@@ -12,7 +12,7 @@ My first official website, intended for storing both my **academic profile**, pr
 This work is self-motivated and self-funded, and is written primarily in HTML, CSS (taking inspiration from the 'Start Bootstrap' styling), and JS.
 
 <p align="center">
-  <img width="80%" alt="MainPageDemo" src="./assets/img/readme/MainPageDemo.jpg" />
+  <img width="90%" alt="MainPageDemo" src="./assets/img/readme/MainPageDemo.jpg" />
 </p>
 
 ---

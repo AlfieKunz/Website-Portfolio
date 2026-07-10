@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     travel: {
         title: "Gallery -<br>Adventures & Travel",
         description: "This is slightly more of a <i>variety</i> collection, spanning everything from everyday travels to international expeditions. Despite the range, I hope that each photo remains striking, telling a unique story that stays true to the original moment.",
-        StartPhoto: "DSC_10749_1.jpg",
+        StartPhoto: "DSR_1062_1.jpg",
         heightDelta: 0,
         tags: ["Signature", "Rocks & Mountains", "Greenery", "Street & Buildings", "Water"]
     },
