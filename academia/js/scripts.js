@@ -208,6 +208,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const CloseShowcase = (Showcase) => {
         if (Showcase) {
+            // Resets scroll.
+            Showcase.querySelector('.showcase-desc-area').scrollTop = 0;
+            const galleryArea = Showcase.querySelector('.showcase-gallery-area');
+            if (galleryArea) { 
+                galleryArea.scrollLeft = 0;
+                galleryArea.scrollTop = 0; 
+            }
+
             Showcase.classList.remove('active');
             document.body.style.overflow = '';
             history.pushState(null, null, window.location.pathname + window.location.search);
