@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', event => {
             navbarToggler.click();
             HamburgerActive = false;
         }
-        if (window.scrollY === 0) {
+        if (window.scrollY === 0 && !navbarCollapsible.classList.contains('always-shrink')) {
             navbarCollapsible.classList.remove('navbar-shrink')
         } else {
             navbarCollapsible.classList.add('navbar-shrink')
@@ -184,4 +184,84 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
+});
+
+
+
+// Showcase panel for career and projects section.
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Opens & closes a specific showcase item, by updating the URL hash.
+    const OpenShowcase = (id) => {
+        // Closes any open showcases.
+        const OpenShowcase = document.querySelector('.item-showcase-overlay.active');
+        if (OpenShowcase && OpenShowcase.id !== id) {
+            OpenShowcase.classList.remove('active');
+        }
+        const Showcase = document.getElementById(id);
+        Showcase.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (window.location.hash !== `#${id}`) {
+            history.pushState(null, null, `#${id}`);
+        }
+        ToggleDivider(Showcase);
+    };
+    const CloseShowcase = (Showcase) => {
+        if (Showcase) {
+            Showcase.classList.remove('active');
+            document.body.style.overflow = '';
+            history.pushState(null, null, window.location.pathname + window.location.search);
+        }
+    };
+
+    // Opens showcase upon panel click.
+    const Panels = document.querySelectorAll('.clickable-panel');
+    Panels.forEach(panel => {
+        panel.addEventListener('click', () => {
+            OpenShowcase(panel.getAttribute('panel-name'));
+        });
+    });
+
+    // Closes showcases on close button, clicking outside the panel, or pressing esp (or mouse back button).
+    const Showcases = document.querySelectorAll('.item-showcase-overlay');
+    Showcases.forEach(showcase => {
+        const CloseButton = showcase.querySelector('.showcase-close-btn');
+        if (CloseButton) {CloseButton.addEventListener('click', () => CloseShowcase(showcase)); }
+        showcase.addEventListener('click', (e) => {
+            if (e.target === showcase) { CloseShowcase(showcase); }
+        });
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') { CloseShowcase(document.querySelector('.item-showcase-overlay.active')); }
+    });
+
+    // Opens specific showcase based on URL hash.
+    const HandlePanelURLHash = () => {
+        const URLHash = window.location.hash.substring(1);
+        if (URLHash) {
+            const Showcase = document.getElementById(URLHash);
+            if (Showcase && Showcase.classList.contains('item-showcase-overlay')) {
+                OpenShowcase(URLHash);
+            }
+        } else {
+            CloseShowcase(document.querySelector('.item-showcase-overlay.active'));
+        }
+    };
+    HandlePanelURLHash();
+    window.addEventListener('hashchange', HandlePanelURLHash);
+
+    // Only shows the dividing line if the gallery scrolling isn't there.
+    function ToggleDivider(activeShowcase) {
+        if (!activeShowcase) return;
+        const track = activeShowcase.querySelector('.showcase-gallery-track');
+        const divider = activeShowcase.querySelector('.showcase-divider-area');
+        if (track && divider) {
+            if (window.innerWidth < 992 && track.scrollWidth > track.clientWidth) {
+                divider.style.display = 'none';
+            } else {
+                divider.style.display = 'block';
+            }
+        }
+    }
+    window.addEventListener('resize', () => { ToggleDivider(document.querySelector('.item-showcase-overlay.active')); });
 });
