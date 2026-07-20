@@ -8672,6 +8672,10 @@ textarea.form-control-lg {
     padding-right: 1.5rem !important;
     padding-left: 1.5rem !important;
   }
+  .px-sm-45 {
+    padding-right: 2.25rem !important;
+    padding-left: 2.25rem !important;
+  }
   .px-sm-5 {
     padding-right: 3rem !important;
     padding-left: 3rem !important;
@@ -11335,7 +11339,7 @@ header.masthead .container {
   -webkit-overflow-scrolling: touch;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 576px) {
   .showcase-grid-layout {
     grid-template-columns: 25% 1fr;
     grid-template-rows: auto auto 1fr;
@@ -11380,7 +11384,7 @@ header.masthead .container {
     overflow-y: auto;
   }
 }
-@media (max-width: 991.98px) {
+@media (max-width: 575.98px) {
     .showcase-gallery-track {
         display: flex;
         flex-direction: row;
