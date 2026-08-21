@@ -191,6 +191,41 @@ window.addEventListener('DOMContentLoaded', event => {
 // Showcase panel for career and projects section.
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Adds GitHub repo and Live Demo button to the project showcase.
+    document.querySelectorAll('.item-showcase-overlay').forEach(showcase => {
+        const READMECont = showcase.querySelector('.readme-container');
+        const Content = showcase.querySelector('.item-showcase-content');
+        const CloseBtn = showcase.querySelector('.showcase-close-btn');
+        if (!READMECont || !Content || !CloseBtn) return;
+        if (!READMECont.dataset.repo && !READMECont.dataset.demo) return;
+
+        const Actions = document.createElement('div');
+        Actions.className = 'showcase-header-actions';
+        if (READMECont.dataset.repo) {
+            const GitHubBtn = document.createElement('a');
+            GitHubBtn.className = 'showcase-icon-btn';
+            GitHubBtn.href = `https://github.com/${READMECont.dataset.repo}`;
+            GitHubBtn.target = '_blank';
+            GitHubBtn.rel = 'noopener noreferrer';
+            GitHubBtn.title = 'View GitHub Source Code';
+            GitHubBtn.setAttribute('aria-label', 'View GitHub Source Code');
+            GitHubBtn.innerHTML = '<i class="bi bi-github"></i>';
+            Actions.appendChild(GitHubBtn);
+        }
+        if (READMECont.dataset.demo) {
+            const LiveDemoBtn = document.createElement('a');
+            LiveDemoBtn.className = 'showcase-icon-btn showcase-icon-btn-demo';
+            LiveDemoBtn.href = READMECont.dataset.demo;
+            LiveDemoBtn.target = '_blank';
+            LiveDemoBtn.rel = 'noopener noreferrer';
+            LiveDemoBtn.title = 'View Live Demo';
+            LiveDemoBtn.setAttribute('aria-label', 'View Live Demo');
+            LiveDemoBtn.innerHTML = '<i class="bi bi-box-arrow-up-right"></i>';
+            Actions.appendChild(LiveDemoBtn);
+        }
+        Content.insertBefore(Actions, CloseBtn);
+    });
+
     // Opens & closes a specific showcase item, by updating the URL hash.
     const OpenShowcase = (id) => {
         // Closes any open showcases.
@@ -203,6 +238,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'hidden';
         if (window.location.hash !== `#${id}`) {
             history.pushState(null, null, `#${id}`);
+        }
+
+        const READMECont = Showcase.querySelector('.readme-container');
+        if (READMECont && READMECont.dataset.repo) {
+            LoadREADME(READMECont.dataset.repo, READMECont, READMECont.dataset.branch);
         }
         ToggleDivider(Showcase);
     };
@@ -273,3 +313,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('resize', () => { ToggleDivider(document.querySelector('.item-showcase-overlay.active')); });
 });
+
+// Loads GitHub repository README for projects showcase.
+async function LoadREADME(repoPath, container, branch = 'main') {
+    if (!container || container.dataset.loadedRepo === repoPath) return;
+    container.innerHTML = `
+        <div class="text-center py-4">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>`;
+    const READMEUrl = `https://raw.githubusercontent.com/${repoPath}/${branch}/`;
+    try {
+        const Responce = await fetch(`${READMEUrl}README.md`);
+        if (!Responce.ok) throw new Error('README not found');
+        const rawMarkdown = await Responce.text();
+        const ProcessedBlock = rawMarkdown.replace(/<table[\s\S]*?<\/table>/gi, block => block.replace(/\n\s*\n/g, '\n'));
+
+        container.innerHTML = marked.parse(ProcessedBlock);
+        container.querySelectorAll('table').forEach(table => {
+            const TableWrapper = document.createElement('div');
+            TableWrapper.className = 'readme-table-wrapper';
+            table.parentNode.insertBefore(TableWrapper, table);
+            TableWrapper.appendChild(table);
+        });
+
+        // Removes main title (will be captured by gradient) and first "---" before first section.
+        container.querySelector('h1').remove();
+        container.querySelector('hr').remove();
+
+        // Fix image sources so relative paths resolve against the repo.
+        container.querySelectorAll('img').forEach(img => {
+            const ImgSource = img.getAttribute('src');
+            if (ImgSource && !ImgSource.startsWith('http://') && !ImgSource.startsWith('https://') && !ImgSource.startsWith('data:')) {
+                img.src = `${READMEUrl}${ImgSource.replace(/^\.\//, '')}`;
+            }
+            img.removeAttribute('height');
+            img.removeAttribute('width');
+            img.removeAttribute('style');
+        });
+        container.querySelectorAll('table, td, th, p, div').forEach(el => {
+            el.removeAttribute('width');
+            el.removeAttribute('height');
+            el.removeAttribute('style');
+        });
+
+        container.dataset.loadedRepo = repoPath;
+    } catch (error) {
+        container.innerHTML = `<p class="text-muted fst-italic py-3">Error: Unable to load GitHub Repository README.</p>`;
+    }
+}
