@@ -4,28 +4,43 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-        const PrivateRedirectList = ['private', 'client', 'clientphotos', 'clientshots', 'societyball',
+        const PhotographyRedirectList = ['photography', 'p'];
+        const PrivateRedirectList = ['private', 'priv', 'client', 'clientphotos', 'clientshots', 'societyball',
         'warwickball', 'gallery', 'onlinegallery', 'privategallery', 'secure', 'securegallery', 'secureshots'];
         const EventRedirectList = ['event', 'events', 'formal'];
-        const AllRedirects = [...PrivateRedirectList, ...EventRedirectList];
-        
-        const PathTree = window.location.pathname.split('/').filter(segment => segment);
-        const lastSegment = PathTree[PathTree.length - 1] ? PathTree[PathTree.length - 1].toLowerCase() : '';
 
-        if (AllRedirects.includes(lastSegment) && (PathTree.length === 1 || PathTree.length === 2 && PathTree[0].toLowerCase() === 'photography')) {
-            // Redirects to private gallery.
-            const category = PrivateRedirectList.includes(lastSegment) ? "private" : "event";
-            window.location.replace(`https://www.alfiekunz.co.uk/photography/gallery/?category=${category}`);
-        } else if (PathTree[0].toLowerCase() === 'p') {
-            window.location.replace(`https://www.alfiekunz.co.uk/photography`);
-        } else if (PathTree[0].toLowerCase() === 'a') {
-            window.location.replace(`https://www.alfiekunz.co.uk/academia`);
+        const AcademiaRedirectList = ['academia', 'a', 'academic'];
+        const CareerRedirectList = ['career', 'c', 'job', 'jobs'];
+        const ProjectsRedirectList = ['proj', 'project', 'projects', 'stuff'];
+
+        const BaseRedirects = [...PhotographyRedirectList, ...AcademiaRedirectList];
+        const AllRedirects = [...BaseRedirects, ...PrivateRedirectList, ...EventRedirectList, ...CareerRedirectList, ...ProjectsRedirectList];
+
+        const PathTree = window.location.pathname.split('/').filter(segment => segment);
+        const LastSegment = PathTree[PathTree.length - 1] ? PathTree[PathTree.length - 1].toLowerCase() : '';
+        const BaseName = 'https://www.alfiekunz.co.uk/';
+
+        if (AllRedirects.includes(LastSegment) && (PathTree.length === 1 || (PathTree.length === 2 && BaseRedirects.includes(PathTree[0].toLowerCase())) )) {
+            if (PhotographyRedirectList.includes(LastSegment)) {
+                window.location.replace(BaseName + 'photography');
+            } else if (PrivateRedirectList.includes(LastSegment)) {
+                window.location.replace(BaseName + 'photography/gallery/?category=private');
+            } else if (EventRedirectList.includes(LastSegment)) {
+                window.location.replace(BaseName + 'photography/gallery/?category=event');
+
+            } else if (AcademiaRedirectList.includes(LastSegment)) {
+                window.location.replace(BaseName + 'academia');
+            } else if (CareerRedirectList.includes(LastSegment)) {
+                window.location.replace(BaseName + 'academia/career');
+            } else if (ProjectsRedirectList.includes(LastSegment)) {
+                window.location.replace(BaseName + 'academia/projects');
+            }
         } else {
-            // Redirects to closest parent.
-            RedirectUpBranch();
+            // Redirects up a branch.
+            RedirectToParent();
         }
 
-        async function RedirectUpBranch() {
+        async function RedirectToParent() {
             async function DoesPathExist(path) {
                 try {
                     const response = await fetch(path, { method: 'HEAD' });
