@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
             LiveDemoBtn.rel = 'noopener noreferrer';
             LiveDemoBtn.title = 'View Live Demo';
             LiveDemoBtn.setAttribute('aria-label', 'View Live Demo');
-            LiveDemoBtn.innerHTML = '<i class="bi bi-box-arrow-up-right"></i>';
+            LiveDemoBtn.textContent = 'DEMO';
             Actions.appendChild(LiveDemoBtn);
         }
         Content.insertBefore(Actions, CloseBtn);

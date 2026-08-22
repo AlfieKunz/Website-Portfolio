@@ -11699,6 +11699,18 @@ header.masthead .container {
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
+.showcase-icon-btn-demo {
+    width: auto;
+    padding: 0 0.85rem;
+    border-radius: 999px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
 .showcase-icon-btn:hover, .showcase-icon-btn-demo:hover {
   color: #fff;
   box-shadow: 0 0 10px rgba(8, 12, 21, 0.2);
@@ -11708,6 +11720,7 @@ header.masthead .container {
 @media (max-width: 575.98px) {
     .showcase-header-actions { left: 1.25rem; top: 0.85rem; gap: 0.4rem; }
     .showcase-icon-btn { width: 2.2rem; height: 2.2rem; font-size: 1rem; }
+    .showcase-icon-btn-demo { width: auto; padding: 0 0.65rem; font-size: 0.7rem; }
 }
 
 /* Tables */
