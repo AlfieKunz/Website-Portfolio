@@ -197,14 +197,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const Content = showcase.querySelector('.item-showcase-content');
         const CloseBtn = showcase.querySelector('.showcase-close-btn');
         if (!READMECont || !Content || !CloseBtn) return;
-        if (!READMECont.dataset.repo && !READMECont.dataset.demo) return;
 
         const Actions = document.createElement('div');
         Actions.className = 'showcase-header-actions';
-        if (READMECont.dataset.repo) {
+        if (showcase.id) {
             const GitHubBtn = document.createElement('a');
             GitHubBtn.className = 'showcase-icon-btn';
-            GitHubBtn.href = `https://github.com/${READMECont.dataset.repo}`;
+            GitHubBtn.href = `https://github.com/AlfieKunz/${showcase.id}`;
             GitHubBtn.target = '_blank';
             GitHubBtn.rel = 'noopener noreferrer';
             GitHubBtn.title = 'View GitHub Source Code';
@@ -241,8 +240,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const READMECont = Showcase.querySelector('.readme-container');
-        if (READMECont && READMECont.dataset.repo) {
-            LoadREADME(READMECont.dataset.repo, READMECont, READMECont.dataset.branch);
+        if (READMECont) {
+            LoadREADME(id, READMECont);
         }
         ToggleDivider(Showcase);
     };
@@ -323,7 +322,7 @@ async function LoadREADME(repoPath, container, branch = 'main') {
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>`;
-    const READMEUrl = `https://raw.githubusercontent.com/${repoPath}/${branch}/`;
+    const READMEUrl = `https://raw.githubusercontent.com/AlfieKunz/${repoPath}/${branch}/`;
     try {
         const Responce = await fetch(`${READMEUrl}README.md`);
         if (!Responce.ok) throw new Error('README not found');
@@ -357,6 +356,24 @@ async function LoadREADME(repoPath, container, branch = 'main') {
             el.removeAttribute('height');
             el.removeAttribute('style');
         });
+
+        // Redirects all links to other GitHub repos back to my website :)
+        container.querySelectorAll('a').forEach(link => {
+        const Reference = link.getAttribute('href');
+        if (Reference && Reference.match(/^https?:\/\/(www\.)?github\.com\//i)) {
+            try {
+                const Url = new URL(Reference);
+                // Isolates the repo name, and tries to find a matching project in my website. If we can find it,
+                // and it is different to our own (text citation contains a self-link), inject our local url.
+                const URLParts = Url.pathname.split('/').filter(Boolean); 
+                if (URLParts.length == 2) {
+                    if (document.getElementById(URLParts[1]) && URLParts[1] != repoPath) {
+                        link.href = `#${URLParts[1]}`;
+                    }
+                }
+            } catch (e) { }
+        }
+    });
 
         container.dataset.loadedRepo = repoPath;
     } catch (error) {
