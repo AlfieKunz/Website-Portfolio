@@ -4,21 +4,50 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
+        const BaseName = 'https://www.alfiekunz.co.uk/';
+
         const PhotographyRedirectList = ['photography', 'p'];
         const PrivateRedirectList = ['private', 'priv', 'client', 'clientphotos', 'clientshots', 'societyball',
         'warwickball', 'gallery', 'onlinegallery', 'privategallery', 'secure', 'securegallery', 'secureshots'];
-        const EventRedirectList = ['event', 'events', 'formal'];
+        const EventRedirectList = ['e', 'event', 'events', 'formal'];
 
         const AcademiaRedirectList = ['academia', 'a', 'ac', 'academic'];
         const CareerRedirectList = ['career', 'c', 'job', 'jobs'];
         const ProjectsRedirectList = ['proj', 'project', 'projects', 'stuff'];
 
+        const RedirectDict = new Map([
+            ['cv', 'academia/assets/CV.pdf'],
+            ['epq', 'academia/assets/projects/EPQ/Alfie Kunz EPQ - Neutron Stars.pdf'],
+            ['warwick', 'academia/career/#warwick'],
+            ['beckfoot', 'academia/career/#beckfoot'],
+
+            ['apic', 'academia/projects/#CFD-APIC-Vortices'],
+            ['apicessay', 'academia/assets/projects/ProjectAPIC/Real-time Simulations of Momentum-Conserving Vortices - Alfie Kunz.pdf'],
+            ['chess', 'academia/projects/#Chess-Game-AI'],
+            ['chessreport', 'academia/assets/projects/ProjectChess/Alfie Kunz Computer Science NEA Project Report.pdf'],
+            ['chesstracking', 'academia/assets/projects/ProjectChess/Previous AI Search Efficiency Tracking (Plotted - 27.12.24).pdf'],
+            ['ising', 'academia/assets/projects/ProjectIsing/Probing the Correlation Length of Metastable Annuli through Thermal Erosion in the 2D Ising Model.pdf'],
+            ['nn', 'academia/projects/#Neural-Networking'],
+            ['risk', 'academia/projects/#Risk-Calculator'],
+            ['slime', 'academia/projects/#Slime-Trails'],
+            ['tetris', 'academia/projects/#Tetris-AI'],
+            ['tictactoe', 'academia/projects/#TicTacToe'],
+
+            ['landscape', 'photography/gallery/?category=landscape'],
+            ['portrait', 'photography/gallery/?category=portrait'],
+            ['nature', 'photography/gallery/?category=nature'],
+            ['studio', 'photography/gallery/?category=studio'],
+            ['travel', 'photography/gallery/?category=travel'],
+            ['corporate', 'photography/gallery/?category=corporate'],
+            ['astro', 'photography/gallery/?category=astro'],
+            ['sport', 'photography/gallery/?category=sport']
+        ]);
+
         const BaseRedirects = [...PhotographyRedirectList, ...AcademiaRedirectList];
-        const AllRedirects = [...BaseRedirects, ...PrivateRedirectList, ...EventRedirectList, ...CareerRedirectList, ...ProjectsRedirectList];
+        const AllRedirects = [...BaseRedirects, ...PrivateRedirectList, ...EventRedirectList, ...CareerRedirectList, ...ProjectsRedirectList, ...RedirectDict.keys()];
 
         const PathTree = window.location.pathname.split('/').filter(segment => segment);
         const LastSegment = PathTree[PathTree.length - 1] ? PathTree[PathTree.length - 1].toLowerCase() : '';
-        const BaseName = 'https://www.alfiekunz.co.uk/';
 
         if (AllRedirects.includes(LastSegment) && (PathTree.length === 1 || (PathTree.length === 2 && BaseRedirects.includes(PathTree[0].toLowerCase())) )) {
             if (PhotographyRedirectList.includes(LastSegment)) {
@@ -34,8 +63,11 @@
                 window.location.replace(BaseName + 'academia/career');
             } else if (ProjectsRedirectList.includes(LastSegment)) {
                 window.location.replace(BaseName + 'academia/projects');
+
+            } else if (RedirectDict.has(LastSegment)) {
+                window.location.replace(BaseName + RedirectDict.get(LastSegment));
             }
-        } else {
+        } else if (PathTree.length !== 0) {
             // Redirects up a branch.
             RedirectToParent();
         }
@@ -57,7 +89,7 @@
                     PathTreeSegments.pop();
                     const Parent = '/' + PathTreeSegments.join('/');
                     if (await DoesPathExist(Parent) || PathTreeSegments.length === 0) {
-                        window.location.replace(Parent || '/');
+                        window.location.replace(Parent);
                         return;
                     }
                 }

@@ -148,6 +148,16 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // Stops panels from being visible, even if the user hits the back button.
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            const visibleCaptions = document.querySelectorAll('.portfolio-box-caption.is-visible');
+            visibleCaptions.forEach(caption => {
+                caption.classList.remove('is-visible');
+            });
+        }
+    });
+
 
 
     const UserForm = document.getElementById('contactForm');

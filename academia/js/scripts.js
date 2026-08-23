@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded', event => {
             
             if (HamburgerActive) {
                 HamburgerActive = false;
-                if (window.scrollY === 0) {
+                if (window.scrollY === 0 && !navbarCollapsible.classList.contains('always-shrink')) {
                     navbarCollapsible.classList.remove('navbar-shrink')
                 }
             } else {

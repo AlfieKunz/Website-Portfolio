@@ -11532,6 +11532,19 @@ header.masthead .container {
   box-shadow: 0 15px 25px rgba(0,0,0,0.1) !important;
 }
 
+/* Adds scrollbar support to firefox */
+@supports not selector(::-webkit-scrollbar-thumb) {
+  .showcase-gallery-area,
+  .showcase-desc-area {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 rgba(15, 23, 42, 0.04);
+  }
+  .showcase-gallery-track {
+    scrollbar-width: thin;
+    scrollbar-color: #b0b0b0 #f1f1f1;
+  }
+}
+
 
 /* Mimicking of GitHub README */
 .showcase-content-area,
