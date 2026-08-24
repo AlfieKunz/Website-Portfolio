@@ -1,5 +1,306 @@
 [
     {
+        "filename": "DSR_1466.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T22:08:45",
+        "type": [
+            "Candids"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_1449.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T21:59:34",
+        "type": [
+            "Signature",
+            "Candids",
+            "Groups"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_1434.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T21:54:33",
+        "type": [
+            "Candids"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_1390.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T20:59:22",
+        "type": [
+            "Candids"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_1363.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T20:57:47",
+        "type": [
+            "Candids"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_1314.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T20:51:47",
+        "type": [
+            "Groups"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_1268.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T20:24:33",
+        "type": [
+            "Signature",
+            "Candids"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_1232.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T20:19:54",
+        "type": [
+            "Candids"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_1203.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T20:14:02",
+        "type": [
+            "Signature",
+            "Couples & Solo"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_1180.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T17:27:34",
+        "type": [
+            "Venue"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_1175.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T17:25:30",
+        "type": [
+            "Signature",
+            "Venue"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_1147.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T17:19:02",
+        "type": [
+            "Candids"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_1060.jpg",
+        "title": "Josh & Alice's Wedding Reception",
+        "datetime": "2026-07-18T15:18:55",
+        "type": [
+            "Signature",
+            "Candids"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_1043.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T15:16:00",
+        "type": [
+            "Couples & Solo"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_1025.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T15:14:06",
+        "type": [
+            "Signature",
+            "Groups"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_0990.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T15:11:47",
+        "type": [
+            "Signature",
+            "Candids",
+            "Couples & Solo"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_0895.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T15:04:02",
+        "type": [
+            "Candids",
+            "Couples & Solo"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_0821.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T14:54:32",
+        "type": [
+            "Signature",
+            "Candids"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_0777.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T14:48:37",
+        "type": [
+            "Signature",
+            "Candids",
+            "Couples & Solo"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_0692.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T14:36:22",
+        "type": [
+            "Candids"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_0640.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T14:29:34",
+        "type": [
+            "Candids",
+            "Venue"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_0625.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T14:28:29",
+        "type": [
+            "Signature",
+            "Candids",
+            "Couples & Solo"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_0593.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T14:26:00",
+        "type": [
+            "Candids",
+            "Celebration"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_0581.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T14:25:04",
+        "type": [
+            "Couples & Solo"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_0523.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T14:15:55",
+        "type": [
+            "Candids"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_0490.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T14:14:02",
+        "type": [
+            "Signature",
+            "Groups"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_0465.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T14:11:00",
+        "type": [
+            "Candids",
+            "Couples & Solo"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_0365.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T13:57:38",
+        "type": [
+            "Candids"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_0297.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T13:51:35",
+        "type": [
+            "Signature",
+            "Candids",
+            "Couples & Solo"
+        ],
+        "aspect_ratio": 0.667
+    },
+    {
+        "filename": "DSR_0133.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T13:38:46",
+        "type": [
+            "Candids"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
+        "filename": "DSR_0103.jpg",
+        "title": "Josh & Alice's Wedding Ceremony",
+        "datetime": "2026-07-18T13:37:07",
+        "type": [
+            "Signature",
+            "Candids"
+        ],
+        "aspect_ratio": 1.5
+    },
+    {
         "filename": "DSR_2303.jpg",
         "title": "Warwick University Tennis Club Charity Ball",
         "datetime": "2026-03-14T23:50:07",
@@ -80,7 +381,7 @@
         "title": "Warwick University Tennis Club Charity Ball",
         "datetime": "2026-03-14T23:05:08",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -108,7 +409,7 @@
         "datetime": "2026-03-14T22:55:37",
         "type": [
             "Signature",
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -231,7 +532,7 @@
         "title": "Warwick University Tennis Club Charity Ball",
         "datetime": "2026-03-14T20:41:35",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -287,7 +588,7 @@
         "title": "Warwick University Computing Society Ball",
         "datetime": "2026-03-01T00:31:49",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 1.5
     },
@@ -437,7 +738,7 @@
         "title": "Warwick University Computing Society Ball",
         "datetime": "2026-02-28T21:37:52",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -493,7 +794,7 @@
         "title": "Warwick University Computing Society Ball",
         "datetime": "2026-02-28T20:17:42",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -502,7 +803,7 @@
         "title": "Warwick University Computing Society Ball",
         "datetime": "2026-02-28T20:14:09",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -560,8 +861,8 @@
         "datetime": "2025-11-27T22:41:35",
         "type": [
             "Signature",
-            "Personal & Couples",
-            "Awards"
+            "Couples & Solo",
+            "Celebration"
         ],
         "aspect_ratio": 0.667
     },
@@ -572,7 +873,7 @@
         "type": [
             "Signature",
             "Candids",
-            "Awards"
+            "Celebration"
         ],
         "aspect_ratio": 1.5
     },
@@ -582,7 +883,7 @@
         "datetime": "2025-11-27T22:27:44",
         "type": [
             "Candids",
-            "Awards"
+            "Celebration"
         ],
         "aspect_ratio": 1.5
     },
@@ -593,7 +894,7 @@
         "type": [
             "Signature",
             "Candids",
-            "Awards"
+            "Celebration"
         ],
         "aspect_ratio": 1.5
     },
@@ -602,7 +903,7 @@
         "title": "Warwick University Politics Society Winter Ball",
         "datetime": "2025-11-27T22:21:25",
         "type": [
-            "Awards"
+            "Celebration"
         ],
         "aspect_ratio": 0.667
     },
@@ -621,7 +922,7 @@
         "title": "Warwick University Politics Society Winter Ball",
         "datetime": "2025-11-27T22:02:20",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 1.5
     },
@@ -715,7 +1016,7 @@
         "title": "Warwick University Politics Society Winter Ball",
         "datetime": "2025-11-27T20:52:21",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -749,40 +1050,40 @@
     },
     {
         "filename": "DSR_0295_1.jpg",
-        "title": "Pre-Wedding Bride & Groom Photoshoot: Josh & Alice",
+        "title": "Pre-Wedding Couples & Solo Photoshoot: Josh & Alice",
         "datetime": "2025-10-08T18:22:55",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
     {
         "filename": "DSR_0195_1.jpg",
-        "title": "Pre-Wedding Bride & Groom Photoshoot: Josh & Alice",
+        "title": "Pre-Wedding Couples & Solo Photoshoot: Josh & Alice",
         "datetime": "2025-10-08T18:15:08",
         "type": [
             "Signature",
             "Candids",
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
     {
         "filename": "DSR_0187_1.jpg",
-        "title": "Pre-Wedding Bride & Groom Photoshoot: Josh & Alice",
+        "title": "Pre-Wedding Couples & Solo Photoshoot: Josh & Alice",
         "datetime": "2025-10-08T18:15:00",
         "type": [
             "Signature",
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 1.5
     },
     {
         "filename": "DSR_0159_1.jpg",
-        "title": "Pre-Wedding Bride & Groom Photoshoot: Josh & Alice",
+        "title": "Pre-Wedding Couples & Solo Photoshoot: Josh & Alice",
         "datetime": "2025-10-08T18:13:14",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 1.5
     },
@@ -848,7 +1149,7 @@
         "title": "Wedding Reception & Party in Yorkshire",
         "datetime": "2025-07-12T16:01:52",
         "type": [
-            "Awards"
+            "Celebration"
         ],
         "aspect_ratio": 0.667
     },
@@ -862,7 +1163,7 @@
         "aspect_ratio": 1.5
     },
     {
-        "filename": "DSR_0523.jpg",
+        "filename": "DSR_0523~2.jpg",
         "title": "Wedding Reception & Party in Yorkshire",
         "datetime": "2025-07-12T14:30:58",
         "type": [
@@ -1062,7 +1363,7 @@
         "datetime": "2025-03-08T22:46:03",
         "type": [
             "Signature",
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 1.5
     },
@@ -1081,7 +1382,7 @@
         "title": "Warwick University Tennis Club Charity Ball",
         "datetime": "2025-03-08T22:36:00",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 1.5
     },
@@ -1109,7 +1410,7 @@
         "title": "Warwick University Tennis Club Charity Ball",
         "datetime": "2025-03-08T21:47:57",
         "type": [
-            "Awards"
+            "Celebration"
         ],
         "aspect_ratio": 1.5
     },
@@ -1127,7 +1428,7 @@
         "title": "Warwick University Tennis Club Charity Ball",
         "datetime": "2025-03-08T21:16:53",
         "type": [
-            "Awards"
+            "Celebration"
         ],
         "aspect_ratio": 0.667
     },
@@ -1136,7 +1437,7 @@
         "title": "Warwick University Tennis Club Charity Ball",
         "datetime": "2025-03-08T21:13:26",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 1.5
     },
@@ -1147,7 +1448,7 @@
         "type": [
             "Signature",
             "Candids",
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -1176,7 +1477,7 @@
         "datetime": "2025-02-23T00:25:52",
         "type": [
             "Signature",
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 1.5
     },
@@ -1185,7 +1486,7 @@
         "title": "Warwick University Swimming & Waterpolo Society Ball",
         "datetime": "2025-02-23T00:25:33",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -1195,7 +1496,7 @@
         "datetime": "2025-02-23T00:16:08",
         "type": [
             "Signature",
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 1.5
     },
@@ -1214,7 +1515,7 @@
         "datetime": "2025-02-22T23:51:02",
         "type": [
             "Signature",
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -1224,7 +1525,7 @@
         "datetime": "2025-02-22T23:24:13",
         "type": [
             "Candids",
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -1233,7 +1534,7 @@
         "title": "Warwick University Swimming & Waterpolo Society Ball",
         "datetime": "2025-02-22T22:50:36",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -1261,7 +1562,7 @@
         "datetime": "2024-08-10T20:36:36",
         "type": [
             "Signature",
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -1272,7 +1573,7 @@
         "type": [
             "Signature",
             "Candids",
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.667
     },
@@ -1281,7 +1582,7 @@
         "title": "60th Wedding Anniversary Celebration",
         "datetime": "2024-08-10T19:27:53",
         "type": [
-            "Personal & Couples"
+            "Couples & Solo"
         ],
         "aspect_ratio": 0.666
     },

@@ -3,8 +3,8 @@ import os, io
 
 
 # --- CONFIGURATION ---
-CATEGORY = "private/alicejosh"
-direc = "C:/Users/alfie/Website-Portfolio/photography/gallery/images/" + CATEGORY
+CATEGORY = "studio"
+direc = "C:/Users/alfie/My Drive/Programming/Website-Portfolio/photography/gallery/images/" + CATEGORY
 input_folder = direc + "/full"
 output_folder = direc + "/thumb"
 # ---------------------

@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         description: "Whether it be photos of groups, candids, awards, speeches or the venue, I strive to showcase the excitement and atmosphere of an event to remember. I excel in busy situations and when meeting new people, and pride myself on building a friendly and charismatic rapport with guests while maintaining professionalism and strong directorial skills.",
         StartPhoto: "DSR_0077.jpg",
         heightDelta: -0.25,
-        tags: ["Signature", "Groups", "Candids", "Personal & Couples", "Venue", "Awards"]
+        tags: ["Signature", "Groups", "Candids", "Couples & Solo", "Venue", "Celebration"]
     },
     landscape: {
         title: "Gallery -<br>Landscapes",
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         description: "This might just be my favourite kind of photography - getting together with a friend or two, spending hours brainstorming and planning every detail, then jumping up and down with childlike joy when unveiling the results. It's always a blast :D.",
         StartPhoto: "DSR_0610_1.jpg",
         heightDelta: 0,
-        tags: ["Signature", "Light & Reflection", "Portrait", "Objects & Products", "Macro"]
+        tags: ["Signature", "Light & Reflection", "Portrait", "Product", "Macro", "BTS"]
     },
     travel: {
         title: "Gallery -<br>Adventures & Travel",

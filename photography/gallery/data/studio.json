@@ -1,23 +1,177 @@
 [
   {
+    "filename": "DSR_0360.jpg",
+    "title": "Shots from 'The Solider, The Father, and Samuel' - a Short Film",
+    "datetime": "2026-07-25T16:45:36",
+    "type": [
+      "Portrait"
+    ],
+    "aspect_ratio": 0.667,
+    "credits": {
+      "name": "Lewis Bernett",
+      "url": "https://www.instagram.com/lewisbcine"
+    }
+  },
+  {
+    "filename": "DSR_0350.jpg",
+    "title": "Shots from 'The Solider, The Father, and Samuel' - a Short Film",
+    "datetime": "2026-07-25T16:38:20",
+    "type": [
+      "Signature",
+      "Portrait",
+      "BTS"
+    ],
+    "aspect_ratio": 1.5,
+    "credits": {
+      "name": "Lewis Bernett",
+      "url": "https://www.instagram.com/lewisbcine"
+    }
+  },
+  {
+    "filename": "DSR_0320.jpg",
+    "title": "Shots from 'The Solider, The Father, and Samuel' - a Short Film",
+    "datetime": "2026-07-25T15:22:25",
+    "type": [
+      "Signature",
+      "Light & Reflection"
+    ],
+    "aspect_ratio": 1.5,
+    "credits": {
+      "name": "Lewis Bernett",
+      "url": "https://www.instagram.com/lewisbcine"
+    }
+  },
+  {
+    "filename": "DSR_0270.jpg",
+    "title": "Shots from 'The Solider, The Father, and Samuel' - a Short Film",
+    "datetime": "2026-07-25T14:36:16",
+    "type": [
+      "BTS"
+    ],
+    "aspect_ratio": 1.5,
+    "credits": {
+      "name": "Lewis Bernett",
+      "url": "https://www.instagram.com/lewisbcine"
+    }
+  },
+  {
+    "filename": "DSR_0267.jpg",
+    "title": "Shots from 'The Solider, The Father, and Samuel' - a Short Film",
+    "datetime": "2026-07-25T14:35:49",
+    "type": [
+      "Signature",
+      "Portrait"
+    ],
+    "aspect_ratio": 1.5,
+    "credits": {
+      "name": "Lewis Bernett",
+      "url": "https://www.instagram.com/lewisbcine"
+    }
+  },
+  {
+    "filename": "DSR_0181.jpg",
+    "title": "Shots from 'The Solider, The Father, and Samuel' - a Short Film",
+    "datetime": "2026-07-25T14:19:56",
+    "type": [
+      "Portrait"
+    ],
+    "aspect_ratio": 1.5,
+    "credits": {
+      "name": "Lewis Bernett",
+      "url": "https://www.instagram.com/lewisbcine"
+    }
+  },
+  {
+    "filename": "DSR_0166.jpg",
+    "title": "Shots from 'The Solider, The Father, and Samuel' - a Short Film",
+    "datetime": "2026-07-25T14:07:31",
+    "type": [
+      "Portrait"
+    ],
+    "aspect_ratio": 1.5,
+    "credits": {
+      "name": "Lewis Bernett",
+      "url": "https://www.instagram.com/lewisbcine"
+    }
+  },
+  {
+    "filename": "DSR_0151.jpg",
+    "title": "Shots from 'The Solider, The Father, and Samuel' - a Short Film",
+    "datetime": "2026-07-25T13:55:19",
+    "type": [
+      "Portrait"
+    ],
+    "aspect_ratio": 1.5,
+    "credits": {
+      "name": "Lewis Bernett",
+      "url": "https://www.instagram.com/lewisbcine"
+    }
+  },
+  {
+    "filename": "DSR_0121.jpg",
+    "title": "Shots from 'The Solider, The Father, and Samuel' - a Short Film",
+    "datetime": "2026-07-25T13:39:02",
+    "type": [
+      "Signature",
+      "Portrait"
+    ],
+    "aspect_ratio": 0.667,
+    "credits": {
+      "name": "Lewis Bernett",
+      "url": "https://www.instagram.com/lewisbcine"
+    }
+  },
+  {
+    "filename": "DSR_0061.jpg",
+    "title": "Shots from 'The Solider, The Father, and Samuel' - a Short Film",
+    "datetime": "2026-07-25T13:21:39",
+    "type": [
+      "Light & Reflection"
+    ],
+    "aspect_ratio": 0.667,
+    "credits": {
+      "name": "Lewis Bernett",
+      "url": "https://www.instagram.com/lewisbcine"
+    }
+  },
+  {
+    "filename": "DSR_0060.jpg",
+    "title": "Shots from 'The Solider, The Father, and Samuel' - a Short Film",
+    "datetime": "2026-07-25T13:21:32",
+    "type": [],
+    "aspect_ratio": 0.667,
+    "credits": {
+      "name": "Lewis Bernett",
+      "url": "https://www.instagram.com/lewisbcine"
+    }
+  },
+  {
     "filename": "DSR_0618_1.jpg",
     "title": "An Experiment Soap Bubble Photography",
     "datetime": "2025-08-07T16:47:33",
-    "type": ["Signature", "Light & Reflection"],
+    "type": [
+      "Signature",
+      "Light & Reflection"
+    ],
     "aspect_ratio": 0.667
   },
   {
     "filename": "DSR_0614_1.jpg",
     "title": "An Experiment Soap Bubble Photography",
     "datetime": "2025-08-07T16:26:00",
-    "type": ["Light & Reflection"],
+    "type": [
+      "Light & Reflection"
+    ],
     "aspect_ratio": 1.5
   },
   {
     "filename": "DSR_0610_1.jpg",
     "title": "An Experiment Soap Bubble Photography",
     "datetime": "2025-08-07T16:05:36",
-    "type": ["Signature", "Light & Reflection"],
+    "type": [
+      "Signature",
+      "Light & Reflection"
+    ],
     "aspect_ratio": 1.5
   },
   {
@@ -35,7 +189,8 @@
     "title": "University of Warwick - Coventry",
     "datetime": "2025-02-19T18:59:22",
     "type": [
-      "Portrait", "Light & Reflection"
+      "Portrait",
+      "Light & Reflection"
     ],
     "aspect_ratio": 0.667
   },
@@ -45,7 +200,8 @@
     "datetime": "2025-02-19T18:40:02",
     "type": [
       "Signature",
-      "Portrait", "Light & Reflection"
+      "Portrait",
+      "Light & Reflection"
     ],
     "aspect_ratio": 0.667
   },
@@ -73,7 +229,8 @@
     "datetime": "2024-11-23T18:34:55",
     "type": [
       "Signature",
-      "Portrait", "Light & Reflection"
+      "Portrait",
+      "Light & Reflection"
     ],
     "aspect_ratio": 0.667
   },
@@ -100,19 +257,37 @@
     "title": "University of Warwick - Coventry",
     "datetime": "2024-10-10T21:11:01",
     "type": [
-      "Portrait", "Light & Reflection"
+      "Portrait",
+      "Light & Reflection"
     ],
     "aspect_ratio": 1.0
+  },
+  {
+    "filename": "20240911_155314.jpg",
+    "title": "'Emotions' - A collaboration with Rohith S",
+    "datetime": "2024-09-11T15:53:14",
+    "type": [
+      "BTS"
+    ],
+    "aspect_ratio": 1.333,
+    "credits": {
+      "name": "Rohith Senthilkumaran",
+      "url": "https://www.instagram.com/rsk245"
+    }
   },
   {
     "filename": "DSR_0140.jpg",
     "title": "'Emotions' - A collaboration with Rohith S",
     "datetime": "2024-09-11T15:06:36",
     "type": [
-      "Portrait", "Light & Reflection"
+      "Portrait",
+      "Light & Reflection"
     ],
     "aspect_ratio": 0.667,
-    "credits": "Rohith Senthilkumaran"
+    "credits": {
+      "name": "Rohith Senthilkumaran",
+      "url": "https://www.instagram.com/rsk245"
+    }
   },
   {
     "filename": "DSR_0134_1.jpg",
@@ -123,35 +298,52 @@
       "Portrait"
     ],
     "aspect_ratio": 0.667,
-    "credits": "Rohith Senthilkumaran"
+    "credits": {
+      "name": "Rohith Senthilkumaran",
+      "url": "https://www.instagram.com/rsk245"
+    }
   },
   {
     "filename": "DSC_10283.jpg",
     "title": "'Blur' - Long Exposure Photography",
     "datetime": "2024-08-14T15:04:30",
-    "type": ["Light & Reflection", "Portrait"],
+    "type": [
+      "Light & Reflection",
+      "Portrait"
+    ],
     "aspect_ratio": 0.561,
-    "credits": "Rohith Senthilkumaran"
+    "credits": {
+      "name": "Rohith Senthilkumaran",
+      "url": "https://www.instagram.com/rsk245"
+    }
   },
   {
     "filename": "DSC_10448.jpg",
     "title": "'Blur' - Long Exposure Photography",
     "datetime": "2024-06-25T16:35:56",
     "type": [
-      "Light & Reflection", "Portrait"
+      "Light & Reflection",
+      "Portrait"
     ],
     "aspect_ratio": 1.5,
-    "credits": "Rohith Senthilkumaran"
+    "credits": {
+      "name": "Rohith Senthilkumaran",
+      "url": "https://www.instagram.com/rsk245"
+    }
   },
   {
     "filename": "DSC_10445.jpg",
     "title": "'Blur' - Long Exposure Photography",
     "datetime": "2024-06-25T16:16:08",
     "type": [
-      "Light & Reflection", "Portrait"
+      "Light & Reflection",
+      "Portrait"
     ],
     "aspect_ratio": 1.5,
-    "credits": "Rohith Senthilkumaran"
+    "credits": {
+      "name": "Rohith Senthilkumaran",
+      "url": "https://www.instagram.com/rsk245"
+    }
   },
   {
     "filename": "DSC_10388_1.jpg",
@@ -159,10 +351,14 @@
     "datetime": "2024-04-17T15:30:15",
     "type": [
       "Signature",
-      "Light & Reflection", "Portrait"
+      "Light & Reflection",
+      "Portrait"
     ],
     "aspect_ratio": 0.667,
-    "credits": "Rohith Senthilkumaran"
+    "credits": {
+      "name": "Rohith Senthilkumaran",
+      "url": "https://www.instagram.com/rsk245"
+    }
   },
   {
     "filename": "DSC_10381.jpg",
@@ -172,7 +368,10 @@
       "Portrait"
     ],
     "aspect_ratio": 0.667,
-    "credits": "Rohith Senthilkumaran"
+    "credits": {
+      "name": "Rohith Senthilkumaran",
+      "url": "https://www.instagram.com/rsk245"
+    }
   },
   {
     "filename": "DSC_10382.jpg",
@@ -182,14 +381,27 @@
       "Portrait"
     ],
     "aspect_ratio": 0.561,
-    "credits": "Rohith Senthilkumaran"
+    "credits": {
+      "name": "Rohith Senthilkumaran",
+      "url": "https://www.instagram.com/rsk245"
+    }
+  },
+  {
+    "filename": "20240416_132508.jpg",
+    "title": "Studio Photo Stack - Ladybird",
+    "datetime": "2024-04-16T13:25:08",
+    "type": [
+      "BTS"
+    ],
+    "aspect_ratio": 0.75
   },
   {
     "filename": "DSC_10379_2.jpg",
     "title": "Studio Photo Stack - Ladybird",
     "datetime": "2024-04-16T13:13:31",
     "type": [
-      "Signature", "Macro"
+      "Signature",
+      "Macro"
     ],
     "aspect_ratio": 1.333
   },
@@ -218,7 +430,8 @@
     "datetime": "2024-03-24T22:36:31",
     "type": [
       "Signature",
-      "Portrait", "Light & Reflection"
+      "Portrait",
+      "Light & Reflection"
     ],
     "aspect_ratio": 0.667
   },
@@ -227,7 +440,8 @@
     "title": "Light Painting Workshop",
     "datetime": "2024-03-24T22:16:52",
     "type": [
-      "Portrait", "Light & Reflection"
+      "Portrait",
+      "Light & Reflection"
     ],
     "aspect_ratio": 1.25
   },
@@ -237,7 +451,8 @@
     "datetime": "2024-03-24T22:05:37",
     "type": [
       "Signature",
-      "Portrait", "Light & Reflection"
+      "Portrait",
+      "Light & Reflection"
     ],
     "aspect_ratio": 0.8
   },
@@ -265,7 +480,8 @@
     "title": "An Experiment in Fire Photography",
     "datetime": "2023-08-15T21:58:29",
     "type": [
-      "Portrait", "Light & Reflection"
+      "Portrait",
+      "Light & Reflection"
     ],
     "aspect_ratio": 0.667
   },
@@ -285,7 +501,8 @@
     "title": "An Experiment in Fire Photography",
     "datetime": "2023-08-15T21:46:26",
     "type": [
-      "Portrait", "Light & Reflection"
+      "Portrait",
+      "Light & Reflection"
     ],
     "aspect_ratio": 0.667
   },
@@ -301,10 +518,31 @@
     "aspect_ratio": 0.666
   },
   {
+    "filename": "20230815_210458.jpg",
+    "title": "An Experiment in Fire Photography",
+    "datetime": "2023-08-15T21:04:58",
+    "type": [
+      "BTS"
+    ],
+    "aspect_ratio": 0.8
+  },
+  {
+    "filename": "20230815_204735.jpg",
+    "title": "An Experiment in Fire Photography",
+    "datetime": "2023-08-15T20:47:35",
+    "type": [
+      "BTS"
+    ],
+    "aspect_ratio": 1.333
+  },
+  {
     "filename": "DSC_9718_2.jpg",
     "title": "An Experiment in Fire Photography",
     "datetime": "2023-08-08T17:28:44",
-    "type": ["Portrait", "Light & Reflection"],
+    "type": [
+      "Portrait",
+      "Light & Reflection"
+    ],
     "aspect_ratio": 0.667
   },
   {
@@ -350,7 +588,7 @@
     "datetime": "2023-02-04T22:39:35",
     "type": [
       "Signature",
-      "Objects & Products"
+      "Product"
     ],
     "aspect_ratio": 0.667
   },
@@ -359,7 +597,7 @@
     "title": "",
     "datetime": "2023-02-04T22:37:00",
     "type": [
-      "Objects & Products"
+      "Product"
     ],
     "aspect_ratio": 0.667
   },
@@ -368,7 +606,7 @@
     "title": "",
     "datetime": "2023-01-02T23:23:52",
     "type": [
-      "Objects & Products"
+      "Product"
     ],
     "aspect_ratio": 1.5
   },
@@ -376,16 +614,24 @@
     "filename": "DSC_6276_1.jpg",
     "title": "",
     "datetime": "2022-12-22T17:55:21",
-    "type": ["Light & Reflection"],
+    "type": [
+      "Light & Reflection"
+    ],
     "aspect_ratio": 1.5
   },
   {
     "filename": "DSC_5651_1.jpg",
     "title": "'Portal' - A collaboration with Rohith S",
     "datetime": "2022-10-13T19:25:30",
-    "type": ["Signature", "Light & Reflection"],
+    "type": [
+      "Signature",
+      "Light & Reflection"
+    ],
     "aspect_ratio": 1.52,
-    "credits":"Rohith Senthilkumaran"
+    "credits": {
+      "name": "Rohith Senthilkumaran",
+      "url": "https://www.instagram.com/rsk245"
+    }
   },
   {
     "filename": "DSC_2085.jpg",
@@ -440,7 +686,7 @@
     "title": "",
     "datetime": "2021-08-05T20:54:30",
     "type": [
-      "Objects & Products"
+      "Product"
     ],
     "aspect_ratio": 1.778
   },

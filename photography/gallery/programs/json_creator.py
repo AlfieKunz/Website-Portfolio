@@ -5,8 +5,8 @@ from PIL import Image, ImageOps
 from PIL.ExifTags import TAGS
 
 # --- CONFIGURATION ---
-CATEGORY = "private/alicejosh"
-DIREC = "C:/Users/alfie/Website-Portfolio/photography/gallery"
+CATEGORY = "studio"
+DIREC = "C:/Users/alfie/My Drive/Programming/Website-Portfolio/photography/gallery"
 IMAGE_FOLDER = DIREC + "/images/" + CATEGORY + "/full/"
 JSON_OUTPUT_PATH = DIREC + "/data/" + CATEGORY + ".json"
 DEFAULT_TITLE = ""
@@ -16,27 +16,19 @@ DEFAULT_DATE = "22/03/26"
 
 
 # Loads default tags based on the category:
-match CATEGORY:
-    case "astro":
-        DEFAULT_TYPE = ["Signature", "Moon", "Stars"]
-    case "corporate":
-        DEFAULT_TYPE = ["Signature", "Headshots", "Action & Staged", "Venue"]
-    case "event":
-        DEFAULT_TYPE = ["Signature", "Groups", "Candids", "Personal & Couples", "Venue", "Awards"]
-    case "landscape":
-        DEFAULT_TYPE = ["Signature", "City", "Water & Ocean", "Mountains & Hills", "Fields"]
-    case "nature":
-        DEFAULT_TYPE = ["Signature", "Animals", "Insects & Macro", "Plants & Greenery"]
-    case "portrait":
-        DEFAULT_TYPE = ["Signature", "Nature", "Studio", "Landscape", "Animals"]
-    case "sport":
-        DEFAULT_TYPE = ["Signature", "Action", "Emotion", "Portraits", "Team"]
-    case "studio":
-        DEFAULT_TYPE = ["Signature", "Light & Reflection", "Portrait", "Objects & Products", "Macro"]
-    case "travel":
-        DEFAULT_TYPE = ["Signature", "Street & Buildings", "Greenery", "Water"]
-    case _: # Base case.
-        DEFAULT_TYPE = ["Signature"]
+CATEGORY_TYPES = {
+    "astro": ["Signature", "Moon", "Stars"],
+    "corporate": ["Signature", "Headshots", "Action & Staged", "Venue"],
+    "event": ["Signature", "Groups", "Candids", "Couples & Solo", "Venue", "Celebration"],
+    "landscape": ["Signature", "City", "Water & Ocean", "Mountains & Hills", "Fields"],
+    "nature": ["Signature", "Animals", "Insects & Macro", "Plants & Greenery"],
+    "portrait": ["Signature", "Nature", "Studio", "Landscape", "Animals"],
+    "sport": ["Signature", "Action", "Emotion", "Portraits", "Team"],
+    "studio": ["Signature", "Light & Reflection", "Portrait", "Product", "Macro", "BTS"],
+    "travel": ["Signature", "Street & Buildings", "Greenery", "Water"],
+}
+# Base case fallback.
+DEFAULT_TYPE = CATEGORY_TYPES.get(CATEGORY, ["Signature"])
 
 def get_exif_data(image):
     """Extract EXIF data dictionary from a PIL image."""
