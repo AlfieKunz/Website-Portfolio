@@ -537,9 +537,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let filteredImages;
             if (currentFilter === "All") {
-                filteredImages = allImages;
+                filteredImages = headerContent.tags.includes("BTS") ? allImages.filter(img => !img.type?.includes("BTS")) : allImages;
             } else {
-                filteredImages = allImages.filter(img => img.type && img.type.includes(currentFilter));
+                filteredImages = allImages.filter(img => img.type?.includes(currentFilter));
             }
             
             FilterUpdateGallery(filteredImages);
@@ -594,9 +594,9 @@ document.addEventListener("DOMContentLoaded", () => {
             OnlyBallPhotosCheckbox.addEventListener('change', () => {
                 let filteredImages;
                 if (currentFilter === "All") {
-                    filteredImages = allImages;
+                    filteredImages = headerContent.tags.includes("BTS") ? allImages.filter(img => !img.type?.includes("BTS")) : allImages;
                 } else {
-                    filteredImages = allImages.filter(img => img.type && img.type.includes(currentFilter));
+                    filteredImages = allImages.filter(img => img.type?.includes(currentFilter));
                 }
                 FilterUpdateGallery(filteredImages);
             });
