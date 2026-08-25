@@ -222,6 +222,17 @@ document.addEventListener('DOMContentLoaded', () => {
             LiveDemoBtn.textContent = 'DEMO';
             Actions.appendChild(LiveDemoBtn);
         }
+        if (READMECont.dataset.doc) {
+            const DocumentBtn = document.createElement('a');
+            DocumentBtn.className = 'showcase-icon-btn showcase-icon-btn';
+            DocumentBtn.href = READMECont.dataset.doc;
+            DocumentBtn.target = '_blank';
+            DocumentBtn.rel = 'noopener noreferrer';
+            DocumentBtn.title = 'View Document';
+            DocumentBtn.setAttribute('aria-label', 'View Document');
+            DocumentBtn.innerHTML = '<i class="bi bi-file-earmark-text"></i>';
+            Actions.appendChild(DocumentBtn);
+        }
         Content.insertBefore(Actions, CloseBtn);
     });
 
