@@ -537,7 +537,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let filteredImages;
             if (currentFilter === "All") {
-                filteredImages = headerContent.tags.includes("BTS") ? allImages.filter(img => !img.type?.includes("BTS")) : allImages;
+                filteredImages = headerContent.tags.includes("BTS") ? allImages.filter(img => !(img.type?.length === 1 && img.type[0] === "BTS")) : allImages;
             } else {
                 filteredImages = allImages.filter(img => img.type?.includes(currentFilter));
             }
