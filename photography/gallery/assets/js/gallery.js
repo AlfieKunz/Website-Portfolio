@@ -271,10 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const YearOfCapture = new Date(img.datetime).getFullYear();
                 
                 // For some reason, github doesn't like photos being saved under DSC_0000_1.JPG - we need to lowercase this.
-                var imgfilename = img.filename
-                if (img.filename.substring(4).includes("_")) {
-                    imgfilename = imgfilename.replace(/\.[a-zA-Z]+$/g, (match) => match.toLowerCase());
-                }
+                const imgfilename = img.filename.replace(/\.[^/.]+$/, ext => ext.toLowerCase());
                 
                 // The gif here represents a black image, used rather than the default "no image" symbol
                 const dirFull = category == "private" ? 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' : `images/${categoryName}/full/${imgfilename}`
