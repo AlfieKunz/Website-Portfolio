@@ -1,5 +1,53 @@
 [
   {
+    "filename": "DSR_1140_1.jpg",
+    "title": "",
+    "datetime": "2026-08-18T20:29:12",
+    "type": [
+      "Moon"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
+    "filename": "DSR_1134_1.jpg",
+    "title": "",
+    "datetime": "2026-08-18T19:40:00",
+    "type": [
+      "Signature",
+      "Moon"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
+    "filename": "DSR_1074_1.jpg",
+    "title": "Total Solar Eclipse - Barcelona",
+    "datetime": "2026-08-12T19:33:36",
+    "type": [
+      "Signature",
+      "Phenomena"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
+    "filename": "DSR_1073_1.jpg",
+    "title": "Total Solar Eclipse - Barcelona",
+    "datetime": "2026-08-12T19:28:48",
+    "type": [
+      "Phenomena"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
+    "filename": "DSR_1071_1.jpg",
+    "title": "Total Solar Eclipse - Barcelona",
+    "datetime": "2026-08-12T19:28:30",
+    "type": [
+      "Signature",
+      "Phenomena"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
     "filename": "DSR_0970_1.jpg",
     "title": "Barnard Castle - County Durham",
     "datetime": "2026-03-29T00:02:37",
@@ -51,7 +99,9 @@
     "filename": "DSR_0202_1.jpg",
     "title": "Aurora Borealis - Coventry",
     "datetime": "2024-10-11T00:23:48",
-    "type": [],
+    "type": [
+      "Phenomena"
+    ],
     "aspect_ratio": 1.5
   },
   {
@@ -59,7 +109,8 @@
     "title": "Aurora Borealis - Coventry",
     "datetime": "2024-10-11T00:20:16",
     "type": [
-      "Signature"
+      "Signature",
+      "Phenomena"
     ],
     "aspect_ratio": 0.667
   },

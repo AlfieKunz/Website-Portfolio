@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     astro: {
         title: "Gallery -<br>Astrophotography",
         description: "Studying physics at university, and having a knack for long exposure photography, has given me a huge appreciation for the stars & sky. Countless blissful nights were spent taking these photos, nights have now become some of the happiest of my life.",
-        StartPhoto: "DSC_8247_1.jpg",
+        StartPhoto: "DSR_1071_1.jpg",
         heightDelta: 0,
-        tags: ["Signature", "Moon", "Stars"]
+        tags: ["Signature", "Stars", "Phenomena", "Moon"]
     },
     corporate: {
         title: "Gallery -<br>Corporate",

@@ -5,7 +5,7 @@ from PIL import Image, ImageOps
 from PIL.ExifTags import TAGS
 
 # --- CONFIGURATION ---
-CATEGORY = "studio"
+CATEGORY = "travel"
 DIREC = "C:/Users/alfie/My Drive/Programming/Website-Portfolio/photography/gallery"
 IMAGE_FOLDER = DIREC + "/images/" + CATEGORY + "/full/"
 JSON_OUTPUT_PATH = DIREC + "/data/" + CATEGORY + ".json"
@@ -17,7 +17,7 @@ DEFAULT_DATE = "22/03/26"
 
 # Loads default tags based on the category:
 CATEGORY_TYPES = {
-    "astro": ["Signature", "Moon", "Stars"],
+    "astro": ["Signature", "Stars", "Phenomena", "Moon", ],
     "corporate": ["Signature", "Headshots", "Action & Staged", "Venue"],
     "event": ["Signature", "Groups", "Candids", "Couples & Solo", "Venue", "Celebration"],
     "landscape": ["Signature", "City", "Water & Ocean", "Mountains & Hills", "Fields"],
@@ -25,7 +25,7 @@ CATEGORY_TYPES = {
     "portrait": ["Signature", "Nature", "Studio", "Landscape", "Animals"],
     "sport": ["Signature", "Action", "Emotion", "Portraits", "Team"],
     "studio": ["Signature", "Light & Reflection", "Portrait", "Product", "Macro", "BTS"],
-    "travel": ["Signature", "Street & Buildings", "Greenery", "Water"],
+    "travel": ["Signature", "Rocks & Mountains", "Greenery", "Street & Buildings", "Water"],
 }
 # Base case fallback.
 DEFAULT_TYPE = CATEGORY_TYPES.get(CATEGORY, ["Signature"])

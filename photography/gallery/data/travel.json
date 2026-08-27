@@ -1,5 +1,126 @@
 [
   {
+    "filename": "DSR_1151_1.jpg",
+    "title": "Barcelona - Spain",
+    "datetime": "2026-08-19T12:22:39",
+    "type": [
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1142_1.jpg",
+    "title": "Barcelona - Spain",
+    "datetime": "2026-08-18T20:39:31",
+    "type": [],
+    "aspect_ratio": 1.5
+  },
+  {
+    "filename": "DSR_1133_1.jpg",
+    "title": "Barcelona - Spain",
+    "datetime": "2026-08-18T19:34:14",
+    "type": [
+      "Signature",
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
+    "filename": "DSR_1124_1.jpg",
+    "title": "Barcelona - Spain",
+    "datetime": "2026-08-18T19:12:19",
+    "type": [
+      "Signature",
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1123_1.jpg",
+    "title": "Barcelona - Spain",
+    "datetime": "2026-08-18T19:12:00",
+    "type": [
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1122_1.jpg",
+    "title": "Barcelona - Spain",
+    "datetime": "2026-08-18T18:51:56",
+    "type": [
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1120_1.jpg",
+    "title": "Barcelona - Spain",
+    "datetime": "2026-08-18T18:48:27",
+    "type": [
+      "Signature",
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1118_1.jpg",
+    "title": "Barcelona - Spain",
+    "datetime": "2026-08-18T18:29:03",
+    "type": [
+      "Signature",
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1103_1.jpg",
+    "title": "Barcelona - Spain",
+    "datetime": "2026-08-18T16:19:31",
+    "type": [
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1094_1.jpg",
+    "title": "Pals - Spain",
+    "datetime": "2026-08-15T15:18:04",
+    "type": [
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1086_1.jpg",
+    "title": "Pals - Spain",
+    "datetime": "2026-08-15T14:20:08",
+    "type": [
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1084_1.jpg",
+    "title": "Pals - Spain",
+    "datetime": "2026-08-15T14:08:17",
+    "type": [
+      "Signature",
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1078_1.jpg",
+    "title": "L'Estartit - Spain",
+    "datetime": "2026-08-13T19:46:46",
+    "type": [
+      "Signature",
+      "Water"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
     "filename": "DSR_0315.jpg",
     "title": "Shots from 'The Solider, The Father, and Samuel' - a Short Film",
     "datetime": "2026-07-25T15:22:02",
@@ -8,7 +129,7 @@
       "Street & Buildings"
     ],
     "aspect_ratio": 1.5,
-        "credits": {
+    "credits": {
       "name": "Lewis Bernett",
       "url": "https://www.instagram.com/lewisbcine"
     }

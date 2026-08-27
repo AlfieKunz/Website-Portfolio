@@ -3,7 +3,7 @@ import os, io
 
 
 # --- CONFIGURATION ---
-CATEGORY = "studio"
+CATEGORY = "travel"
 direc = "C:/Users/alfie/My Drive/Programming/Website-Portfolio/photography/gallery/images/" + CATEGORY
 input_folder = direc + "/full"
 output_folder = direc + "/thumb"
