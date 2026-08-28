@@ -44,7 +44,7 @@ This work is self-motivated and self-funded, and is written primarily in HTML, C
 ✅ Clean description of my academic profile, expertise and core information, along with easy links to my CV (hosted server-side).  
 ✅ Full career history, containing bite-sized bubbles for each education, experience, languages, and core competencies category (along with colour gradients that evolve as the user scrolls).  
 ✅ In-depth career information via a floating project overview panel. Contains easy links to related projects and experience via a small floating gallery system.  
-✅ Full list of my available projects, with bubbles containing key project info & associations, along with an eye-drawing hero image.  
+✅ Full list of my available projects, with bubbles containing key project info & associations, eye-drawing hero images, and separation into sub-project windows.  
 ✅ In-depth project information via a floating project overview panel, that fetches, parses and integrates live GitHub repo READMEs into my website colour scheme. Hosts related PDFs, interactive demos, and links to external media and GitHub repositories.  
 ✅ Call to action and contact page, handled via a robust 'form submission' feature with variable message size handling.  
 ✅ Patient redirecting links at the bottom of the page, for social media, and the academic site.  
@@ -101,11 +101,13 @@ To better navigate this project, please see below for the related folder structu
 Website-Portfolio
 ├─ academia               // Academic section
 │  ├─ assets              // Images of each project, Webmanifest info for academia
-│  ├─ career.html         // Experience & Education section, experience panels with related projects
+│  ├─ career              //
+|  │  └─ index.html       // Experience & Education section, experience panels with related projects
 │  ├─ css                 // Bootstrap styling (blue theme for academia)
 │  ├─ index.html          // Main page for academia: slideshow, deferring to other sections
 │  ├─ js                  // Scripts for academia slideshow, hamburger, and forms
-│  └─ projects.html       // Projects showcases and information, GitHub README integration
+│  └─ projects            //
+|     └─ index.html       // Projects showcases and information, GitHub README integration
 ├─ assets                 // CSS styling, favicon and thumbnails for main page
 ├─ index.html             // Main page HTML; scripting for background animation
 ├─ photography            // Photography section
