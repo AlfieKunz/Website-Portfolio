@@ -242,6 +242,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const OpenShowcase = document.querySelector('.item-showcase-overlay.active');
         if (OpenShowcase && OpenShowcase.id !== id) {
             OpenShowcase.classList.remove('active');
+
+            // Resets scrolling when swapping panels directly.
+            OpenShowcase.querySelector('.showcase-desc-area')?.scrollTo(0, 0);
+            OpenShowcase.querySelector('.secondary-projects-container')?.scrollTo(0, 0);
+            const galleryArea = OpenShowcase.querySelector('.showcase-gallery-area');
+            if (galleryArea) { 
+                galleryArea.scrollLeft = 0;
+                galleryArea.scrollTop = 0; 
+            }
         }
         const Showcase = document.getElementById(id);
         Showcase.classList.add('active');
@@ -287,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const CloseButton = showcase.querySelector('.showcase-close-btn');
         if (CloseButton) {CloseButton.addEventListener('click', () => CloseShowcase(showcase)); }
         showcase.addEventListener('click', (e) => {
-            if (e.target === showcase) { CloseShowcase(showcase); }
+            if (e.target === showcase || e.target.classList.contains('secondary-projects-container')) { CloseShowcase(showcase); }
         });
     });
     document.addEventListener('keydown', (e) => {
