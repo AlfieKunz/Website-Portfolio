@@ -259,7 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const CloseShowcase = (Showcase) => {
         if (Showcase) {
             // Resets scroll.
-            Showcase.querySelector('.showcase-desc-area').scrollTop = 0;
+            Showcase.querySelector('.showcase-desc-area')?.scrollTo(0, 0);
+            Showcase.querySelector('.secondary-projects-container')?.scrollTo(0, 0);
             const galleryArea = Showcase.querySelector('.showcase-gallery-area');
             if (galleryArea) { 
                 galleryArea.scrollLeft = 0;
