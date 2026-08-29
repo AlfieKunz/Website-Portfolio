@@ -11882,6 +11882,8 @@ display: grid;
     color: inherit;
     overflow: hidden;
     cursor: pointer;
+    position: relative; 
+    min-height: 260px;
 }
 .secondary-project-item.large:hover {
     transform: translateY(-5px) scale(1.01);
@@ -11901,15 +11903,17 @@ display: grid;
     color: #1e293b;
 }
 .secondary-project-item.large .secondary-project-item-text p {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     color: #64748b;
     margin: 0;
     line-height: 1.6;
 }
 .secondary-project-item.large img {
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 40%;
-    height: auto;
-    min-height: 260px;
+    height: 100%;
     object-fit: cover;
     border-radius: 0;
     box-shadow: none;
@@ -11927,6 +11931,7 @@ display: grid;
     }
     .secondary-project-item.large img {
         width: 100%;
-        height: 220px;
+        min-height: 200px;
+        height: 200px;
     }
 }
