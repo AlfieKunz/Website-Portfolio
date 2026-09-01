@@ -132,16 +132,16 @@ html, body {
 	will-change: transform;
 }
 
-.panel-photography .panel-bg {
-	background-image:
-		linear-gradient(110deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.08) 55%),
-		url('../img/Photography.jpg');
-}
-
 .panel-academia .panel-bg {
 	background-image:
-		linear-gradient(70deg, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.60) 100%),
+		linear-gradient(110deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.08) 55%),
 		url('../img/Academia.jpg');
+}
+
+.panel-photography .panel-bg {
+	background-image:
+		linear-gradient(70deg, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.60) 100%),
+		url('../img/Photography.jpg');
 }
 
 
@@ -179,18 +179,18 @@ html, body {
 
 
 @media (hover: hover) and (pointer: fine) {
-    .content:has(.panel-photography:hover) .panel-photography,
-    .content:has(.panel-academia:hover) .panel-academia {
+    .content:has(.panel-academia:hover) .panel-academia,
+    .content:has(.panel-photography:hover) .panel-photography {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
         z-index: 3 !important;
         transition: clip-path 0.4s cubic-bezier(0.77, 0, 0.175, 1), z-index 0s 0s !important;
     }
-    .content:has(.panel-photography:hover) .panel-photography .panel-bg,
-    .content:has(.panel-academia:hover) .panel-academia .panel-bg {
+    .content:has(.panel-academia:hover) .panel-academia .panel-bg,
+    .content:has(.panel-photography:hover) .panel-photography .panel-bg {
         transform: scale(1.05);
     }
-    .content:has(.panel-photography:hover) .panel-photography .panel-label,
-    .content:has(.panel-academia:hover) .panel-academia .panel-label {
+    .content:has(.panel-academia:hover) .panel-academia .panel-label,
+    .content:has(.panel-photography:hover) .panel-photography .panel-label {
         left: 50% !important;
         top: 50% !important;
         transform: translate(-50%, -50%) scale(1.2) !important;
@@ -212,20 +212,20 @@ html, body {
     opacity: 1 !important;
 }
 
-.panel-photography {
+.panel-academia {
     clip-path: polygon(0 0, 57% 0, 43% 100%, 0 100%);
     z-index: 2;
 }
-.panel-academia {
+.panel-photography {
     clip-path: polygon(57% 0, 100% 0, 100% 100%, 43% 100%);
     z-index: 1;
 }
-.panel-photography .panel-label {
+.panel-academia .panel-label {
     left: 23%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
-.panel-academia .panel-label {
+.panel-photography .panel-label {
     left: 77%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -247,19 +247,19 @@ html, body {
     .header .subtitle { font-size: clamp(0.8rem, 2.1vw, 1.0rem); }
     .content { height: 65vh; width: 95%; }
 
-    .panel-photography { 
+    .panel-academia { 
         clip-path: polygon(0 0, 100% 0, 100% 56%, 0 44%); 
     }
-    .panel-academia { 
+    .panel-photography { 
         clip-path: polygon(0 44%, 100% 56%, 100% 100%, 0 100%); 
     }
 
-    .panel-photography .panel-label {
+    .panel-academia .panel-label {
         left: 50%;
         top: 29%;
         transform: translate(-50%, -50%);
     }
-    .panel-academia .panel-label {
+    .panel-photography .panel-label {
         left: 50%;
         top: 73%;
         transform: translate(-50%, -50%);
