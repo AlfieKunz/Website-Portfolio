@@ -9,7 +9,7 @@
 
 My first official website, intended for storing my **academic profile**, projects and CV, along with my **photography portfolio** across a variety of categories. The academic profile contains a brief introduction, links to my projects with interactive demos, and a full descriptive list of my experience and skills. The photography portfolio captures all my photography to date, across a large variety of sub-genres, using an intuitive gallery system. This is also used to host private showcases, for event and corporate work, with additional functionalities to accommodate for these clients.
 
-This work is self-motivated and self-funded, and is written primarily in HTML, CSS (taking inspiration from the 'Start Bootstrap' styling), and JS.
+This work is self-motivated and self-funded, and is written primarily in HTML, CSS (taking inspiration from the 'Start Bootstrap' styling), and JS. Domain served by NameCheap, and hosted by Cloudflare Pages.
 
 <p align="center">
   <img width="90%" alt="MainPageDemo" src="./assets/img/readme/MainPageDemo.jpg" />
@@ -19,12 +19,14 @@ This work is self-motivated and self-funded, and is written primarily in HTML, C
 
 ## Features and Highlights
 
-### Main Page:  
+### Hub Page:  
+✅ Responds to "hub.alfiekunz.co.uk".
 ✅ Intuitive portals to both the photography and academia sections, with smooth hovering animations.  
 ✅ Client-side background animation, using discretised superpositions of non-linear phase modulations.  
 ✅ Intelligent and performance-mindful page re-organisation to accommodate for a variety of screen sizes & shapes.  
 
 ### Photography:  
+✅ Responds to "photography.alfiekunz.co.uk" and "photo.alfiekunz.co.uk".
 ✅ Spacious and friendly visuals that introduce the user to my photography style and features.  
 ✅ Unobtrusive hamburger, that adapts to the content underneath it: able to quickly jump across sections, or to the top of the page by clicking my name.  
 ✅ Reactive windows for each gallery type, allowing the user to easily determine which photos are in each gallery.  
@@ -98,18 +100,20 @@ Feel free to also fork this repository, open an issue, or submit pull requests. 
 To better navigate this project, please see below for the related folder structure.
 
 ```
-Website-Portfolio
-├─ academia               // Academic section
-│  ├─ assets              // Images of each project, Webmanifest info for academia
-│  ├─ career              //
-|  │  └─ index.html       // Experience & Education section, experience panels with related projects
-│  ├─ css                 // Bootstrap styling (blue theme for academia)
-│  ├─ index.html          // Main page for academia: slideshow, deferring to other sections
-│  ├─ js                  // Scripts for academia slideshow, hamburger, and forms
-│  └─ projects            //
-|     └─ index.html       // Projects showcases and information, GitHub README integration
-├─ assets                 // CSS styling, favicon and thumbnails for main page
-├─ index.html             // Main page HTML; scripting for background animation
+Website-Portfolio         // Main page serves academic section
+├─ 404.html               // Redirect page across many subpages in my website
+├─ assets                 // Assets to academic section: not shown CV or logo
+│  ├─ experience          // Images for the Career History showcase
+│  ├─ favicon             // 'LinkedIn logo' favicon for academic section
+│  ├─ img                 // Slideshow images for main page
+│  └─ projects            // Images, documents, and other assets for all projects
+├─ career                 // Experience & Education section, experience panels with related projects
+├─ css                    // Bootstrap styling (blue theme for academia)
+├─ hub                    // Splash page for redirecting the user to either the academic or photography section
+│  ├─ assets              // CSS styling, favicon and thumbnails for hub page
+│  └─ index.html          // Hub page HTML; scripting for background animation
+├─ index.html             // Main page for academia: slideshow, deferring to other sections
+├─ js                     // Scripts for academia slideshow, hamburger, and forms
 ├─ photography            // Photography section
 │  ├─ assets              // Favicons, images for main photography page (hero + gallery)
 │  ├─ css                 // Bootstrap styling (orange theme for photography)
@@ -127,6 +131,7 @@ Website-Portfolio
 │  │  └─ programs         // Python programs for handling new photos, thumb & JSON creation, encrypting, etc
 │  ├─ index.html          // Main page for photography: displaying galleries, hamburger, forms
 │  └─ js                  // Scripts for photography gallery hovering, hamburger, and forms
+├─ projects               // Projects showcases and information, GitHub README integration
 └─ shared                 // All other files for personal use, not related to website
 ```
 

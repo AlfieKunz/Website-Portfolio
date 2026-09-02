@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-        const BaseName = 'https://www.alfiekunz.co.uk/';
+        const HubBase = 'https://hub.alfiekunz.co.uk/';
+        const AcademiaBase = 'https://alfiekunz.co.uk/';
+        const PhotoBase = 'https://photography.alfiekunz.co.uk/';
 
         const PhotographyRedirectList = ['photography', 'p'];
         const PrivateRedirectList = ['private', 'priv', 'client', 'clientphotos', 'clientshots', 'societyball',
@@ -15,34 +17,38 @@
         const CareerRedirectList = ['career', 'c', 'job', 'jobs'];
         const ProjectsRedirectList = ['proj', 'project', 'projects', 'stuff'];
 
+        const HubRedirectList = ['hub', 'h', 'main', 'splash', 'head']
+
         const RedirectDict = new Map([
-            ['cv', 'academia/assets/Alfie Kunz CV.pdf'],
-            ['epq', 'academia/assets/projects/EPQ/Alfie Kunz EPQ - Neutron Stars.pdf'],
-            ['warwick', 'academia/career/#warwick'],
-            ['beckfoot', 'academia/career/#beckfoot'],
+            ['cv', AcademiaBase + 'assets/Alfie Kunz CV.pdf'],
+            ['epq', AcademiaBase + 'assets/projects/EPQ/Alfie Kunz EPQ - Neutron Stars.pdf'],
+            ['warwick', AcademiaBase + 'career/#warwick'],
+            ['beckfoot', AcademiaBase + 'career/#beckfoot'],
 
-            ['apic', 'academia/projects/#CFD-APIC-Vortices'],
-            ['apicessay', 'academia/assets/projects/ProjectAPIC/Real-time Simulations of Momentum-Conserving Vortices - Alfie Kunz.pdf'],
-            ['chess', 'academia/projects/#Chess-Game-AI'],
-            ['chessreport', 'academia/assets/projects/ProjectChess/Alfie Kunz Computer Science NEA Project Report.pdf'],
-            ['chesstracking', 'academia/assets/projects/ProjectChess/Previous AI Search Efficiency Tracking (Plotted - 27.12.24).pdf'],
-            ['chesstournament', 'academia/projects/#Chess-Tournament'],
-            ['chessbook', 'academia/projects/#Chess-Book-Builder'],
-            ['ising', 'academia/assets/projects/ProjectIsing/Probing the Correlation Length of Metastable Annuli through Thermal Erosion in the 2D Ising Model.pdf'],
-            ['nn', 'academia/projects/#Neural-Networking'],
-            ['risk', 'academia/projects/#Risk-Calculator'],
-            ['slime', 'academia/projects/#Slime-Trails'],
-            ['tetris', 'academia/projects/#Tetris-AI'],
-            ['tictactoe', 'academia/projects/#TicTacToe'],
+            ['apic', AcademiaBase + 'projects/#CFD-APIC-Vortices'],
+            ['apicessay', AcademiaBase + 'assets/projects/ProjectAPIC/Real-time Simulations of Momentum-Conserving Vortices - Alfie Kunz.pdf'],
+            ['chess', AcademiaBase + 'projects/#Chess-Game-AI'],
+            ['chessreport', AcademiaBase + 'assets/projects/ProjectChess/Alfie Kunz Computer Science NEA Project Report.pdf'],
+            ['chesstracking', AcademiaBase + 'assets/projects/ProjectChess/Previous AI Search Efficiency Tracking (Plotted - 27.12.24).pdf'],
+            ['chesstournament', AcademiaBase + 'projects/#Chess-Tournament'],
+            ['chessbook', AcademiaBase + 'projects/#Chess-Book-Builder'],
+            ['chessmagic', AcademiaBase + 'projects/#Chess-Magic'],
+            ['ising', AcademiaBase + 'assets/projects/ProjectIsing/Probing the Correlation Length of Metastable Annuli through Thermal Erosion in the 2D Ising Model.pdf'],
+            ['nn', AcademiaBase + 'projects/#Neural-Networking'],
+            ['risk', AcademiaBase + 'projects/#Risk-Calculator'],
+            ['slime', AcademiaBase + 'projects/#Slime-Trails'],
+            ['tetris', AcademiaBase + 'projects/#Tetris-AI'],
+            ['tictactoe', AcademiaBase + 'projects/#TicTacToe'],
+            ['web', AcademiaBase + 'projects/#Website-Portfolio'],
 
-            ['landscape', 'photography/gallery/?category=landscape'],
-            ['portrait', 'photography/gallery/?category=portrait'],
-            ['nature', 'photography/gallery/?category=nature'],
-            ['studio', 'photography/gallery/?category=studio'],
-            ['travel', 'photography/gallery/?category=travel'],
-            ['corporate', 'photography/gallery/?category=corporate'],
-            ['astro', 'photography/gallery/?category=astro'],
-            ['sport', 'photography/gallery/?category=sport']
+            ['landscape', PhotoBase + 'gallery/?category=landscape'],
+            ['portrait', PhotoBase + 'gallery/?category=portrait'],
+            ['nature', PhotoBase + 'gallery/?category=nature'],
+            ['studio', PhotoBase + 'gallery/?category=studio'],
+            ['travel', PhotoBase + 'gallery/?category=travel'],
+            ['corporate', PhotoBase + 'gallery/?category=corporate'],
+            ['astro', PhotoBase + 'gallery/?category=astro'],
+            ['sport', PhotoBase + 'gallery/?category=sport']
         ]);
 
         const BaseRedirects = [...PhotographyRedirectList, ...AcademiaRedirectList];
@@ -53,24 +59,23 @@
 
         if (AllRedirects.includes(LastSegment) && (PathTree.length === 1 || (PathTree.length === 2 && BaseRedirects.includes(PathTree[0].toLowerCase())) )) {
             if (PhotographyRedirectList.includes(LastSegment)) {
-                window.location.replace(BaseName + 'photography');
+                window.location.replace(PhotoBase);
             } else if (PrivateRedirectList.includes(LastSegment)) {
-                window.location.replace(BaseName + 'photography/gallery/?category=private');
+                window.location.replace(PhotoBase + 'gallery/?category=private');
             } else if (EventRedirectList.includes(LastSegment)) {
-                window.location.replace(BaseName + 'photography/gallery/?category=event');
-
+                window.location.replace(PhotoBase + 'gallery/?category=event');
             } else if (AcademiaRedirectList.includes(LastSegment)) {
-                window.location.replace(BaseName + 'academia');
+                window.location.replace(AcademiaBase);
             } else if (CareerRedirectList.includes(LastSegment)) {
-                window.location.replace(BaseName + 'academia/career');
+                window.location.replace(AcademiaBase + 'career/');
             } else if (ProjectsRedirectList.includes(LastSegment)) {
-                window.location.replace(BaseName + 'academia/projects');
-
+                window.location.replace(AcademiaBase + 'projects/');
             } else if (RedirectDict.has(LastSegment)) {
-                window.location.replace(BaseName + RedirectDict.get(LastSegment));
+                window.location.replace(RedirectDict.get(LastSegment));
+            } else if (HubRedirectList.includes(LastSegment)) {
+                window.location.replace(HubBase);
             }
         } else if (PathTree.length !== 0) {
-            // Redirects up a branch.
             RedirectToParent();
         }
 

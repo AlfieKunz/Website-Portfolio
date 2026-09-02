@@ -634,6 +634,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = 'flex';
 
         submitButton.onclick = async () => {
+            if (submitButton.disabled) return;
 
             //Checks to see if a name has been entered.
             if (!nameInput.value) {
@@ -648,6 +649,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             //Checks to see if the name is in the database of names.
+            submitButton.disabled = true;
+            submitButton.textContent = "Validating...";
             try {
                 const response = await fetch(`data/private/${username}.json`, {
                     cache: 'no-store'
@@ -655,6 +658,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!response.ok) {                  
                     ErrorCounter += 1;
                     errorMessage.innerHTML = `<br>(${ErrorCounter}) Please enter a valid username.`;
+                    submitButton.disabled = false;
+                    submitButton.textContent = "Submit";
                     return;
                 }
             } catch {
@@ -669,9 +674,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             //Attempt to decrypt a single thumb (the first image), using the password as the key. If this succeeds, we assume that all the photos are valid.
-            submitButton.disabled = true;
-            submitButton.textContent = "Validating...";
-
             try {
                 const response = await fetch(`data/private/${username}.json`);
                 const images = await response.json();

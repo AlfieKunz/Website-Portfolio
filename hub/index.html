@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfie Kunz</title>
+    <link href="assets/css/styles.css" rel="stylesheet" />
+
+    <!-- Favicons-->
+    <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <!-- Details for search indexing. -->
+    <meta property="og:title" content="Alfie Kunz - Photographer, Masters Student">
+    <meta name="description" content="The home of both my Photography Projects & Services, and my Academic Portfolio & CV.<br>Please enjoy your stay! :)">
+    <meta property="og:description" content="The home of both my Photography Projects & Services, and my Academic Portfolio & CV.<br>Please enjoy your stay! :)">
+    <meta property="og:image" content="https://www.alfiekunz.co.uk/assets/img/logo.png">
+    <meta property="og:url" content="https://www.alfiekunz.co.uk/">
+    <meta property="og:type" content="website">
+
+    <!-- Prioritises loading of images before background animation. -->
+    <link rel="preload" href="assets/img/Photography.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/img/Academia.jpg" as="image" fetchpriority="high">
+
+</head>
+<body>
+    <canvas id="background"></canvas>
+    <section class="main">
+        
+        <header class="header">
+            <h1>Alfie Kunz</h1>
+            <p class="subtitle">The home of both my Photography Projects & Services, and my Academic Portfolio & CV.<br>Please enjoy your <span class="fixed-spacing">s</span>tay! :)</p>
+        </header>
+
+        <div class="content">
+ 
+            <a href="https://photography.alfiekunz.co.uk/" class="panel panel-photography">
+                <div class="panel-bg"></div>
+                <div class="panel-label">
+                    <h2>Photography</h2>
+                    <div class="panel-label-rule"></div>
+                </div>
+            </a>
+            <a href="https://www.alfiekunz.co.uk/" class="panel panel-academia">
+                <div class="panel-bg"></div>
+                <div class="panel-label">
+                    <h2>Academia</h2>
+                    <div class="panel-label-rule"></div>
+                </div>
+            </a>
+ 
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2026 Alfie Kunz.&nbsp&nbsp&nbspAll rights reserved.</p>
+        </footer>
+
+    </section>
+
+
+    <!-- Background Wave Pattern -->
+    <script>
+        const canvas = document.getElementById('background');
+        const CanvasDraw = canvas.getContext('2d');
+
+        const LineSpacing = 18;     
+        const StepSize = 8;
+        const NoExtraLines = Math.ceil(100 / LineSpacing);
+
+        let Width, Height, NoLines;
+        let CurrentTime = 0;
+        let PreviousTime = performance.now();
+        let PRM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function GetCanvasData() {
+            // Gets canvas info upon rescaling of window.
+            Width = window.innerWidth;
+            Height = window.innerHeight;
+            canvas.width = Width;
+            canvas.height = Height;
+            CanvasDraw.setTransform(1, 0, 0, 1, 0, 0); // Identity: represents Device Pixel Ratio of 1 (speedy).
+            NoLines = Math.ceil(Height / LineSpacing) + (NoExtraLines * 2);
+        }
+        window.addEventListener('resize', GetCanvasData);
+        GetCanvasData();
+
+        function DrawFrame() {
+            // Resets Canvas.
+            CanvasDraw.clearRect(0, 0, Width, Height);
+            CanvasDraw.save();
+            CanvasDraw.globalAlpha = 0.85;
+            CanvasDraw.lineWidth   = 1.1;
+
+            for (let yUnperturbed = -NoExtraLines * LineSpacing; yUnperturbed < (NoLines - NoExtraLines) * LineSpacing; yUnperturbed += LineSpacing) {
+                CanvasDraw.beginPath();
+                let MaxBrightness = 100; 
+                let IterationCount = 0;
+
+                for (let x = -StepSize; x <= Width + StepSize; x += StepSize) {
+                    // Creates three waves, a large-amplitude wave, and then two out-of-phase jagged waves.
+                    const GlobalWave = Math.sin(x * 0.005 + (yUnperturbed * 0.003) + (CurrentTime * 0.3));
+                    const JaggedWave = Math.sin(x * 0.025 - (CurrentTime * 1.8) + GlobalWave * 6.5);
+                    const JaggedJaggedWave = Math.cos(x * 0.075 + (CurrentTime * 3.2) + JaggedWave * 3.0);
+                    
+                    IterationCount++;
+                    if (IterationCount % 4 === 0) {
+                        // Gets the scaled local disturbance to calculate a value of Brightness ~ A^2
+                        const Brightness = 130 + Math.abs(JaggedWave * JaggedJaggedWave) * 125;
+                        if (Brightness > MaxBrightness) {
+                            MaxBrightness = Brightness;
+                        }
+                    }
+
+                    // Paints the wave.
+                    let y = yUnperturbed + 100 * (GlobalWave * 0.75 + JaggedWave * 0.15 + JaggedJaggedWave * 0.08);
+                    if (x <= -StepSize) {
+                        CanvasDraw.moveTo(x, y);
+                    } else {
+                        CanvasDraw.lineTo(x, y);
+                    }
+                }
+
+                const RoundedBrightness = Math.round(MaxBrightness);
+                CanvasDraw.strokeStyle = `rgb(${RoundedBrightness},${RoundedBrightness},${RoundedBrightness})`;
+                CanvasDraw.stroke();
+            }
+            CanvasDraw.restore();
+        }
+
+        function PlayAnimation(currentTime) {
+            const dt = (currentTime - PreviousTime) / 1000;
+            PreviousTime = currentTime;
+            // Ensures that the animation plays the same irrespective of frame rate.
+            if (!PRM) {CurrentTime += dt * 0.5; }
+            DrawFrame();
+            requestAnimationFrame(PlayAnimation);
+        }
+        window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', e => {
+            PRM = e.matches;
+        });
+        requestAnimationFrame((time) => {
+            PreviousTime = time;
+            PlayAnimation(time);
+        });
+    </script>
+
+    <!-- Enables Panel Activation for touch screens upon click (instead of hover for desktop). -->
+    <script>
+        const panels = document.querySelectorAll('.panel');
+        panels.forEach(panel => {
+            panel.addEventListener('click', function(e) {
+                if (this.classList.contains('active-redirect')) return;
+                e.preventDefault();
+                panels.forEach(p => p.classList.remove('active-redirect'));
+                this.classList.add('active-redirect');
+                setTimeout(() => {
+                    window.location.href = this.getAttribute('href');
+                }, 400);
+            });
+        });
+        // Deactivates panels if the back button is hit.
+        window.addEventListener('pageshow', function(e) {
+            panels.forEach(p => p.classList.remove('active-redirect'));
+            if (document.activeElement && typeof document.activeElement.blur === 'function') {
+                document.activeElement.blur();
+            }
+        });
+    </script>
+
+    <!-- Tells Google that the photography and academia pages are subpages. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            {
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "Photography",
+            "url": "https://photography.alfiekunz.co.uk/"
+            },
+            {
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Academia",
+            "url": "https://www.alfiekunz.co.uk/"
+            }
+        ]
+    }
+    </script>
+
+</body>
+</html>
