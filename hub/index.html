@@ -15,11 +15,34 @@
 
     <!-- Details for search indexing. -->
     <meta property="og:title" content="Alfie Kunz - Photographer, Masters Student">
-    <meta name="description" content="The home of both my Photography Projects & Services, and my Academic Portfolio & CV.<br>Please enjoy your stay! :)">
-    <meta property="og:description" content="The home of both my Photography Projects & Services, and my Academic Portfolio & CV.<br>Please enjoy your stay! :)">
+    <meta name="description" content="The home of both my Photography Projects & Services, and my Academic Portfolio & CV. Please enjoy your stay! :)">
+    <meta property="og:description" content="The home of both my Photography Projects & Services, and my Academic Portfolio & CV. Please enjoy your stay! :)">
     <meta property="og:image" content="https://www.alfiekunz.co.uk/assets/img/logo.png">
-    <meta property="og:url" content="https://www.alfiekunz.co.uk/">
+    <meta property="og:url" content="https://hub.alfiekunz.co.uk/">
     <meta property="og:type" content="website">
+    <link rel="canonical" href="https://hub.alfiekunz.co.uk/">
+
+    <!-- Tells Google that the photography and academia pages are subpages. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            {
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "Photography",
+            "url": "https://photography.alfiekunz.co.uk/"
+            },
+            {
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Academia",
+            "url": "https://www.alfiekunz.co.uk/"
+            }
+        ]
+    }
+    </script>
 
     <!-- Prioritises loading of images before background animation. -->
     <link rel="preload" href="assets/img/Photography.jpg" as="image" fetchpriority="high">
@@ -169,28 +192,5 @@
             }
         });
     </script>
-
-    <!-- Tells Google that the photography and academia pages are subpages. -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "itemListElement": [
-            {
-            "@type": "SiteNavigationElement",
-            "position": 1,
-            "name": "Photography",
-            "url": "https://photography.alfiekunz.co.uk/"
-            },
-            {
-            "@type": "SiteNavigationElement",
-            "position": 2,
-            "name": "Academia",
-            "url": "https://www.alfiekunz.co.uk/"
-            }
-        ]
-    }
-    </script>
-
 </body>
 </html>
