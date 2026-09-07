@@ -11557,6 +11557,7 @@ header.masthead .container {
     max-width: 100% !important;
     min-width: 0 !important;
     box-sizing: border-box;
+    margin-bottom: 0.4rem;
 }
 
 .readme-styled {
@@ -11568,10 +11569,6 @@ header.masthead .container {
     margin-top: 0;
     margin-bottom: 0;
 }
-.readme-styled p:last-child {
-    margin-bottom: 1rem;
-}
-
 .readme-styled img {
     max-width: 100% !important;
     height: auto !important;
