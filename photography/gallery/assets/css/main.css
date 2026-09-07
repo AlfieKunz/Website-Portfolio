@@ -911,11 +911,11 @@ input, select, textarea {
 			height: 4em;
 			background-image: url("images/close-small-alt.svg");
 			background-repeat: no-repeat;
-			background-size: 32px 32px;
+			background-size: 64px 64px;
 			cursor: pointer;
-			display: none;
+			display: block;
 			z-index: 1;
-			background-position: 0.5em 0.5em;
+			background-position: 0.8em 0.8em;
 			left: 0;
 		}
 
@@ -939,6 +939,11 @@ input, select, textarea {
 					right: -19em;
 				}
 
+			#main .toggle {
+				background-size: 46px 46px;
+				background-position: 0.7em 0.7em;
+			}
+
 		}
 
 		@media screen and (max-width: 980px) {
@@ -947,9 +952,10 @@ input, select, textarea {
 				background: rgba(255, 255, 255, 0.925);
 			}
 
-				#main .toggle {
-					display: block;
-				}
+			#main .toggle {
+				background-size: 36px 36px;
+				background-position: 0.5em 0.5em;
+			}
 
 		}
 
@@ -1325,6 +1331,7 @@ input, select, textarea {
 				cursor: pointer;
 				z-index: 1;
 				right: 0;
+				opacity: 0;
 				background-position: calc(100% - 0.75em) 0.75em;
 			}
 
@@ -1450,9 +1457,10 @@ input, select, textarea {
 			width: 100%;
 		}
 
-			body.fullscreen #viewer .inner .toggle {
-				background-image: url("images/open.svg");
-			}
+		body.fullscreen #viewer .inner .toggle {
+			background-image: url("images/open.svg");
+			opacity: 1;
+		}
 
 		body.is-preload-1 #viewer {
 			opacity: 0;
@@ -1483,12 +1491,7 @@ input, select, textarea {
 					-ms-transition: opacity 0.75s ease;
 					transition: opacity 0.75s ease;
 					background-image: url("images/open.svg");
-					opacity: 0;
 					right: 0;
-				}
-
-				body.fullscreen #viewer .inner .toggle {
-					opacity: 1;
 				}
 
 		}
