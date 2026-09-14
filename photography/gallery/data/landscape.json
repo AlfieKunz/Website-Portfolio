@@ -1,5 +1,45 @@
 [
   {
+    "filename": "DSR_1219_1.jpg",
+    "title": "Anglesey - Wales",
+    "datetime": "2026-09-04T17:24:19",
+    "type": [
+      "Water & Ocean"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
+    "filename": "DSR_1177_1.jpg",
+    "title": "Anglesey - Wales",
+    "datetime": "2026-08-31T20:10:22",
+    "type": [
+      "Signature",
+      "Water & Ocean",
+      "Mountains & Hills"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1175_1.jpg",
+    "title": "Anglesey - Wales",
+    "datetime": "2026-08-31T19:49:13",
+    "type": [
+      "Water & Ocean",
+      "Mountains & Hills"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1167_1.jpg",
+    "title": "Anglesey - Wales",
+    "datetime": "2026-08-31T16:16:07",
+    "type": [
+      "Water & Ocean",
+      "Mountains & Hills"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
     "filename": "DSR_1141_1.jpg",
     "title": "Barcelona - Spain",
     "datetime": "2026-08-18T20:30:41",
@@ -421,7 +461,6 @@
     "title": "Lake District Expedition - Summer 2025",
     "datetime": "2025-08-13T17:30:07",
     "type": [
-      "Signature",
       "Water & Ocean",
       "Mountains & Hills"
     ],

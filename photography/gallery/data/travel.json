@@ -1,5 +1,76 @@
 [
   {
+    "filename": "DSR_1219_1.jpg",
+    "title": "Red Wharf Bay - Anglesey",
+    "datetime": "2026-09-04T17:24:19",
+    "type": [
+      "Signature",
+      "Greenery",
+      "Water"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
+    "filename": "DSR_1214_1.jpg",
+    "title": "Anglesey - Wales",
+    "datetime": "2026-09-03T13:54:06",
+    "type": [
+      "Greenery"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1201_1.jpg",
+    "title": "Anglesey - Wales",
+    "datetime": "2026-09-03T10:44:40",
+    "type": [
+      "Signature",
+      "Greenery"
+    ],
+    "aspect_ratio": 1.778
+  },
+  {
+    "filename": "DSR_1197_1.jpg",
+    "title": "Penrhyn Castle - Wales",
+    "datetime": "2026-09-01T14:03:20",
+    "type": [
+      "Signature",
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1195_1.jpg",
+    "title": "Penrhyn Castle - Wales",
+    "datetime": "2026-09-01T13:57:59",
+    "type": [
+      "Street & Buildings"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1176_1.jpg",
+    "title": "Holyhead - Wales",
+    "datetime": "2026-08-31T20:03:02",
+    "type": [
+      "Signature",
+      "Street & Buildings",
+      "Water"
+    ],
+    "aspect_ratio": 0.667
+  },
+  {
+    "filename": "DSR_1161_1.jpg",
+    "title": "Holyhead - Wales",
+    "datetime": "2026-08-31T14:54:35",
+    "type": [
+      "Signature",
+      "Rocks & Mountains",
+      "Water"
+    ],
+    "aspect_ratio": 1.5
+  },
+  {
     "filename": "DSR_1151_1.jpg",
     "title": "Barcelona - Spain",
     "datetime": "2026-08-19T12:22:39",

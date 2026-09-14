@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Gallery -<br>Landscapes",
         description: "Powerful, raw, sublime, whatever you want to call it - there's a reason why landscapes move us so deeply. Here, I try to capture some of that feeling, aiming to preserve a place or moment in the beauty it deserves.",
         StartPhoto: "DSR_0019_1.jpg",
-        heightDelta: 0,
+        heightDelta: 0.1,
         tags: ["Signature", "Water & Ocean", "Mountains & Hills", "Fields", "City"]
     },
     nature: {
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     travel: {
         title: "Gallery -<br>Adventures & Travel",
         description: "This is slightly more of a <i>variety</i> collection, spanning everything from everyday travels to international expeditions. Despite the range, I hope that each photo remains striking, telling a unique story that stays true to the original moment.",
-        StartPhoto: "DSR_1062_1.jpg",
+        StartPhoto: "DSR_0444_1.jpg",
         heightDelta: 0,
         tags: ["Signature", "Rocks & Mountains", "Greenery", "Street & Buildings", "Water"]
     },
