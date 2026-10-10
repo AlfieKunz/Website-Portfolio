@@ -403,132 +403,135 @@ async function LoadREADME(repoPath, container, branch = 'main') {
 }
 
 
+
 // Scripts to load and process flashcard grabbing in "Resources"
-const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const slug = (y, n) => y + '-' + n.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+document.addEventListener('DOMContentLoaded', () => {
+    const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const slug = (y, n) => y + '-' + n.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-const CARD_TYPES = [
-    ['Definition', 'Terms, statements and results.', ['Term and statement on separate faces', 'Optional worked example, revealed on demand', 'Colour-coded by module tag']],
-    ['Cloze+', 'Cloze deletions with context.', ['Multiple cloze groups per note', 'Notes and source-reference fields', 'Hint button that does not spoil the answer']],
-    ['Derivation', 'Proofs and multi-step derivations.', ['Reveals one step at a time', 'Each step has its own justification line', 'Full derivation shown at the end']],
-    ['Theorem', 'Theorems with their conditions.', ['Statement, hypotheses and pitfalls kept apart', 'Counterexample field', 'Links to related theorems']],
-    ['Code / Algorithm', 'Programming and algorithm cards.', ['Syntax-highlighted code blocks', 'Prompt, solution and complexity fields', 'Copy-friendly monospace styling']]
-];
-document.getElementById('cardAcc').innerHTML = CARD_TYPES.map((c, i) => `
-    <div class="accordion-item">
-        <h3 class="accordion-header"><button class="accordion-button ${i ? 'collapsed' : ''}" type="button" data-bs-toggle="collapse" data-bs-target="#ct${i}">${esc(c[0])}</button></h3>
-        <div id="ct${i}" class="accordion-collapse collapse ${i ? '' : 'show'}" data-bs-parent="#cardAcc">
-            <div class="accordion-body small"><p class="text-muted mb-2">${esc(c[1])}</p><ul class="mb-0 ps-3">${c[2].map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>
-        </div>
-    </div>`).join('');
+    const CARD_TYPES = [
+        ['Definition', 'Terms, statements and results.', ['Term and statement on separate faces', 'Optional worked example, revealed on demand', 'Colour-coded by module tag']],
+        ['Cloze+', 'Cloze deletions with context.', ['Multiple cloze groups per note', 'Notes and source-reference fields', 'Hint button that does not spoil the answer']],
+        ['Derivation', 'Proofs and multi-step derivations.', ['Reveals one step at a time', 'Each step has its own justification line', 'Full derivation shown at the end']],
+        ['Theorem', 'Theorems with their conditions.', ['Statement, hypotheses and pitfalls kept apart', 'Counterexample field', 'Links to related theorems']],
+        ['Code / Algorithm', 'Programming and algorithm cards.', ['Syntax-highlighted code blocks', 'Prompt, solution and complexity fields', 'Copy-friendly monospace styling']]
+    ];
+    document.getElementById('cardAcc').innerHTML = CARD_TYPES.map((c, i) => `
+        <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button ${i ? 'collapsed' : ''}" type="button" data-bs-toggle="collapse" data-bs-target="#ct${i}">${esc(c[0])}</button></h3>
+            <div id="ct${i}" class="accordion-collapse collapse ${i ? '' : 'show'}" data-bs-parent="#cardAcc">
+                <div class="accordion-body small"><p class="text-muted mb-2">${esc(c[1])}</p><ul class="mb-0 ps-3">${c[2].map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>
+            </div>
+        </div>`).join('');
 
-// ---- EDIT HERE: one row per module: [year, name, optional type, optional URL] ----
-// Type is 'q' (Quizlet), 'a' (Anki) or 'f' (own file); omit it to use the year's default below.
-// Anki decks:  /assets/resources/anki/decks/<year>-<module-name>.apkg
-// Files:       /assets/resources/files/<year>-<module-name>.pdf
-// Any row can be given its own URL as the 4th value, e.g. ['y1','Linear Algebra','q','https://quizlet.com/...']
-const YEARS = { y1: 'Warwick University, Year 1', y2: 'Warwick University, Year 2', y3: 'Warwick University, Year 3', al: 'AQA, A-Level', gcse: 'AQA, GCSE' };
-const DEFAULT = { y1: 'q', y2: 'q', y3: 'a', al: 'q', gcse: 'q'};
-const QUIZLET_BASE = 'https://quizlet.com/class/';
-const TYPES = {
-    q: { label: 'Quizlet set', icon: 'bi-box-arrow-up-right', cls: 'btn-outline-primary' },
-    a: { label: 'Anki deck', icon: 'bi-download', cls: 'btn-primary' },
-    f: { label: 'Notes file', icon: 'bi-file-earmark-text', cls: 'btn-outline-secondary' }
-};
-const MODULES = [
-    ['gcse','Mathematics', '17146591'],['gcse','Computer Science', '16095339'],['gcse','Physics', '16062616'],
+    // ---- EDIT HERE: one row per module: [year, name, optional type, optional URL] ----
+    // Type is 'q' (Quizlet), 'a' (Anki) or 'f' (own file); omit it to use the year's default below.
+    // Anki decks:  /assets/resources/anki/decks/<year>-<module-name>.apkg
+    // Files:       /assets/resources/files/<year>-<module-name>.pdf
+    // Any row can be given its own URL as the 4th value, e.g. ['y1','Linear Algebra','q','https://quizlet.com/...']
+    const YEARS = { y1: 'Warwick University, Year 1', y2: 'Warwick University, Year 2', y3: 'Warwick University, Year 3', al: 'AQA, A-Level', gcse: 'AQA, GCSE' };
+    const DEFAULT = { y1: 'q', y2: 'q', y3: 'a', al: 'q', gcse: 'q'};
+    const QUIZLET_BASE = 'https://quizlet.com/class/';
+    const TYPES = {
+        q: { label: 'Quizlet set', icon: 'bi-box-arrow-up-right', cls: 'btn-outline-primary' },
+        a: { label: 'Anki deck', icon: 'bi-download', cls: 'btn-primary' },
+        f: { label: 'Notes file', icon: 'bi-file-earmark-text', cls: 'btn-outline-secondary' }
+    };
+    const MODULES = [
+        ['gcse','Mathematics', '17146591'],['gcse','Computer Science', '16095339'],['gcse','Physics', '16062616'],
 
-    ['al','Mathematics', '19575302'],['al','Further Mathematics', '19575302'],['al','Physics', '19575306'],['al','Computer Science', '19657579']
+        ['al','Mathematics', '19575302'],['al','Further Mathematics', '19575302'],['al','Physics', '19575306'],['al','Computer Science', '19657579']
 
-    // ['y1','Sets & Numbers'],['y1','Mathematical Analysis I & II'],['y1','Mathematical Methods & Modelling I & II'],
-    // ['y1','Linear Algebra'],['y1','Physics Foundations'],['y1','Classical Mechanics & Special Relativity'],
-    // ['y1','Quantum Phenomena'],['y1','Electromagnetism'],['y1','Programming'],
+        // ['y1','Sets & Numbers'],['y1','Mathematical Analysis I & II'],['y1','Mathematical Methods & Modelling I & II'],
+        // ['y1','Linear Algebra'],['y1','Physics Foundations'],['y1','Classical Mechanics & Special Relativity'],
+        // ['y1','Quantum Phenomena'],['y1','Electromagnetism'],['y1','Programming'],
 
-    // ['y2','Intro to PDEs'],['y2','Mathematical Analysis III'],['y2','Quantum'],['y2','Statistical Mechanics'],
-    // ['y2','Electromagnetism & Optics'],['y2','Hamiltonian & Fluid Mechanics'],['y2','Mathematical Physics'],
-    // ['y2','Norms, Metrics & Topologies'],['y2','Multivariable Analysis'],['y2','Computational Physics','f'],
-    // ['y2','Algorithms'],['y2','Asymptotics & Integral Transforms'],
+        // ['y2','Intro to PDEs'],['y2','Mathematical Analysis III'],['y2','Quantum'],['y2','Statistical Mechanics'],
+        // ['y2','Electromagnetism & Optics'],['y2','Hamiltonian & Fluid Mechanics'],['y2','Mathematical Physics'],
+        // ['y2','Norms, Metrics & Topologies'],['y2','Multivariable Analysis'],['y2','Computational Physics','f'],
+        // ['y2','Algorithms'],['y2','Asymptotics & Integral Transforms'],
 
-    // ['y3','Measure Theory'],['y3','Modelling with PDEs'],['y3','Fluid Dynamics'],['y3','Quantum'],
-    // ['y3','Electrodynamics'],['y3','The Standard Model'],['y3','Kinetic Theory'],['y3','Neural Computing'],['y3','Mobile Robotics','f']
-];
-MODULES.sort((a, b) => a[1].localeCompare(b[1]));
+        // ['y3','Measure Theory'],['y3','Modelling with PDEs'],['y3','Fluid Dynamics'],['y3','Quantum'],
+        // ['y3','Electrodynamics'],['y3','The Standard Model'],['y3','Kinetic Theory'],['y3','Neural Computing'],['y3','Mobile Robotics','f']
+    ];
+    MODULES.sort((a, b) => a[1].localeCompare(b[1]));
 
-const LIMIT = 6, PEEK = 2; // rows shown normally, then rows shown blurred before "Show all"
-const list = document.getElementById('deckList');
-const search = document.getElementById('deckSearch');
-const clearBtn = document.getElementById('deckClear');
-const tabs = document.querySelectorAll('#deckTabs button');
-let tab = 'all', expanded = false;
+    const LIMIT = 6, PEEK = 2; // rows shown normally, then rows shown blurred before "Show all"
+    const list = document.getElementById('deckList');
+    const search = document.getElementById('deckSearch');
+    const clearBtn = document.getElementById('deckClear');
+    const tabs = document.querySelectorAll('#deckTabs button');
+    let tab = 'all', expanded = false;
 
-function rowHTML(m, i, animFrom, peek) {
-    const [y, n] = m;
-    
-    // Check if 3rd item is an explicit type ('q', 'a', 'f') or an ID/link
-    const hasExplicitType = m[2] && TYPES[m[2]];
-    const k = hasExplicitType ? m[2] : DEFAULT[y];
-    const target = hasExplicitType ? m[3] : m[2];
-    const T = TYPES[k];
+    function rowHTML(m, i, animFrom, peek) {
+        const [y, n] = m;
+        
+        // Check if 3rd item is an explicit type ('q', 'a', 'f') or an ID/link
+        const hasExplicitType = m[2] && TYPES[m[2]];
+        const k = hasExplicitType ? m[2] : DEFAULT[y];
+        const target = hasExplicitType ? m[3] : m[2];
+        const T = TYPES[k];
 
-    let href = '';
-    if (k === 'q') {
-        href = target ? (target.startsWith('http') ? target : `${QUIZLET_BASE}${target}/materials`) : QUIZLET_BASE;
-    } else if (k === 'a') {
-        href = target || `../../assets/resources/anki/decks/${slug(y, n)}.apkg`;
-    } else {
-        href = target || `../../assets/resources/files/${slug(y, n)}.pdf`;
+        let href = '';
+        if (k === 'q') {
+            href = target ? (target.startsWith('http') ? target : `${QUIZLET_BASE}${target}/materials`) : QUIZLET_BASE;
+        } else if (k === 'a') {
+            href = target || `../../assets/resources/anki/decks/${slug(y, n)}.apkg`;
+        } else {
+            href = target || `../../assets/resources/files/${slug(y, n)}.pdf`;
+        }
+
+        const attrs = k === 'a' ? 'download' : 'target="_blank" rel="noopener noreferrer"';
+        let cls = 'res-row d-flex align-items-center justify-content-between gap-3 bg-light rounded-4 p-3', st = '', ex = '';
+        
+        if (i >= animFrom) { 
+            cls += ' res-anim'; 
+            st += `animation-delay:${Math.min(i - animFrom, 10) * 30}ms;`; 
+        }
+        if (peek) { 
+            const p = i - LIMIT + 1; 
+            st += `filter:blur(${(p * 1.6).toFixed(1)}px);--o:${(1 - p * 0.2).toFixed(1)};pointer-events:none;`; 
+            ex = ' inert aria-hidden="true"'; 
+        }
+
+        return `<div class="${cls}" style="${st}"${ex}>
+            <div class="flex-grow-1" style="min-width:0"><div class="fw-bolder">${esc(n)}</div><div class="small text-muted fst-italic">${YEARS[y]}</div></div>
+            <a class="btn btn-sm rounded-pill ${T.cls} flex-shrink-0 text-nowrap px-3" href="${href}" ${attrs} aria-label="${T.label}: ${esc(n)}"><i class="bi ${T.icon} me-sm-1"></i><span class="d-none d-sm-inline">${T.label}</span></a>
+        </div>`;
     }
 
-    const attrs = k === 'a' ? 'download' : 'target="_blank" rel="noopener noreferrer"';
-    let cls = 'res-row d-flex align-items-center justify-content-between gap-3 bg-light rounded-4 p-3', st = '', ex = '';
-    
-    if (i >= animFrom) { 
-        cls += ' res-anim'; 
-        st += `animation-delay:${Math.min(i - animFrom, 10) * 30}ms;`; 
+    function render(animFrom = Infinity) {
+        const raw = search.value.trim(), term = raw.toLowerCase();
+        clearBtn.classList.toggle('d-none', !raw);
+        const rows = MODULES.filter(m => (tab === 'all' || m[0] === tab) && m[1].toLowerCase().includes(term));
+        if (!rows.length) {
+            list.innerHTML = `<p class="text-muted fst-italic text-center my-3">No modules match${raw ? ` "${esc(raw)}"` : ''}. Click to ${raw ? '<button type="button" class="btn btn-link p-0 align-baseline" data-act="clear">Clear search</button>' : ''}.</p>`;
+            return;
+        }
+        const long = rows.length > LIMIT + PEEK, collapsed = long && !expanded;
+        const shown = collapsed ? rows.slice(0, LIMIT + PEEK) : rows;
+        let h = shown.map((m, i, c) => rowHTML(m, i, c, animFrom, collapsed && i >= LIMIT)).join('');
+        if (collapsed) h += `<div class="text-center res-fade"><button type="button" class="btn btn-primary btn-sm rounded-pill px-4 mt-2" data-act="more">Show all (${rows.length}) modules <i class="bi bi-chevron-down ms-1"></i></button></div>`;
+        if (long && expanded) h += '<div class="text-center mt-2"><button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-4" data-act="less">Show less <i class="bi bi-chevron-up ms-1"></i></button></div>';
+        list.innerHTML = h;
     }
-    if (peek) { 
-        const p = i - LIMIT + 1; 
-        st += `filter:blur(${(p * 1.6).toFixed(1)}px);--o:${(1 - p * 0.2).toFixed(1)};pointer-events:none;`; 
-        ex = ' inert aria-hidden="true"'; 
-    }
 
-    return `<div class="${cls}" style="${st}"${ex}>
-        <div class="flex-grow-1" style="min-width:0"><div class="fw-bolder">${esc(n)}</div><div class="small text-muted fst-italic">${YEARS[y]}</div></div>
-        <a class="btn btn-sm rounded-pill ${T.cls} flex-shrink-0 text-nowrap px-3" href="${href}" ${attrs} aria-label="${T.label}: ${esc(n)}"><i class="bi ${T.icon} me-sm-1"></i><span class="d-none d-sm-inline">${T.label}</span></a>
-    </div>`;
-}
+    function clearSearch() { search.value = ''; search.focus(); render(0); }
 
-function render(animFrom = Infinity) {
-    const raw = search.value.trim(), term = raw.toLowerCase();
-    clearBtn.classList.toggle('d-none', !raw);
-    const rows = MODULES.filter(m => (tab === 'all' || m[0] === tab) && m[1].toLowerCase().includes(term));
-    if (!rows.length) {
-        list.innerHTML = `<p class="text-muted fst-italic text-center my-3">No modules match${raw ? ` "${esc(raw)}"` : ''}. Click to ${raw ? '<button type="button" class="btn btn-link p-0 align-baseline" data-act="clear">Clear search</button>' : ''}.</p>`;
-        return;
-    }
-    const long = rows.length > LIMIT + PEEK, collapsed = long && !expanded;
-    const shown = collapsed ? rows.slice(0, LIMIT + PEEK) : rows;
-    let h = shown.map((m, i, c) => rowHTML(m, i, c, animFrom, collapsed && i >= LIMIT)).join('');
-    if (collapsed) h += `<div class="text-center res-fade"><button type="button" class="btn btn-primary btn-sm rounded-pill px-4 mt-2" data-act="more">Show all (${rows.length}) modules <i class="bi bi-chevron-down ms-1"></i></button></div>`;
-    if (long && expanded) h += '<div class="text-center mt-2"><button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-4" data-act="less">Show less <i class="bi bi-chevron-up ms-1"></i></button></div>';
-    list.innerHTML = h;
-}
-
-function clearSearch() { search.value = ''; search.focus(); render(0); }
-
-list.addEventListener('click', e => {
-    const a = e.target.closest('[data-act]');
-    if (!a) return;
-    if (a.dataset.act === 'more') { expanded = true; render(LIMIT); }
-    else if (a.dataset.act === 'less') { expanded = false; render(); document.getElementById('decks').scrollIntoView({ behavior: 'smooth' }); }
-    else if (a.dataset.act === 'clear') { clearSearch(); }
+    list.addEventListener('click', e => {
+        const a = e.target.closest('[data-act]');
+        if (!a) return;
+        if (a.dataset.act === 'more') { expanded = true; render(LIMIT); }
+        else if (a.dataset.act === 'less') { expanded = false; render(); document.getElementById('decks').scrollIntoView({ behavior: 'smooth' }); }
+        else if (a.dataset.act === 'clear') { clearSearch(); }
+    });
+    tabs.forEach(b => b.addEventListener('click', () => {
+        tab = b.dataset.tab; expanded = false;
+        tabs.forEach(t => { t.classList.toggle('btn-primary', t === b); t.classList.toggle('btn-outline-secondary', t !== b); });
+        render(0);
+    }));
+    search.addEventListener('input', () => render(0));
+    search.addEventListener('keydown', e => { if (e.key === 'Escape' && search.value) clearSearch(); });
+    clearBtn.addEventListener('click', clearSearch);
+    render();
 });
-tabs.forEach(b => b.addEventListener('click', () => {
-    tab = b.dataset.tab; expanded = false;
-    tabs.forEach(t => { t.classList.toggle('btn-primary', t === b); t.classList.toggle('btn-outline-secondary', t !== b); });
-    render(0);
-}));
-search.addEventListener('input', () => render(0));
-search.addEventListener('keydown', e => { if (e.key === 'Escape' && search.value) clearSearch(); });
-clearBtn.addEventListener('click', clearSearch);
-render();
