@@ -7863,6 +7863,9 @@ textarea.form-control-lg {
 .pb-4 {
   padding-bottom: 1.5rem !important;
 }
+.pb-45 {
+  padding-bottom: 2rem !important;
+}
 
 .pb-5 {
   padding-bottom: 3rem !important;
@@ -9757,6 +9760,9 @@ textarea.form-control-lg {
   }
   .pb-lg-4 {
     padding-bottom: 1.5rem !important;
+  }
+   .pb-lg-45 {
+    padding-bottom: 2rem !important;
   }
   .pb-lg-5 {
     padding-bottom: 3rem !important;
@@ -11932,4 +11938,56 @@ display: grid;
         height: 200px;
         position: relative;
     }
+
+  /* Styling for the Study Resources Section */
+  .res-section {
+    scroll-margin-top: 6rem;
+  }
+  .res-row {
+    transition: background-color .15s ease;
+  }
+  .res-row:hover {
+    background-color: #e9eef5 !important;
+  }
+  .res-link {
+    color: inherit; text-decoration: none;
+  }
+  .res-link:hover {
+    color: #0090d8; }
+  .res-row { opacity: var(--o, 1);
+  }
+  #deckList {
+    position: relative;
+  }
+  @keyframes resIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    } to {
+      opacity: var(--o, 1);
+      transform: none;
+    }
+  }
+  .res-anim {
+    animation: resIn .3s ease both;
+  }
+  .res-fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 7.5rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), #fff 85%);
+    pointer-events: none; }
+  .res-fade .btn {
+    pointer-events: auto;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .res-anim {
+      animation: none;
+    }
+  }
 }

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Alfie Kunz - Study Resources</title>
+
+    <link rel="icon" href="../../assets/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+    <link rel="canonical" href="https://alfiekunz.co.uk/resources/"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <link href="../../assets/css/styles.css" rel="stylesheet" />
+
+</head>
+<body id="top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 always-shrink" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="../../">Alfie Kunz - Academia</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="../../#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/career">Career History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#top">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../#contact">Contact & Socials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://hub.alfiekunz.co.uk/">Hub</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container px-4 px-lg-5 pt-7 mt-4 mt-md-5">
+        <div class="text-center mb-4 mb-md-5">
+            <h1 class="display-5 fw-bolder mb-0"><span class="text-primary d-inline">Study Resources</span></h1>
+            <hr class="divider" />
+            <p class="text-muted mx-auto mb-4" style="max-width: 640px;">
+                The full suite of revision materials I've used for academic excellence in my Warwick University Mathematics & Physics Master's degree, and my (AQA) GCSE & A-Level subjects.<br>
+                Quizlet flashcards and notes files can be used with no external configuration. To begin using my Anki decks, please first see my <a href="#startkit">Anki Starter Kit</a>!
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" href="#decks">Module Resources</a>
+                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" href="#startkit">Anki Starter Kit</a>
+                <a class="btn btn-outline-primary btn-sm rounded-pill px-3" href="#more">Other Assets</a>
+            </div>
+        </div>
+
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-10 col-xl-9">
+
+                <section class="res-section mb-5" id="decks">
+                    <h2 class="text-gradient-experience fw-bolder mb-4">Study Flashcards by Module / Subject</h2>
+                    <div class="card shadow border-0 rounded-4">
+                        <div class="card-body p-3 p-sm-4 p-lg-5 pb-45 pb-lg-45">
+                            <p class="mb-4">
+                                Note that all study resources for my GCSEs & A-Levels, and University modules in Years 1-2 modules are Quizlet sets. From Year 3 onwards, I migrated my workflow to using Anki decks: simply download the <code>.apkg</code> file of choice and open it with Anki (provided you have insalled the relevant <a href="#startkit">card types</a>). Coursework modules do not contain flashcards; the link will instead take you to my hand-written notes.
+                            </p>
+                            <div class="d-flex flex-column flex-md-row gap-3 justify-content-between mb-4">
+                                <div class="d-flex flex-wrap gap-2" id="deckTabs">
+                                    <button class="btn btn-sm rounded-pill px-3 btn-primary" data-tab="all">All</button>
+                                    <button class="btn btn-sm rounded-pill px-3 btn-outline-secondary" data-tab="gcse">GCSE</button>
+                                    <button class="btn btn-sm rounded-pill px-3 btn-outline-secondary" data-tab="al">A-Level</button>
+                                    <button class="btn btn-sm rounded-pill px-3 btn-outline-secondary" data-tab="y1">Uni Year 1</button>
+                                    <button class="btn btn-sm rounded-pill px-3 btn-outline-secondary" data-tab="y2">Uni Year 2</button>
+                                    <button class="btn btn-sm rounded-pill px-3 btn-outline-secondary" data-tab="y3">Uni Year 3</button>
+                                </div>
+                                <div class="position-relative w-100" style="max-width: 260px;">
+                                    <input id="deckSearch" type="text" autocomplete="off" class="form-control rounded-pill pe-5" placeholder=" Search module..." aria-label="Search module" />
+                                    <button id="deckClear" type="button" class="btn btn-sm border-0 position-absolute top-50 end-0 translate-middle-y me-1 d-none" aria-label="Clear search"><i class="bi bi-x-circle-fill text-muted"></i></button>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column gap-2" id="deckList"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="res-section mb-5" id="startkit">
+                    <h2 class="text-gradient-experience fw-bolder mb-4">Anki Starter Kit</h2>
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                            <div class="card shadow border-0 rounded-4 h-100">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature bg-primary text-white rounded-3 me-3"><i class="bi bi-layers"></i></div>
+                                        <h3 class="h5 fw-bolder mb-0">Card Types</h3>
+                                    </div>
+                                    <p class="small text-muted">Four custom note types that every Anki deck is built on, with advanced layouts and styling. Install once.</p>
+                                    <!-- EDIT: your headline features -->
+                                    <ul class="small ps-3 mb-4">
+                                        <li>LaTeX / MathJax rendering</li>
+                                        <li>Step-by-step reveal for proofs</li>
+                                        <li>Light and dark themes, mobile-friendly</li>
+                                        <li>Hint, notes and source fields</li>
+                                    </ul>
+                                    <div class="mt-auto d-flex flex-wrap gap-2">
+                                        <a class="btn btn-primary btn-sm rounded-pill px-3" href="../../assets/resources/anki/card-types.apkg" download><i class="bi bi-download me-1"></i>Download</a>
+                                        <a class="btn btn-outline-primary btn-sm rounded-pill px-3" href="#Card-Types">More Info</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow border-0 rounded-4 h-100">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature bg-primary text-white rounded-3 me-3"><i class="bi bi-puzzle"></i></div>
+                                        <h3 class="h5 fw-bolder mb-0">Add-ons</h3>
+                                    </div>
+                                    <p class="small text-muted">My full list of intelligent Anki Add-ons for efficient and streamlined card writing. To install in Anki: <em>Tools &rarr; Add-ons &rarr; Get Add-ons</em>, paste the below code.</p>
+                                    <ul class="list-unstyled small mt-auto mb-0">
+                                        <li class="mb-2"><a class="res-link fw-bolder" href="https://ankiweb.net/shared/info/1096255303" target="_blank" rel="noopener noreferrer">Braces++  <i class="bi bi-box-arrow-up-right small"></i></a><div class="text-muted">Advanced LaTeX pairing, IDE-like editing (bracket auto-close, wrap tools).</div><div class="text-muted fst-italic">Code: 1096255303</div></li>
+                                        <li class="mb-2"><a class="res-link fw-bolder" href="https://ankiweb.net/shared/info/126852831" target="_blank" rel="noopener noreferrer">MathJax NBSP Cleaner <i class="bi bi-box-arrow-up-right small"></i></a><div class="text-muted">Automatic MathJax Formatting to remove broken <code>&amp;nbsp</code> tags.</div><div class="text-muted fst-italic">Code: 126852831</div></li>
+                                        <li><a class="res-link fw-bolder" href="https://ankiweb.net/shared/info/1855160355" target="_blank" rel="noopener noreferrer">Auto Deck Fields <i class="bi bi-box-arrow-up-right small"></i></a><div class="text-muted">Intelligent auto-population of note 'Index' fields, from deck hierarchy.</div><div class="text-muted fst-italic">Code: 1855160355</div></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow border-0 rounded-4 h-100">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature bg-primary text-white rounded-3 me-3"><i class="bi bi-sliders"></i></div>
+                                        <h3 class="h5 fw-bolder mb-0">Profile & Preferences</h3>
+                                    </div>
+                                    <p class="small text-muted">My exact scheduling, deck options and interface settings, so you can start from a setup that works.</p>
+                                    <!-- EDIT: what is actually included -->
+                                    <ul class="small ps-3 mb-4">
+                                        <li>FSRS & Deck Scheduling Presets</li>
+                                        <li>Add-ons (List & Individual Configuration)</li>
+                                        <li>.colpkg file something like this????</li>
+                                    </ul>
+                                    <div class="mt-auto d-flex flex-wrap gap-2">
+                                        <a class="btn btn-primary btn-sm rounded-pill px-3" href="../../assets/resources/anki/profile.zip" download><i class="bi bi-download me-1"></i>Profile</a>
+                                        <a class="btn btn-outline-primary btn-sm rounded-pill px-3" href="../../assets/resources/anki/deck-options.json" download>Deck options</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="res-section mb-5" id="more">
+                    <h2 class="text-gradient-experience fw-bolder mb-4">Other Assets</h2>
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="col">
+                            <div class="card shadow border-0 rounded-4 h-100">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature bg-primary text-white rounded-3 me-3"><i class="bi bi-collection"></i></div>
+                                        <h3 class="h5 fw-bolder mb-0">Quizlet Sets</h3>
+                                    </div>
+                                    <p class="small text-muted">All my GCSE & A-Level subjects and University modules (Years 1-2) flashcards are written as Quizlet sets (before I migrated to Anki). No external configuration.</p>
+                                    <div class="mt-auto"><a class="btn btn-primary btn-sm rounded-pill px-3" href="https://quizlet.com/user/Alfie_Kunz/classes" target="_blank" rel="noopener noreferrer">Browse my Quizlet page <i class="bi bi-box-arrow-up-right ms-1 small"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow border-0 rounded-4 h-100">
+                                <div class="card-body p-4 d-flex flex-column">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="feature bg-primary text-white rounded-3 me-3"><i class="bi bi-journal-text"></i></div>
+                                        <h3 class="h5 fw-bolder mb-0">Notes & Files</h3>
+                                    </div>
+                                    <ul class="list-unstyled small mb-0">
+                                        <li class="mb-2"><a class="res-link" href="../../assets/resources/other/AXIOMS.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-text me-2"></i>MA140 (Mathematical Analysis I) Core Axioms (PDF)</a></li>
+                                        <li class="mb-2"><a class="res-link" href="../../assets/resources/other/PX157 Electricity & Magnetism Summary.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-text me-2"></i>PX157 (Electricity & Magnetism) Summary Sheet (PDF)</a></li>
+                                        <li><a class="res-link" href="../../assets/resources/other/PX156 Quantum Phenomena Equation List.png" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-text me-2"></i>PX156 (Quantum Phenomena) Equation Cheat Sheet</a></li>
+                                        <li><a class="res-link" href="https://drive.google.com/open?id=1XrWIFMTlW731c97gSz7RjoZGjy20tISW" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-text me-2"></i>MA269 (Asymptotics & Integral Transforms) Extra Past Papers (PDF)</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Card types modal (opens via #Card-Types, handled by scripts.js) -->
+    <div id="Card-Types" class="item-showcase-overlay">
+        <div class="item-showcase-content showcase-simple" style="width: 860px;">
+            <button class="showcase-close-btn" aria-label="Close">&times;</button>
+            <div class="showcase-grid-layout showcase-simple">
+                <div class="showcase-title-area"><h2 class="text-gradient-experience fw-bolder">Anki Card Types</h2></div>
+                <div class="showcase-subtitle-area"><p>Four note types used across every Anki deck</p></div>
+                <div class="showcase-content-area">
+                    <hr class="showcase-divider-area ms-0" />
+                    <div class="showcase-desc-area">
+                        <!-- EDIT: card types are defined in CARD_TYPES in the script below -->
+                        <div><strong>On every card type:</strong> LaTeX rendering, light and dark themes, a mobile-friendly layout, hint and notes fields, and module-coloured headers.</div>
+                        <div class="accordion" id="cardAcc"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-5 page-section call bg-primary text-white text-center mt-2">
+        <div class="container px-4 px-lg-5">
+            <h2 class="fs-2 fw-medium mb-0">Found a mistake, or want a module added?</h2>
+            <hr class="divider divider-light" />
+            <a class="btn btn-light btn-xl" href="../../#contact">Contact Me</a>
+        </div>
+    </section>
+
+    <footer class="bg-light py-5">
+        <div class="container px-4 px-lg-5"><div class="small text-center text-muted mb-2">Not here for academia? Click <a href="https://photography.alfiekunz.co.uk/">here</a> to access my photography page,<br>or the below icons to access my other socials.</div></div>
+        <ul class="icons">
+            <li><a href="https://www.linkedin.com/in/alfiek" target="_blank" class="icon fab fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <li><a href="https://www.github.com/AlfieKunz" target="_blank" class="icon fab fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="mailto:alfiekunz1@gmail.com" target="_blank" class="icon fas fa-envelope"><span class="label">Email</span></a></li>
+            <li><a href="https://www.instagram.com/alfiekunz" target="_blank" class="icon fab fa-instagram"><span class="label">Instagram</span></a></li>
+        </ul>
+        <div class="container px-4 px-lg-5 mt-1"><div class="small text-center text-muted">© <a href="#top">Alfie Kunz</a> - 2026</div></div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/scripts.js"></script>
+</body>
+</html>
