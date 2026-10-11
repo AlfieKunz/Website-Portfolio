@@ -406,132 +406,135 @@ async function LoadREADME(repoPath, container, branch = 'main') {
 
 // Scripts to load and process flashcard grabbing in "Resources"
 document.addEventListener('DOMContentLoaded', () => {
-    const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-    const slug = (y, n) => y + '-' + n.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const Year = { al: 'AQA, A-Level',
+                    gcse: 'AQA, GCSE',
+                    y1: 'Warwick University, Year 1',
+                    y2: 'Warwick University, Year 2',
+                    y3: 'Warwick University, Year 3',
+                    y4: 'Warwick Univeristy, Year 4' };
+    const QuizletBase = 'https://quizlet.com/';
+    const HomeBase = '../../assets/resources/';
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const Limit = 8, Peek = 3;
 
-    const CARD_TYPES = [
-        ['Definition', 'Terms, statements and results.', ['Term and statement on separate faces', 'Optional worked example, revealed on demand', 'Colour-coded by module tag']],
-        ['Cloze+', 'Cloze deletions with context.', ['Multiple cloze groups per note', 'Notes and source-reference fields', 'Hint button that does not spoil the answer']],
-        ['Derivation', 'Proofs and multi-step derivations.', ['Reveals one step at a time', 'Each step has its own justification line', 'Full derivation shown at the end']],
-        ['Theorem', 'Theorems with their conditions.', ['Statement, hypotheses and pitfalls kept apart', 'Counterexample field', 'Links to related theorems']],
-        ['Code / Algorithm', 'Programming and algorithm cards.', ['Syntax-highlighted code blocks', 'Prompt, solution and complexity fields', 'Copy-friendly monospace styling']]
-    ];
-    document.getElementById('cardAcc').innerHTML = CARD_TYPES.map((c, i) => `
-        <div class="accordion-item">
-            <h3 class="accordion-header"><button class="accordion-button ${i ? 'collapsed' : ''}" type="button" data-bs-toggle="collapse" data-bs-target="#ct${i}">${esc(c[0])}</button></h3>
-            <div id="ct${i}" class="accordion-collapse collapse ${i ? '' : 'show'}" data-bs-parent="#cardAcc">
-                <div class="accordion-body small"><p class="text-muted mb-2">${esc(c[1])}</p><ul class="mb-0 ps-3">${c[2].map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>
-            </div>
-        </div>`).join('');
-
-    // ---- EDIT HERE: one row per module: [year, name, optional type, optional URL] ----
-    // Type is 'q' (Quizlet), 'a' (Anki) or 'f' (own file); omit it to use the year's default below.
-    // Anki decks:  /assets/resources/anki/decks/<year>-<module-name>.apkg
-    // Files:       /assets/resources/files/<year>-<module-name>.pdf
-    // Any row can be given its own URL as the 4th value, e.g. ['y1','Linear Algebra','q','https://quizlet.com/...']
-    const YEARS = { y1: 'Warwick University, Year 1', y2: 'Warwick University, Year 2', y3: 'Warwick University, Year 3', al: 'AQA, A-Level', gcse: 'AQA, GCSE' };
-    const DEFAULT = { y1: 'q', y2: 'q', y3: 'a', al: 'q', gcse: 'q'};
-    const QUIZLET_BASE = 'https://quizlet.com/class/';
-    const TYPES = {
-        q: { label: 'Quizlet set', icon: 'bi-box-arrow-up-right', cls: 'btn-outline-primary' },
+    const LinkType = {
         a: { label: 'Anki deck', icon: 'bi-download', cls: 'btn-primary' },
-        f: { label: 'Notes file', icon: 'bi-file-earmark-text', cls: 'btn-outline-secondary' }
+        f: { label: 'Notes file', icon: 'bi-file-earmark-text', cls: 'btn-outline-secondary' },
+        q: { label: 'Quizlet set', icon: 'bi-box-arrow-up-right', cls: 'btn-outline-primary' }
     };
-    const MODULES = [
-        ['gcse','Mathematics', '17146591'],['gcse','Computer Science', '16095339'],['gcse','Physics', '16062616'],
 
-        ['al','Mathematics', '19575302'],['al','Further Mathematics', '19575302'],['al','Physics', '19575306'],['al','Computer Science', '19657579']
+    const Fields = [
+        ['gcse', 'Mathematics', 'class/17146591'], ['gcse', 'Computer Science', 'class/16095339'], ['gcse', 'Physics', 'class/16062616'],
 
-        // ['y1','Sets & Numbers'],['y1','Mathematical Analysis I & II'],['y1','Mathematical Methods & Modelling I & II'],
-        // ['y1','Linear Algebra'],['y1','Physics Foundations'],['y1','Classical Mechanics & Special Relativity'],
-        // ['y1','Quantum Phenomena'],['y1','Electromagnetism'],['y1','Programming'],
+        ['al', 'Mathematics', 'class/19575302'], ['al', 'Further Mathematics', 'class/19575302'], ['al', 'Physics', 'class/19575306'], ['al', 'Computer Science', 'class/19657579'],
 
-        // ['y2','Intro to PDEs'],['y2','Mathematical Analysis III'],['y2','Quantum'],['y2','Statistical Mechanics'],
-        // ['y2','Electromagnetism & Optics'],['y2','Hamiltonian & Fluid Mechanics'],['y2','Mathematical Physics'],
-        // ['y2','Norms, Metrics & Topologies'],['y2','Multivariable Analysis'],['y2','Computational Physics','f'],
-        // ['y2','Algorithms'],['y2','Asymptotics & Integral Transforms'],
+        ['y1', 'M1AK2: Refresher Mathematics', '833635034'], ['y1', 'MA149: Linear Algebra', 'Alfie_Kunz/folders/algebra'], ['y1', 'PX157: Electricity & Magnetism', 'Alfie_Kunz/folders/electricity-magnetism'],
+        ['y1', 'MA138: Sets & Numbers', '833761922'], ['y1', 'MA140: Mathematical Analysis I', 'Alfie_Kunz/folders/mathematical-analysis'], ['y1', 'MA152: Mathematical Analysis II', 'Alfie_Kunz/folders/mathematical-analysis'], 
+        ['y1', 'MA147: Mathematical Methods & Modelling I', '833876825'], ['y1', 'MA145: Mathematical Methods & Modelling II', 'Alfie_Kunz/folders/mathematical-methods-modelling'],
+        ['y1', 'PX155: Classical Mechanics & Special Relativity', 'Alfie_Kunz/folders/mechanics-relativity'], ['y1', 'PX154: Physics Foundations', 'Alfie_Kunz/folders/px154-physics-foundations'],
+        ['y1', 'PX160: Tutorial (Maths/Physics)', 'Alfie_Kunz/folders/px160-worksheets'], ['y1', 'PX156: Quantum Phenomena', 'Alfie_Kunz/folders/quantum-particle-physics'],
+        ['y1', 'PX159: Physics Programming Workshop', 'note/PX159%20Syntax.py'],
+        
+        ['y2', 'PX284: Statistical Mechanics, Electromagnetic Theory & Optics', 'Alfie_Kunz/folders/px284-statistical-mechanics-electromagnetic-theory-optics'], ['y2', 'MA271: Mathematical Analysis III', '950029935'],
+        ['y2', 'MA263: Multivariable Analysis', '990110750'], ['y2', 'MA250: Introduction to PDEs', '951260286'], ['y2', 'PX285: Hamiltonian & Fluid Mechanics', 'Alfie_Kunz/folders/mechanics-relativity'],
+        ['y2', 'PX262: Quantum Mechanics & its Applications', 'Alfie_Kunz/folders/quantum-particle-physics'], ['y2', 'CS260: Algorithms', 'Alfie_Kunz/folders/computer-science-modules'],
+        ['y2', 'MA260: Norms, Metrics & Topologies', 'Alfie_Kunz/folders/ma260-norms-metrics-topologies'], ['y2', 'MA269: Asymptotics & Integral Transforms', 'Alfie_Kunz/folders/ma269-asymptotics-integral-transforms'],
+        ['y2', 'PX286: Methods of Mathematical Physics', 'Alfie_Kunz/folders/px286-methods-of-mathematical-physics'], ['y2', 'PX281: Computational Physics', 'note/PX281%20Syntax.py'],
 
-        // ['y3','Measure Theory'],['y3','Modelling with PDEs'],['y3','Fluid Dynamics'],['y3','Quantum'],
-        // ['y3','Electrodynamics'],['y3','The Standard Model'],['y3','Kinetic Theory'],['y3','Neural Computing'],['y3','Mobile Robotics','f']
+        ['y3', 'CS313: Mobile Robotics', 'anki/decks/CS313'], ['y3', 'MA359: Measure Theory', 'anki/decks/MA359'], ['y3', 'MA3D1: Fluid Dynamics', 'anki/decks/MA3D1'], ['y3', 'MA3J4: Mathematical Modelling with PDEs', 'anki/decks/MA3J4'],
+        ['y3', 'PX3A2: Quantum Physics of Atoms', 'anki/decks/PX3A2'], ['y3', 'PX3A3: Electrodynamics', 'anki/decks/PX3A3'], ['y3', 'PX3A5: The Standard Model', 'anki/decks/PX3A5'],
+
+        ['y4', 'PX449: Kinetic Theory', 'anki/decks/PX449']
+
     ];
-    MODULES.sort((a, b) => a[1].localeCompare(b[1]));
+    Fields.sort((a, b) => a[1].localeCompare(b[1])); // Sorts modules alphabetically.
 
-    const LIMIT = 6, PEEK = 2; // rows shown normally, then rows shown blurred before "Show all"
-    const list = document.getElementById('deckList');
-    const search = document.getElementById('deckSearch');
-    const clearBtn = document.getElementById('deckClear');
-    const tabs = document.querySelectorAll('#deckTabs button');
-    let tab = 'all', expanded = false;
+    const DeckList = document.getElementById('deckList');
+    if (!DeckList) return;
+    const DeckSearch = document.getElementById('deckSearch');
+    const DeckClear = document.getElementById('deckClear');
+    const DeckTabs = document.querySelectorAll('#deckTabs button');
+    let CurrentTab = 'all';
+    let DeckExpanded = false;
 
-    function rowHTML(m, i, animFrom, peek) {
-        const [y, n] = m;
-        
-        // Check if 3rd item is an explicit type ('q', 'a', 'f') or an ID/link
-        const hasExplicitType = m[2] && TYPES[m[2]];
-        const k = hasExplicitType ? m[2] : DEFAULT[y];
-        const target = hasExplicitType ? m[3] : m[2];
-        const T = TYPES[k];
-
-        let href = '';
-        if (k === 'q') {
-            href = target ? (target.startsWith('http') ? target : `${QUIZLET_BASE}${target}/materials`) : QUIZLET_BASE;
-        } else if (k === 'a') {
-            href = target || `../../assets/resources/anki/decks/${slug(y, n)}.apkg`;
-        } else {
-            href = target || `../../assets/resources/files/${slug(y, n)}.pdf`;
+    function ConfigureFieldHTML(m, i, AnimateStart, BlurElement) {
+        // Intelligently grabs the type of card depending on the metadata link.
+        let href, Link, OpenOption;
+        const RetrieveCode = m[2].slice(0,4);
+        switch (RetrieveCode) {
+            case 'anki':
+                href = HomeBase + m[2] + `.apkg`;
+                OpenOption = 'download';
+                Link = LinkType.a;
+                break;
+            case 'note':
+                href = HomeBase + m[2];
+                OpenOption = 'download';
+                Link = LinkType.f
+                break;
+            default:
+                href = QuizletBase + m[2];
+                OpenOption = 'target="_blank" rel="noopener noreferrer"';
+                Link = LinkType.q;
+        }
+        let ElementClass = 'res-row d-flex align-items-center justify-content-between gap-3 bg-light rounded-4 p-3';
+        let ElementStyle = '';
+        let ElementExtra = '';
+        if (i >= AnimateStart) { 
+            ElementClass += ' res-anim'; 
+            ElementStyle += `animation-delay:${Math.min(i - AnimateStart, 10) * 30}ms;`; 
+        }
+        if (BlurElement) { 
+            const p = i - Limit + 1;
+            ElementStyle += `filter:blur(${(p * 1.6).toFixed(1)}px);--o:${(1 - p * 0.2).toFixed(1)};pointer-events:none;`;
+            ElementExtra = ' inert aria-hidden="true"';
         }
 
-        const attrs = k === 'a' ? 'download' : 'target="_blank" rel="noopener noreferrer"';
-        let cls = 'res-row d-flex align-items-center justify-content-between gap-3 bg-light rounded-4 p-3', st = '', ex = '';
-        
-        if (i >= animFrom) { 
-            cls += ' res-anim'; 
-            st += `animation-delay:${Math.min(i - animFrom, 10) * 30}ms;`; 
-        }
-        if (peek) { 
-            const p = i - LIMIT + 1; 
-            st += `filter:blur(${(p * 1.6).toFixed(1)}px);--o:${(1 - p * 0.2).toFixed(1)};pointer-events:none;`; 
-            ex = ' inert aria-hidden="true"'; 
-        }
-
-        return `<div class="${cls}" style="${st}"${ex}>
-            <div class="flex-grow-1" style="min-width:0"><div class="fw-bolder">${esc(n)}</div><div class="small text-muted fst-italic">${YEARS[y]}</div></div>
-            <a class="btn btn-sm rounded-pill ${T.cls} flex-shrink-0 text-nowrap px-3" href="${href}" ${attrs} aria-label="${T.label}: ${esc(n)}"><i class="bi ${T.icon} me-sm-1"></i><span class="d-none d-sm-inline">${T.label}</span></a>
+        return `<div class="${ElementClass}" style="${ElementStyle}"${ElementExtra}>
+            <div class="flex-grow-1" style="min-width:0"><div class="fw-bolder">${esc(m[1])}</div><div class="small text-muted fst-italic">${Year[m[0]]}</div></div>
+            <a class="btn btn-sm rounded-pill ${Link.cls} flex-shrink-0 text-nowrap px-3" href="${href}" ${OpenOption} aria-label="${Link.label}: ${esc(m[1])}"><i class="bi ${Link.icon} me-sm-1"></i><span class="d-none d-sm-inline">${Link.label}</span></a>
         </div>`;
     }
 
-    function render(animFrom = Infinity) {
-        const raw = search.value.trim(), term = raw.toLowerCase();
-        clearBtn.classList.toggle('d-none', !raw);
-        const rows = MODULES.filter(m => (tab === 'all' || m[0] === tab) && m[1].toLowerCase().includes(term));
-        if (!rows.length) {
-            list.innerHTML = `<p class="text-muted fst-italic text-center my-3">No modules match${raw ? ` "${esc(raw)}"` : ''}. Click to ${raw ? '<button type="button" class="btn btn-link p-0 align-baseline" data-act="clear">Clear search</button>' : ''}.</p>`;
+    function RenderFieldTable(AnimateStart = Infinity) {
+        const SearchParam = DeckSearch.value.trim();
+        DeckClear.classList.toggle('d-none', !SearchParam);
+        const AllFields = Fields.filter(m => {
+            const matchesTab = CurrentTab === 'all' 
+                || m[0] === CurrentTab 
+                || (CurrentTab === 'scl' && (m[0] === 'gcse' || m[0] === 'al'));
+            const matchesSearch = m[1].toLowerCase().includes(SearchParam);
+            return matchesTab && matchesSearch;
+        });
+        
+        if (!AllFields.length) {
+            DeckList.innerHTML = `<p class="text-muted fst-italic text-center my-3">No modules match${SearchParam ? ` "${esc(SearchParam)}"` : ''}. Click to ${SearchParam ? '<button type="button" class="btn btn-link p-0 align-baseline" data-act="clear">Clear search</button>' : ''}.</p>`;
             return;
         }
-        const long = rows.length > LIMIT + PEEK, collapsed = long && !expanded;
-        const shown = collapsed ? rows.slice(0, LIMIT + PEEK) : rows;
-        let h = shown.map((m, i, c) => rowHTML(m, i, c, animFrom, collapsed && i >= LIMIT)).join('');
-        if (collapsed) h += `<div class="text-center res-fade"><button type="button" class="btn btn-primary btn-sm rounded-pill px-4 mt-2" data-act="more">Show all (${rows.length}) modules <i class="bi bi-chevron-down ms-1"></i></button></div>`;
-        if (long && expanded) h += '<div class="text-center mt-2"><button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-4" data-act="less">Show less <i class="bi bi-chevron-up ms-1"></i></button></div>';
-        list.innerHTML = h;
+        const CollapseDeck = (AllFields.length > Limit + Peek) && !DeckExpanded;
+        const ShownFields = CollapseDeck ? AllFields.slice(0, Limit + Peek) : AllFields;
+        let h = ShownFields.map((m, i) => ConfigureFieldHTML(m, i, AnimateStart, CollapseDeck && i >= Limit)).join('');
+        if (CollapseDeck) h += `<div class="text-center res-fade"><button type="button" class="btn btn-primary btn-sm rounded-pill px-4 mt-2" data-act="more">Show all (${AllFields.length}) modules <i class="bi bi-chevron-down ms-1"></i></button></div>`;
+        if ((AllFields.length > Limit + Peek) && DeckExpanded) h += '<div class="text-center mt-2"><button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-4" data-act="less">Show less <i class="bi bi-chevron-up ms-1"></i></button></div>';
+        DeckList.innerHTML = h;
     }
 
-    function clearSearch() { search.value = ''; search.focus(); render(0); }
+    function ClearFieldSearch() { DeckSearch.value = ''; DeckSearch.focus(); RenderFieldTable(0); }
 
-    list.addEventListener('click', e => {
+    DeckList.addEventListener('click', e => {
         const a = e.target.closest('[data-act]');
         if (!a) return;
-        if (a.dataset.act === 'more') { expanded = true; render(LIMIT); }
-        else if (a.dataset.act === 'less') { expanded = false; render(); document.getElementById('decks').scrollIntoView({ behavior: 'smooth' }); }
-        else if (a.dataset.act === 'clear') { clearSearch(); }
+        if (a.dataset.act === 'more') { DeckExpanded = true; RenderFieldTable(6); }
+        else if (a.dataset.act === 'less') { DeckExpanded = false; RenderFieldTable(); document.getElementById('decks').scrollIntoView({ behavior: 'smooth' }); }
+        else if (a.dataset.act === 'clear') { ClearFieldSearch(); }
     });
-    tabs.forEach(b => b.addEventListener('click', () => {
-        tab = b.dataset.tab; expanded = false;
-        tabs.forEach(t => { t.classList.toggle('btn-primary', t === b); t.classList.toggle('btn-outline-secondary', t !== b); });
-        render(0);
+    DeckTabs.forEach(b => b.addEventListener('click', () => {
+        CurrentTab = b.dataset.tab; DeckExpanded = false;
+        DeckTabs.forEach(t => { t.classList.toggle('btn-primary', t === b); t.classList.toggle('btn-outline-secondary', t !== b); });
+        RenderFieldTable(0);
     }));
-    search.addEventListener('input', () => render(0));
-    search.addEventListener('keydown', e => { if (e.key === 'Escape' && search.value) clearSearch(); });
-    clearBtn.addEventListener('click', clearSearch);
-    render();
+    DeckSearch.addEventListener('input', () => RenderFieldTable(0));
+    DeckSearch.addEventListener('keydown', e => { if (e.key === 'Escape' && DeckSearch.value) ClearFieldSearch(); });
+    DeckClear.addEventListener('click', ClearFieldSearch);
+    RenderFieldTable();
 });

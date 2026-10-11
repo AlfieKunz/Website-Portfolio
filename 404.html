@@ -16,6 +16,7 @@
         const AcademiaRedirectList = ['a', 'ac', 'academic'];
         const CareerRedirectList = ['career', 'c', 'job', 'jobs'];
         const ProjectsRedirectList = ['proj', 'project', 'projects', 'stuff'];
+        const ResourcesRedirectList = ['resources', 'resource', 'r', 'study', 'studyresources', 'studyresource', 'anki', 'quizlet', 'notes', 'flashcard'];
 
         const HubRedirectList = ['h', 'main', 'm', 'splash', 'head']
 
@@ -72,6 +73,8 @@
                 window.location.replace(AcademiaBase + 'career/');
             } else if (ProjectsRedirectList.includes(LastSegment)) {
                 window.location.replace(AcademiaBase + 'projects/');
+            } else if (ResourcesRedirectList.includes(LastSegment)) {
+                window.location.replace(AcademiaBase + 'resoueces/');
             } else if (RedirectDict.has(LastSegment)) {
                 window.location.replace(RedirectDict.get(LastSegment));
             } else if (HubRedirectList.includes(LastSegment)) {
