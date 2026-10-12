@@ -48,6 +48,7 @@ This work is self-motivated and self-funded, and is written primarily in HTML, C
 ✅ In-depth career information via a floating project overview panel. Contains easy links to related projects and experience via a small floating gallery system.  
 ✅ Full list of my available projects, with bubbles containing key project info & associations, eye-drawing hero images, and separation into sub-project windows.  
 ✅ In-depth project information via a floating project overview panel, that fetches, parses and integrates live GitHub repo READMEs into my website colour scheme. Hosts related PDFs, interactive demos, and links to external media and GitHub repositories.  
+✅ Full hosting and redirecting to a full suite of revision resources I've created since 2020 - Quizlet & Anki flashcards, Anki note types, custom add-ons & FSRS presets, and other hand-typed revision materials.  
 ✅ Call to action and contact page, handled via a robust 'form submission' feature with variable message size handling.  
 ✅ Patient redirecting links at the bottom of the page, for social media, and the academic site.  
 ✅ Intelligent page re-organisation and information blending to accommodate for a variety of screen sizes & shapes, ensuring clean displaying of elements whilst losing no relevant information.  
@@ -106,8 +107,13 @@ Website-Portfolio         // Main page serves academic section
 │  ├─ experience          // Images for the Career History showcase
 │  ├─ favicon             // 'LinkedIn logo' favicon for academic section
 │  ├─ img                 // Slideshow images for main page
-│  └─ projects            // Images, documents, and other assets for all projects
+│  ├─ projects            // Images, documents, and other assets for all projects
+│  └─ resources           // 
+│     ├─ anki             // Anki note types, FSRS presets, and all cards for Year 3+ modules
+│     ├─ note             // Revision resources for all non-flashcard subjects
+│     └─ other            // Extra revision resources (in "Notes & Files")
 ├─ career                 // Experience & Education section, experience panels with related projects
+│  └─ resources           // Hosting of quizlet and anki flashcards, with anki presets & extra revision notes
 ├─ css                    // Bootstrap styling (blue theme for academia)
 ├─ hub                    // Splash page for redirecting the user to either the academic or photography section
 │  ├─ assets              // CSS styling, favicon and thumbnails for hub page
