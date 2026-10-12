@@ -20,13 +20,13 @@ This work is self-motivated and self-funded, and is written primarily in HTML, C
 ## Features and Highlights
 
 ### Hub Page:  
-✅ Responds to "hub.alfiekunz.co.uk".
+✅ Responds to "hub.alfiekunz.co.uk".  
 ✅ Intuitive portals to both the photography and academia sections, with smooth hovering animations.  
 ✅ Client-side background animation, using discretised superpositions of non-linear phase modulations.  
 ✅ Intelligent and performance-mindful page re-organisation to accommodate for a variety of screen sizes & shapes.  
 
 ### Photography:  
-✅ Responds to "photography.alfiekunz.co.uk" and "photo.alfiekunz.co.uk".
+✅ Responds to "photography.alfiekunz.co.uk" and "photo.alfiekunz.co.uk".  
 ✅ Spacious and friendly visuals that introduce the user to my photography style and features.  
 ✅ Unobtrusive hamburger, that adapts to the content underneath it: able to quickly jump across sections, or to the top of the page by clicking my name.  
 ✅ Reactive windows for each gallery type, allowing the user to easily determine which photos are in each gallery.  
