@@ -411,16 +411,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     y1: 'Warwick University, Year 1',
                     y2: 'Warwick University, Year 2',
                     y3: 'Warwick University, Year 3',
-                    y4: 'Warwick Univeristy, Year 4' };
+                    y4: 'Warwick University, Year 4' };
     const QuizletBase = 'https://quizlet.com/';
     const HomeBase = '../../assets/resources/';
     const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-    const Limit = 8, Peek = 3;
+    const IsMobile = window.matchMedia('(max-width: 575.98px)');
+    let Limit = IsMobile.matches ? 5 : 7, Peek = IsMobile.matches ? 2 : 3;
+    const ApplyBreakpoint = () => { Limit = IsMobile.matches ? 5 : 7; Peek = IsMobile ? 2 : 3; };
+    IsMobile.addEventListener('change', () => { ApplyBreakpoint(); RenderFieldTable(); });
 
     const LinkType = {
-        a: { label: 'Anki deck', icon: 'bi-download', cls: 'btn-primary' },
-        f: { label: 'Notes file', icon: 'bi-file-earmark-text', cls: 'btn-outline-secondary' },
-        q: { label: 'Quizlet set', icon: 'bi-box-arrow-up-right', cls: 'btn-outline-primary' }
+        a: { label: ' &nbspAnki deck&nbsp ', icon: 'bi-download', cls: 'btn-primary' },
+        f: { label: ' &nbspNotes file&nbsp ', icon: 'bi-file-earmark-text', cls: 'btn-outline-secondary' },
+        q: { label: ' Quizlet set', icon: 'bi-box-arrow-up-right', cls: 'btn-outline-primary' }
     };
 
     const Fields = [
@@ -492,12 +495,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return `<div class="${ElementClass}" style="${ElementStyle}"${ElementExtra}>
             <div class="flex-grow-1" style="min-width:0"><div class="fw-bolder">${esc(m[1])}</div><div class="small text-muted fst-italic">${Year[m[0]]}</div></div>
-            <a class="btn btn-sm rounded-pill ${Link.cls} flex-shrink-0 text-nowrap px-3" href="${href}" ${OpenOption} aria-label="${Link.label}: ${esc(m[1])}"><i class="bi ${Link.icon} me-sm-1"></i><span class="d-none d-sm-inline">${Link.label}</span></a>
+            <a class="btn btn-sm rounded-pill ${Link.cls} flex-shrink-0 text-nowrap px-4" href="${href}" ${OpenOption} aria-label="${Link.label}: ${esc(m[1])}"><i class="bi ${Link.icon} me-sm-1"></i><span class="d-none d-sm-inline">${Link.label}</span></a>
         </div>`;
     }
 
     function RenderFieldTable(AnimateStart = Infinity) {
-        const SearchParam = DeckSearch.value.trim();
+        const SearchParam = DeckSearch.value.trim().toLowerCase();
         DeckClear.classList.toggle('d-none', !SearchParam);
         const AllFields = Fields.filter(m => {
             const matchesTab = CurrentTab === 'all' 
@@ -537,4 +540,23 @@ document.addEventListener('DOMContentLoaded', () => {
     DeckSearch.addEventListener('keydown', e => { if (e.key === 'Escape' && DeckSearch.value) ClearFieldSearch(); });
     DeckClear.addEventListener('click', ClearFieldSearch);
     RenderFieldTable();
+
+
+    // Copies Add-on code to clipboard, with Bootstrap tooltip to notify the user of said action.
+    document.querySelectorAll('.copy-code').forEach(el => {
+    const ToolTip = new bootstrap.Tooltip(el, {
+      title: 'Copied to Clipboard!',
+      trigger: 'manual',
+      placement: 'bottom'
+    });
+
+    let Timeout;
+    const CopyAddonCode = async () => {
+      await navigator.clipboard.writeText(el.textContent.trim());
+        clearTimeout(Timeout);
+        ToolTip.show();
+        Timeout = setTimeout(() => ToolTip.hide(), 1100);
+    };
+    el.addEventListener('click', CopyAddonCode);
+  });
 });

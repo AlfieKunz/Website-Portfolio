@@ -55,7 +55,7 @@
         ]);
 
         const BaseRedirects = [...PhotographyRedirectList, ...AcademiaRedirectList];
-        const AllRedirects = [...BaseRedirects, ...PrivateRedirectList, ...EventRedirectList, ...CareerRedirectList, ...ProjectsRedirectList, ...RedirectDict.keys()];
+        const AllRedirects = [...BaseRedirects, ...PrivateRedirectList, ...EventRedirectList, ...CareerRedirectList, ...ProjectsRedirectList, ...ResourcesRedirectList, ...RedirectDict.keys()];
 
         const PathTree = window.location.pathname.split('/').filter(segment => segment);
         const LastSegment = PathTree[PathTree.length - 1] ? PathTree[PathTree.length - 1].toLowerCase() : '';
