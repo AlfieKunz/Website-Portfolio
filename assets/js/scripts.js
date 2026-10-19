@@ -423,7 +423,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const LinkType = {
         a: { label: ' &nbspAnki deck&nbsp ', icon: 'bi-download', cls: 'btn-primary' },
         f: { label: ' &nbspNotes file&nbsp ', icon: 'bi-file-earmark-text', cls: 'btn-outline-secondary' },
-        q: { label: ' Quizlet set', icon: 'bi-box-arrow-up-right', cls: 'btn-outline-primary' }
+        q: { label: ' Quizlet set', icon: 'bi-box-arrow-up-right', cls: 'btn-outline-primary' },
+        w: { label: ' Web notes', icon: 'bi-globe2', cls: 'btn-outline-secondary' }
     };
 
     const Fields = [
@@ -444,8 +445,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ['y2', 'MA260: Norms, Metrics & Topologies', 'Alfie_Kunz/folders/ma260-norms-metrics-topologies'], ['y2', 'MA269: Asymptotics & Integral Transforms', 'Alfie_Kunz/folders/ma269-asymptotics-integral-transforms'],
         ['y2', 'PX286: Methods of Mathematical Physics', 'Alfie_Kunz/folders/px286-methods-of-mathematical-physics'], ['y2', 'PX281: Computational Physics', 'note/PX281%20Syntax.py'],
 
-        ['y3', 'CS313: Mobile Robotics', 'anki/decks/CS313'], ['y3', 'MA359: Measure Theory', 'anki/decks/MA359'], ['y3', 'MA3D1: Fluid Dynamics', 'anki/decks/MA3D1'], ['y3', 'MA3J4: Mathematical Modelling with PDEs', 'anki/decks/MA3J4'],
-        ['y3', 'PX3A2: Quantum Physics of Atoms', 'anki/decks/PX3A2'], ['y3', 'PX3A3: Electrodynamics', 'anki/decks/PX3A3'], ['y3', 'PX3A5: The Standard Model', 'anki/decks/PX3A5'],
+        ['y3', 'CS313: Mobile Robotics', 'anki/decks/CS313'], ['y3', 'MA359: Measure Theory', 'anki/decks/MA359'], ['y3', 'MA3D1: Fluid Dynamics', 'anki/decks/MA3D1'],
+        ['y3', 'MA3J4: Mathematical Modelling with PDEs', 'anki/decks/MA3J4'], ['y3', 'PX3A2: Quantum Physics of Atoms', 'anki/decks/PX3A2'], ['y3', 'PX3A3: Electrodynamics', 'anki/decks/PX3A3'],
+        ['y3', 'PX3A5: The Standard Model', 'anki/decks/PX3A5'], ['y3', 'MA395: Essay', 'https://drive.google.com/drive/folders/1az1nd3R_9dcoDaKLZNdZIKsU-S7wajkt'],
 
         ['y4', 'PX449: Kinetic Theory', 'anki/decks/PX449']
 
@@ -473,7 +475,12 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'note':
                 href = HomeBase + m[2];
                 OpenOption = 'download';
-                Link = LinkType.f
+                Link = LinkType.f;
+                break;
+            case 'http':
+                href = m[2];
+                OpenOption = 'target="_blank" rel="noopener noreferrer"';
+                Link = LinkType.w;
                 break;
             default:
                 href = QuizletBase + m[2];
