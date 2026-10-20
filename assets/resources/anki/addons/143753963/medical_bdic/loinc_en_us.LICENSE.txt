@@ -1,0 +1,25 @@
+LOINC - license and attribution
+Applies to the bundled dictionary file: loinc_en_us.bdic
+
+Data source : Logical Observation Identifiers Names and Codes (LOINC),
+              Regenstrief Institute; table file "LoincTableCore.csv"
+              obtained from the public mirror
+              huggingface.co/datasets/awacke1/LOINC-Clinical-Terminology
+              (https://loinc.org/)
+Copyright   : © Regenstrief Institute, Inc. and the Logical Observation
+              Identifiers Names and Codes (LOINC) Committee. All rights
+              reserved.
+License     : LOINC license - free use and redistribution with attribution
+License URL : https://loinc.org/license/
+Attribution (the notice required by the LOINC license):
+              "This material contains content from LOINC (http://loinc.org).
+              LOINC is copyright © Regenstrief Institute, Inc. and the
+              Logical Observation Identifiers Names and Codes (LOINC)
+              Committee and is available at no cost under the license at
+              http://loinc.org/license. LOINC® is a registered United
+              States trademark of Regenstrief Institute, Inc."
+Notes       : Laboratory test and clinical observation names (long common
+              names, components, short names) were extracted and converted
+              into a lowercase ASCII spell-check word list (.bdic). This
+              dictionary is distributed separately and is never merged with
+              other dictionaries.

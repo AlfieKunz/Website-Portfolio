@@ -1,0 +1,21 @@
+
+
+{
+  "keys":
+[
+  ["#ff0000", "Ctrl+Alt+R"],
+  ["#fa911f", "Ctrl+Alt+O"],
+  ["#ffff00", "Ctrl+Alt+Y"],
+  ["#008000", "Ctrl+Alt+G"],
+  ["#18f826", "Ctrl+Alt+L"],
+  ["#19afe1", "Ctrl+Alt+B"],
+  ["#624ceb", "Ctrl+Alt+P"],
+  ["#dbac54", "Ctrl+Alt+N"],
+  ["#FFFFFF", "Ctrl+Alt+W"],
+  ["#00fdb8", "Ctrl+Alt+D"]
+
+],
+
+  "bold": "on"
+
+}

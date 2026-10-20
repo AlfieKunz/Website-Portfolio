@@ -1,0 +1,27 @@
+CIEL concept dictionary - license and attribution
+Applies to the bundled dictionary file: ciel_en_us.bdic
+
+Data source : CIEL concept dictionary (Columbia International eHealth
+              Laboratory), republished by OpenMRS as SQL dumps
+              (org.openmrs.contrib:ciel-dictionary, mavenrepo.openmrs.org)
+              and distributed by Open Concept Lab
+              (https://openconceptlab.org/)
+Copyright   : Columbia International eHealth Laboratory (CIEL) and
+              contributors; maintained by Dr. Andrew S. Kanter and the
+              CIEL team
+License     : Creative Commons Attribution 4.0 International (CC BY 4.0)
+              - the CIEL dictionary is licensed by its authors under CC
+              BY 4.0 (CIEL "Terms of Use" shown on the About page of the
+              CIEL source in Open Concept Lab, https://cielterminology.org/)
+License URL : https://creativecommons.org/licenses/by/4.0/
+Attribution : CIEL concept dictionary, Columbia International eHealth
+              Laboratory (https://cielterminology.org/), used under the
+              Creative Commons Attribution 4.0 license.
+Notes       : The CIEL dictionary contains certain lexical codes that may
+              be subject to claims of ownership by third parties (IMO,
+              IHTSDO, WHO, etc.); no license is conveyed by the CIEL
+              authors to those third party rights. Only English concept
+              names were extracted and converted into a lowercase ASCII
+              spell-check word list (.bdic). This dictionary is
+              distributed separately and is never merged with other
+              dictionaries.

@@ -1,0 +1,25 @@
+ICD-11 MMS - license and attribution
+Applies to the bundled dictionary file: icd11_en_us.bdic
+
+Data source : World Health Organization, International Classification of
+              Diseases 11th Revision (ICD-11), Mortality and Morbidity
+              Statistics (MMS), release 2026-01
+              https://icd.who.int/
+Copyright   : © World Health Organization 2026. Some rights reserved.
+License     : Creative Commons Attribution-NoDerivatives 3.0 IGO
+              (CC BY-ND 3.0 IGO)
+License URL : https://creativecommons.org/licenses/by-nd/3.0/igo/
+Agreement   : https://icd.who.int/en/docs/icd11-license.pdf (WHO ICD-11
+              Terms of Use and License Agreement)
+Attribution : ICD-11 codes and titles, © World Health Organization 2026,
+              used under the CC BY-ND 3.0 IGO license. The WHO does not
+              endorse this add-on or its use of ICD-11 content.
+Notes       : Only the entity titles were extracted; the ICD-11 content
+              itself was not altered or adapted. Because the license
+              forbids derivatives, this dictionary is distributed strictly
+              separately and is never merged with other dictionaries.
+              During generation every entity's original classification
+              code, official title and id.who.int URI were preserved in the
+              build tooling, so the classification structure can be traced
+              back to the WHO release; that mapping file is not distributed
+              with the add-on.

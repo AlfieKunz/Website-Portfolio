@@ -1,0 +1,9 @@
+// Minimal replacement of Chromium's base/compiler_specific.h.
+#ifndef CONVERT_DICT_WASM_SHIMS_BASE_COMPILER_SPECIFIC_H_
+#define CONVERT_DICT_WASM_SHIMS_BASE_COMPILER_SPECIFIC_H_
+
+#define UNSAFE_TODO(...) __VA_ARGS__
+#define UNSAFE_BUFFERS(...) __VA_ARGS__
+#define UNSAFE_BUFFER_USAGE
+
+#endif  // CONVERT_DICT_WASM_SHIMS_BASE_COMPILER_SPECIFIC_H_

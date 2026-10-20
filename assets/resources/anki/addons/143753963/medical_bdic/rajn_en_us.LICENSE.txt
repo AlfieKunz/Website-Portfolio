@@ -1,0 +1,21 @@
+Raj&Co-MedSpelChek - license and attribution
+Applies to the bundled dictionary file: rajn_en_us.bdic
+
+Data source : Raj&Co-MedSpelChek, a free medical custom dictionary for
+              Microsoft Word (https://rajn.co/)
+Copyright   : © 2009-2014 Rajasekharan N.
+License     : GNU General Public License (GPL) - the bundled README states
+              "Raj&Co-MedSpelChek is released under the GPL license"
+              without naming a version
+License URL : https://www.gnu.org/licenses/
+License text: the full GNU GPL version 3 text is bundled in this folder as
+              LICENSE_GPL-3.0.txt
+Attribution : Raj&Co-MedSpelChek, © 2009-2014 Rajasekharan N., released
+              under the GNU General Public License (https://rajn.co/).
+Upstream   : according to the author, the word list was compiled in part
+              from the OpenMedSpel open-source word list (e-MedTools, GPL)
+              plus the author's own collection
+Notes       : The original MS Word word list (98,104 entries, UTF-16) was
+              converted to UTF-8 text and then into a lowercase ASCII
+              spell-check word list (.bdic). This dictionary is distributed
+              separately and is never merged with other dictionaries.

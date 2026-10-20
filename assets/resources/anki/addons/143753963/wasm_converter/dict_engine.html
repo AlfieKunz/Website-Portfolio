@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Convert Dict Engine</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: transparent; overflow: hidden; }
+</style>
+</head>
+<body>
+
+<script>__QWEBCHANNEL_JS__</script>
+<script>__CONVERT_DICT_JS__</script>
+<script>window.convertDictWasmBase64 = "__CONVERT_DICT_WASM_B64__";</script>
+<script>__CONVERT_DICT_ENGINE_JS__</script>
+<script>
+(function () {
+    "use strict";
+    function boot() {
+        if ((typeof QWebChannel === "undefined") || !window.qt || !window.qt.webChannelTransport) {
+            console.error("QWebChannel is not available");
+            return;
+        }
+        new QWebChannel(window.qt.webChannelTransport, function (channel) {
+            window.convertDictEngine = new ConvertDictEngine(channel.objects.convertDictBridge);
+            window.convertDictEngine.init().catch(function (error) {
+                window.convertDictEngine.fail(error);
+            });
+        });
+    }
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", boot);
+    } else {
+        boot();
+    }
+})();
+</script>
+</body>
+</html>

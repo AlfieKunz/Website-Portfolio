@@ -1,0 +1,40 @@
+.extra-col {
+    text-align: center;
+}
+
+.stacked-bar-container {
+    width: 7em;
+    height: 1em;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+}
+
+.segment {
+    height: 100%;
+}
+
+.segment-mature {
+    background: #76c7c0;
+}
+
+.segment-young {
+    background: #f4d35e;
+}
+
+.segment-suspended {
+    background: #ee6352;
+}
+
+.segment-learning {
+    background: pink;
+}
+
+.segment-new {
+    background: grey;
+}
+
+.progress-label {
+    font-size: 1em;
+    margin-top: 2px;
+}

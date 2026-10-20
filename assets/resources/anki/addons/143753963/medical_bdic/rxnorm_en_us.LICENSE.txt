@@ -1,0 +1,28 @@
+RxNorm (prescribable release) - license and attribution
+Applies to the bundled dictionary file: rxnorm_en_us.bdic
+
+Data source : U.S. National Library of Medicine, RxNorm Current
+              Prescribable Content release (RxNorm_full_prescribe,
+              October 05, 2026)
+              https://www.nlm.nih.gov/research/umls/rxnorm/docs/prescribe.html
+Copyright   : U.S. Government work - not subject to copyright in the
+              United States (public domain)
+License     : Public domain; no license required. NLM provides the
+              prescribable subset without any licensing restrictions and
+              it can be downloaded without a UMLS login. (The full RxNorm
+              monthly releases do require a free UMLS license.)
+License URL : https://www.nlm.nih.gov/research/umls/rxnorm/docs/termsofservice.html
+Attribution : This product uses publicly available data courtesy of the
+              U.S. National Library of Medicine (NLM), National Institutes
+              of Health, Department of Health and Human Services; NLM is
+              not responsible for the product and does not endorse or
+              recommend this or any other product.
+Notes       : The prescribable subset contains only RxNorm normalized
+              names and codes (SAB=RXNORM) and FDA Structured Product
+              Label data (SAB=MTHSPL), so it includes no data from the
+              other RxNorm providers. Generic and brand drug names were
+              extracted from the RRF files and converted into a lowercase
+              ASCII spell-check word list (.bdic). This is the 2026-10-05
+              release and may not reflect the most current NLM data. This
+              dictionary is distributed separately and is never merged
+              with other dictionaries.

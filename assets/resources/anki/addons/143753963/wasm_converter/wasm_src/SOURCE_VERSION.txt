@@ -1,0 +1,3 @@
+repository: https://github.com/chromium/chromium
+tag: 157.0.8096.1
+commit: 098f266e40b8f4f4f531949f14417e4eaae8deae

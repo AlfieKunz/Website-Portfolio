@@ -1,0 +1,26 @@
+Human Phenotype Ontology (HPO) - license and attribution
+Applies to the bundled dictionary file: hpo_en_us.bdic
+
+Data source : Human Phenotype Ontology, release file hp.obo, version
+              2026-09-01 (https://hpo.jax.org/, GitHub:
+              obophenotype/human-phenotype-ontology)
+Copyright   : The Human Phenotype Ontology Consortium
+License     : HPO license - a custom license published by the HPO
+              project (not a Creative Commons license). The HPO files are
+              freely available for use under three conditions: the Human
+              Phenotype Ontology Consortium is acknowledged and cited;
+              any HPO file displayed publicly includes its date and/or
+              version number; and the content and the logical
+              relationships of the HPO files are not altered
+License URL : https://hpo.jax.org/app/license
+Attribution : This service/product uses the Human Phenotype Ontology
+              (version 2026-09-01). Find out more at
+              http://www.human-phenotype-ontology.org
+Citation    : Köhler et al., "The Human Phenotype Ontology in 2024",
+              Nucleic Acids Research, and the Human Phenotype Ontology
+              Consortium
+Notes       : Only term names and synonyms were extracted from hp.obo
+              and converted into a lowercase ASCII spell-check word list
+              (.bdic); the HPO content and its logical relationships are
+              left unaltered. This dictionary is distributed separately
+              and is never merged with other dictionaries.

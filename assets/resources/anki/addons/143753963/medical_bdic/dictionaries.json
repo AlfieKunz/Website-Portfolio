@@ -1,0 +1,74 @@
+{
+    "dictionaries": [
+        {
+            "name": "Raj&Co-MedSpelChek",
+            "file": "rajn_en_us.bdic",
+            "word_count": 94995,
+            "version": null,
+            "last_updated": "2014-07-09",
+            "license": "GPL",
+            "license_file": "rajn_en_us.LICENSE.txt",
+            "summary": "Raj&Co-MedSpelChek (Rajasekharan N.): free medical transcription word list for MS Word with drug, anatomical, surgical and laboratory terms."
+        },
+        {
+            "name": "MeSH 2026",
+            "file": "mesh_en_us.bdic",
+            "word_count": 267506,
+            "version": "2026",
+            "last_updated": "2026-08-12",
+            "license": "Public Domain",
+            "license_file": "mesh_en_us.LICENSE.txt",
+            "summary": "Medical Subject Headings (MeSH) from the U.S. National Library of Medicine: controlled vocabulary names for diseases, anatomy, drugs, techniques and other biomedical concepts."
+        },
+        {
+            "name": "RxNorm",
+            "file": "rxnorm_en_us.bdic",
+            "word_count": 10139,
+            "version": "2026-10-05",
+            "last_updated": "2026-10-05",
+            "license": "Public Domain",
+            "license_file": "rxnorm_en_us.LICENSE.txt",
+            "summary": "RxNorm (U.S. National Library of Medicine) prescribable release: generic and brand names of prescribable drug products."
+        },
+        {
+            "name": "ICD-11 MMS",
+            "file": "icd11_en_us.bdic",
+            "word_count": 17255,
+            "version": "2026-01",
+            "last_updated": "2026-01-27",
+            "license": "CC BY-ND 3.0 IGO",
+            "license_file": "icd11_en_us.LICENSE.txt",
+            "summary": "ICD-11 MMS titles (World Health Organization): names of diseases, injuries, symptoms and other health conditions from the International Classification of Diseases 11th Revision."
+        },
+        {
+            "name": "LOINC",
+            "file": "loinc_en_us.bdic",
+            "word_count": 19969,
+            "version": "2.73",
+            "last_updated": "2023-02-28",
+            "license": "LOINC License",
+            "license_file": "loinc_en_us.LICENSE.txt",
+            "summary": "LOINC (Regenstrief Institute): names of laboratory tests and clinical observations (long common names, components and short names)."
+        },
+        {
+            "name": "Human Phenotype Ontology",
+            "file": "hpo_en_us.bdic",
+            "word_count": 12320,
+            "version": "2026-09-01",
+            "last_updated": "2026-09-01",
+            "license": "HPO license",
+            "license_file": "hpo_en_us.LICENSE.txt",
+            "summary": "Human Phenotype Ontology: terms and synonyms for phenotypic abnormalities (signs and symptoms) used in clinical genetics."
+        },
+        {
+            "name": "CIEL",
+            "file": "ciel_en_us.bdic",
+            "word_count": 34708,
+            "version": "2025-12-24",
+            "last_updated": "2025-12-24",
+            "license": "CC BY 4.0 (some third-party codes excluded)",
+            "license_file": "ciel_en_us.LICENSE.txt",
+            "summary": "CIEL (Columbia International eHealth Laboratory): English concept names from the OpenMRS concept dictionary covering diagnoses, findings, drugs, tests and procedures."
+        }
+    ]
+}

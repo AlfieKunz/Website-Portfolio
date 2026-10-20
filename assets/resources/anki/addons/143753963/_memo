@@ -1,0 +1,51 @@
+
+
+
+#
+
+QWebEngineProfile
+setSpellCheckEnabled
+
+
+Hunspell: ｵｰﾌﾟﾝｿｰｽのｽﾍﾟﾙﾁｪｯｸﾌﾟﾛｼﾞｪｸﾄ
+https://github.com/hunspell/hunspell
+
+LibreOffice Dictionaries
+https://github.com/LibreOffice/dictionaries
+
+
+
+☐ 閉じるﾎﾞﾀﾝを追加.
+
+https://github.com/ValentinSchmitz/spell-checker/issues/3
+
+My solution is that you can download the '.bdic' files for your language from this repo and put the files into the .bdic folder.
+https://github.com/cvsuser-chromium/third_party_hunspell_dictionaries
+
+
+
+# macOS 上が .bdic をｺﾝﾊﾟｲﾙできない
+ValentinSchmitz commented on Oct 11, 2023
+Thank you for linking the repo. The plugin does sadly not support macOS right now, because I am currently unable to compile the .bdic converter on macOS. However, as you noted, you can manually add .bdic files and still use the plugin this way, although without the personal dictionary.
+
+
+
+# Spell Checker (ValentinSchmitz)
+https://github.com/ValentinSchmitz/spell-checker
+
+# AnkiWeb: Spell Checker (Deprecated) 
+https://ankiweb.net/shared/info/369581638
+
+
+
+# SpellingPolice (lovac42)
+https://github.com/lovac42/SpellingPolice
+
+# 公式 Anki
+https://github.com/ankitects/anki/issues/1938
+
+# spell-checker (glutanimate)
+https://github.com/glutanimate/spell-checker-public
+
+# Medical Dict
+https://github.com/lovac42/SpellingPolice/issues/8
