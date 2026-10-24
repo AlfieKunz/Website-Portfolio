@@ -18,7 +18,7 @@
         const ProjectsRedirectList = ['proj', 'project', 'projects', 'stuff'];
         const ResourcesRedirectList = ['resources', 'resource', 'r', 'study', 'studyresources', 'studyresource', 'anki', 'quizlet', 'notes', 'flashcard'];
 
-        const HubRedirectList = ['h', 'main', 'm', 'splash', 'head']
+        const HubRedirectList = ['h', 'main', 'm', 'splash', 'head'];
 
         const RedirectDict = new Map([
             ['cv', AcademiaBase + 'assets/Alfie Kunz CV.pdf'],
@@ -54,6 +54,11 @@
             ['sport', PhotoBase + 'gallery/?category=sport']
         ]);
 
+        function Redirect(target) {
+            const Dir = window.location.hash ? target.split('#')[0] + window.location.hash : target;
+            window.location.replace(Dir);
+        }
+
         const BaseRedirects = [...PhotographyRedirectList, ...AcademiaRedirectList];
         const AllRedirects = [...BaseRedirects, ...PrivateRedirectList, ...EventRedirectList, ...CareerRedirectList, ...ProjectsRedirectList, ...ResourcesRedirectList, ...RedirectDict.keys()];
 
@@ -62,23 +67,23 @@
 
         if (AllRedirects.includes(LastSegment) && (PathTree.length === 1 || (PathTree.length === 2 && BaseRedirects.includes(PathTree[0].toLowerCase())) )) {
             if (PhotographyRedirectList.includes(LastSegment)) {
-                window.location.replace(PhotoBase);
+                Redirect(PhotoBase);
             } else if (PrivateRedirectList.includes(LastSegment)) {
-                window.location.replace(PhotoBase + 'gallery/?category=private');
+                Redirect(PhotoBase + 'gallery/?category=private');
             } else if (EventRedirectList.includes(LastSegment)) {
-                window.location.replace(PhotoBase + 'gallery/?category=event');
+                Redirect(PhotoBase + 'gallery/?category=event');
             } else if (AcademiaRedirectList.includes(LastSegment)) {
-                window.location.replace(AcademiaBase);
+                Redirect(AcademiaBase);
             } else if (CareerRedirectList.includes(LastSegment)) {
-                window.location.replace(AcademiaBase + 'career/');
+                Redirect(AcademiaBase + 'career/');
             } else if (ProjectsRedirectList.includes(LastSegment)) {
-                window.location.replace(AcademiaBase + 'projects/');
+                Redirect(AcademiaBase + 'projects/');
             } else if (ResourcesRedirectList.includes(LastSegment)) {
-                window.location.replace(AcademiaBase + 'career/resources/');
+                Redirect(AcademiaBase + 'career/resources/');
             } else if (RedirectDict.has(LastSegment)) {
-                window.location.replace(RedirectDict.get(LastSegment));
+                Redirect(RedirectDict.get(LastSegment));
             } else if (HubRedirectList.includes(LastSegment)) {
-                window.location.replace(HubBase);
+                Redirect(HubBase);
             }
         } else if (PathTree.length !== 0) {
             RedirectToParent();
@@ -101,11 +106,11 @@
                     PathTreeSegments.pop();
                     const Parent = '/' + PathTreeSegments.join('/');
                     if (await DoesPathExist(Parent) || PathTreeSegments.length === 0) {
-                        window.location.replace(Parent);
+                        Redirect(Parent);
                         return;
                     }
                 }
-                window.location.replace('/');
+                Redirect('/');
             }
             FindClosestParent();
         }
