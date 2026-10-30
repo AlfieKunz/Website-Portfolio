@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alfie Kunz</title>
+    <title>Alfie Kunz | Hub</title>
     <link href="assets/css/styles.css" rel="stylesheet" />
 
     <!-- Favicons-->
@@ -26,19 +26,39 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "ItemList",
-        "itemListElement": [
+        "@graph": [
             {
-            "@type": "SiteNavigationElement",
-            "position": 1,
-            "name": "Photography",
-            "url": "https://photography.alfiekunz.co.uk/"
+                "@type": "WebSite",
+                "@id": "https://hub.alfiekunz.co.uk/#website",
+                "url": "https://hub.alfiekunz.co.uk/",
+                "name": "Alfie Kunz",
+                "hasPart": [
+                    {
+                        "@type": "WebPage",
+                        "name": "Alfie Kunz - Photography",
+                        "url": "https://photography.alfiekunz.co.uk/"
+                    },
+                    {
+                        "@type": "WebPage",
+                        "name": "Alfie Kunz - Academia",
+                        "url": "https://www.alfiekunz.co.uk/"
+                    }
+                ]
             },
             {
-            "@type": "SiteNavigationElement",
-            "position": 2,
-            "name": "Academia",
-            "url": "https://www.alfiekunz.co.uk/"
+                "@type": "Person",
+                "@id": "https://hub.alfiekunz.co.uk/#person",
+                "name": "Alfie Kunz",
+                "url": "https://hub.alfiekunz.co.uk/",
+                "jobTitle": ["Photographer", "Master's Student"],
+                "affiliation": {
+                    "@type": "CollegeOrUniversity",
+                    "name": "University of Warwick"
+                },
+                "sameAs": [
+                    "https://www.alfiekunz.co.uk/",
+                    "https://photography.alfiekunz.co.uk/"
+                ]
             }
         ]
     }
@@ -55,19 +75,19 @@
         
         <header class="header">
             <h1>Alfie Kunz</h1>
-            <p class="subtitle">The home of both my Photography Projects & Services, and my Academic Portfolio & CV.<br>Please enjoy your <span class="fixed-spacing">s</span>tay! :)</p>
+            <p class="subtitle">Welcome to the home of both my Photography Projects & Services, and my Academic Portfolio & CV!<br>Please enjoy your <span class="fixed-spacing">s</span>tay! :)</p>
         </header>
 
         <div class="content">
  
-            <a href="https://photography.alfiekunz.co.uk/" class="panel panel-photography">
+            <a href="https://photography.alfiekunz.co.uk/" class="panel panel-photography" aria-label="Alfie Kunz Photography Projects and Services">
                 <div class="panel-bg"></div>
                 <div class="panel-label">
                     <h2>Photography</h2>
                     <div class="panel-label-rule"></div>
                 </div>
             </a>
-            <a href="https://www.alfiekunz.co.uk/" class="panel panel-academia">
+            <a href="https://www.alfiekunz.co.uk/" class="panel panel-academia" aria-label="Alfie Kunz Academic Portfolio and CV">
                 <div class="panel-bg"></div>
                 <div class="panel-label">
                     <h2>Academia</h2>
@@ -78,7 +98,15 @@
         </div>
 
         <footer class="footer">
-            <p>&copy; 2026 Alfie Kunz.&nbsp&nbsp&nbspAll rights reserved.</p>
+            <p>
+                <span>&copy; 2026 Alfie Kunz. All rights reserved.</span>
+                <span class="footer-sep">|</span>
+                <span>
+                    <a href="https://www.alfiekunz.co.uk/">Academia</a>
+                    &bull;
+                    <a href="https://photography.alfiekunz.co.uk/">Photography</a>
+                </span>
+            </p>
         </footer>
 
     </section>
