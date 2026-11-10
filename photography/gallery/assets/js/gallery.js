@@ -92,17 +92,34 @@ document.addEventListener("DOMContentLoaded", () => {
     let ErrorCounter = 0;
 
     let privatePassword = null;
+    let privatePasswordKey = null; // Cached WebCrypto base key
     let privateUsername = null;
     //Links between the files (stored in the jsons) and the a local link to the decrypted images.
-    let DecryptedFulls = new Map();
-    let DecryptedThumbs = new Map();
+    const DecryptedFulls = new Map();
+    const DecryptedThumbs = new Map();
+    // Tracks in-flight Promises so we never download/decrypt the same file twice simultaneously
+    const InFlightDecryptions = new Map();
     let OnlyBallPhotosCheckbox = null;
+
+    let thumbObserver = null;
+    async function getPasswordKey(password) {
+        if (privatePasswordKey && password === privatePassword) {
+            return privatePasswordKey;
+        }
+        return window.crypto.subtle.importKey(
+            'raw',
+            new TextEncoder().encode(password),
+            { name: 'PBKDF2' },
+            false,
+            ['deriveKey']
+        );
+    }
 
 
     async function Decrypt(dir, password) {
         try {
             // fetch the encrypted file data as an array.
-            const response = await fetch(dir);
+            const response = await fetch(dir, { cache: 'force-cache' });
             if (!response.ok) {
                 throw new Error(`Failed to fetch encrypted file: ${response.statusText}`);
             }
@@ -110,16 +127,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const encryptedBytes = new Uint8Array(encryptedData);
 
             // Extract salt, iv & ciphertext.
-            const salt = encryptedBytes.slice(0, 16);
-            const iv = encryptedBytes.slice(16, 32);
-            const ciphertext = encryptedBytes.slice(32);
+            const salt = encryptedBytes.subarray(0, 16);
+            const iv = encryptedBytes.subarray(16, 32);
+            const ciphertext = encryptedBytes.subarray(32);
 
             // Encodes the password.
-            const passwordKey = await window.crypto.subtle.importKey(
-                'raw',
-                new TextEncoder().encode(password), { name: 'PBKDF2' },
-                false, ['deriveKey']
-            );
+            const passwordKey = await getPasswordKey(password);
 
             const key = await window.crypto.subtle.deriveKey({
                     name: 'PBKDF2',
@@ -150,7 +163,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Creates URL for decrypted image.
             const blob = new Blob([plaintext], { type: mimeType });
-            return URL.createObjectURL(blob);
+            const blobUrl = URL.createObjectURL(blob);
+
+            // Pre-decode the image off the main thread so it paints with zero stutter
+            const preloadImg = new Image();
+            preloadImg.src = blobUrl;
+            if (preloadImg.decode) {
+                preloadImg.decode().catch(() => {});
+            }
+
+            return blobUrl;
 
         } catch (error) {
             //We were unable to decrypt the file - return nothing, so the system can flag it up.
@@ -162,37 +184,60 @@ document.addEventListener("DOMContentLoaded", () => {
     //Decrypts each image on command, for use by either lazy loading of thumbs, or for loading of fulls upon click.
     async function DecryptImage(filename, username, password, format="thumb") {
         //Chooses the right map to save to.
-        DecryptedMap = format == "thumb" ? DecryptedThumbs : DecryptedFulls
+        const DecryptedMap = format == "thumb" ? DecryptedThumbs : DecryptedFulls
         if (DecryptedMap.has(filename)) {
             //Don't need to load.
             return DecryptedMap.get(filename);
         }
+        const CacheKey = `${format}:${filename}`;
+        if (InFlightDecryptions.has(CacheKey)) {
+            return InFlightDecryptions.get(CacheKey);
+        }
         //Computes the image and stores it for safe keeping :).
         const encName = filename.split('.')[0] + ".enc";
-        const decryptedUrl = await Decrypt(`images/private/${username}/${format}/${encName}`, password);
-        if (decryptedUrl) {DecryptedMap.set(filename, decryptedUrl);}
-        return decryptedUrl;
+        const decryptPromise = (async () => {
+            try {
+                const decryptedUrl = await Decrypt(`images/private/${username}/${format}/${encName}`, password);
+                if (decryptedUrl) {DecryptedMap.set(filename, decryptedUrl);}
+                return decryptedUrl;
+            } finally {
+                InFlightDecryptions.delete(CacheKey);
+            }
+        })();
+        InFlightDecryptions.set(CacheKey, decryptPromise);
+        return decryptPromise;
     }
 
 
     async function DecryptNextSlide(slideIndex) {
         // Checks for invalid indices.
-        if (!main.slides || !main.slides[slideIndex] || !lastOrderedImages[slideIndex]) {return;}
+        //if (!main.slides || !main.slides[slideIndex] || !lastOrderedImages[slideIndex]) {return;}
+        if (!lastOrderedImages || !lastOrderedImages[slideIndex]) return;
 
-        const slideToSwitch = main.slides[slideIndex];
         const imageToSwitch = lastOrderedImages[slideIndex];
-        
-        // Check if already decrypted, by finding if the url is a blob (local).
-        if (slideToSwitch.url && slideToSwitch.url.startsWith('blob:')) {return;}
-
-        //Decrypts the image, then assigns the url to the slide.
         const decryptedUrl = await DecryptImage(imageToSwitch.filename, privateUsername, privatePassword, "full");
-        if (decryptedUrl) {
+
+        // Check if already decrypted, by finding if the url is a blob (local).
+        if (decryptedUrl && main.slides && main.slides[slideIndex]) {
+            //Decrypts the image, then assigns the url to the slide.
+            const slideToSwitch = main.slides[slideIndex];
             slideToSwitch.url = decryptedUrl;
             // Modofies that full's thumbnail, so we don't have to decrypt it upon click.
-            const thumbnailLink = slideToSwitch.$parent.find('a.thumbnail')[0];
-            if (thumbnailLink) {thumbnailLink.href = decryptedUrl; }
+            const thumbnailLink = slideToSwitch.$parent ? slideToSwitch.$parent.find('a.thumbnail')[0] : null;
+            if (thumbnailLink) {
+                thumbnailLink.href = decryptedUrl;
+            }
         }
+    }
+
+    // Silently pre-decrypts the next and previous full photos in the background
+    function PreloadAdjacentSlides(currentIndex) {
+        if (!lastOrderedImages.length) return;
+        const total = lastOrderedImages.length;
+        const nextIndex = (currentIndex + 1) % total;
+        const prevIndex = (currentIndex - 1 + total) % total;
+        DecryptNextSlide(nextIndex);
+        DecryptNextSlide(prevIndex);
     }
 
 
@@ -261,6 +306,24 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(`Displaying ${orderedImages.length} Photos...`);
         
         try {
+
+            if (category === "private") {
+                if (thumbObserver) thumbObserver.disconnect();
+                thumbObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(async (entry) => {
+                        if (entry.isIntersecting) {
+                            const imgElement = entry.target;
+                            obs.unobserve(imgElement);
+                            const fname = imgElement.dataset.filename;
+                            const decryptedUrl = await DecryptImage(fname, privateUsername, privatePassword, "thumb");
+                            if (decryptedUrl) {
+                                imgElement.src = decryptedUrl;
+                            }
+                        }
+                    });
+                }, { rootMargin: "300px 0px" }); // Starts decrypting thumbs 300px before they scroll into view
+            }
+
             orderedImages.forEach((img, index) => {
                 const article = document.createElement("article");
                 const aspectRatio = img.aspect_ratio || (3 / 2);
@@ -270,9 +333,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 const Credits = img.credits ? ('Alfie Kunz + ' + (img.credits.url ? `<a href="${img.credits.url}" target="_blank">${img.credits.name}</a>` : img.credits.name)) : 'Alfie Kunz'
                 const YearOfCapture = new Date(img.datetime).getFullYear();
                 
+                const cachedFull = category === "private" ? DecryptedFulls.get(img.filename) : null;
+                const cachedThumb = category === "private" ? DecryptedThumbs.get(img.filename) : null;
+
                 // The gif here represents a black image, used rather than the default "no image" symbol
-                const dirFull = category == "private" ? 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' : `images/${categoryName}/full/${img.filename}`
-                const dirThumb = category == "private" ? 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' : `images/${categoryName}/thumb/${img.filename}`;
+                const dirFull = category === "private"
+                    ? (cachedFull || 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+                    : `images/${categoryName}/full/${img.filename}`;
+                const dirThumb = category === "private"
+                    ? (cachedThumb || 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+                    : `images/${categoryName}/thumb/${img.filename}`;
 
                 article.innerHTML = `
                     <a class="thumbnail" href="${dirFull}" data-position="${img.position || 'center center'}" ${tagsAttribute} data-index="${index}" data-filename="${img.filename}">
@@ -313,6 +383,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                     const imgElement = article.querySelector('img');
                     observer.observe(imgElement);
+                }
+                if (category === "private" && !cachedThumb) {
+                    ImageCont.dataset.filename = img.filename;
+                    thumbObserver.observe(ImageCont);
                 }
             });
         } catch(error) {
@@ -391,6 +465,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     if (!thumbnailsContainer.dataset.listenerAttached) {
+
+        // Start decrypting the full photo as soon as the user hovers or touches a thumbnail
+        const prefetchFullOnIntent = (event) => {
+            if (category !== "private" || !privateUsername) return;
+            const thumbnailLink = event.target.closest('a.thumbnail');
+            if (!thumbnailLink) return;
+            const filename = thumbnailLink.getAttribute('data-filename');
+            const index = parseInt(thumbnailLink.getAttribute('data-index'), 10);
+            if (filename && !DecryptedFulls.has(filename)) {
+                DecryptNextSlide(index);
+            }
+        };
+        thumbnailsContainer.addEventListener('pointerenter', prefetchFullOnIntent, true);
+        thumbnailsContainer.addEventListener('touchstart', prefetchFullOnIntent, { passive: true });
+
         thumbnailsContainer.addEventListener('click', async function(event) {
             const thumbnailLink = event.target.closest('a.thumbnail');
             if (!thumbnailLink) return;
@@ -443,34 +532,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    if (category == "private" && typeof main !== 'undefined') {
-        // Overwrites the navigation controls, so that we decrypt the slide that is about to load.
-        const nav = {
-            next: main.next.bind(main),
-            previous: main.previous.bind(main),
-            up: main.up.bind(main),
-            down: main.down.bind(main),
-            switchTo: main.switchTo.bind(main)
-        };
-        // Creates a wrapper that calls DecryptNextSlide before nav control.
-        const createAsyncNav = (originalFn) => {
-            return async function(...args) {
-                if (originalFn === nav.switchTo) {
-                    await DecryptNextSlide(args[0]);
-                }
-                return originalFn.call(this, ...args);
-            };
-        };
-        // Override switchTo to always decrypt first.
+    if (category === "private" && typeof main !== 'undefined') {
+        const originalSwitchTo = main.switchTo.bind(main);
         main.switchTo = async function(index, noHide) {
             await DecryptNextSlide(index);
-            return nav.switchTo(index, noHide);
+            const result = originalSwitchTo(index, noHide);
+            PreloadAdjacentSlides(index); // Pre-decrypts (index + 1) and (index - 1) right away
+            return result;
         };
-        // Assign wrappers.
-        main.next = createAsyncNav(nav.next);
-        main.previous = createAsyncNav(nav.previous);
-        main.up = createAsyncNav(nav.up);
-        main.down = createAsyncNav(nav.down);
     }
 
 
@@ -679,6 +748,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const images = await response.json();
 
                 const encName = images[0].filename.split('.')[0] + ".enc";
+                privatePasswordKey = await getPasswordKey(UserPasswordInput);
                 const testUrl = await Decrypt(`images/private/${username}/thumb/${encName}`, UserPasswordInput);
                 
                 if (!testUrl) {
